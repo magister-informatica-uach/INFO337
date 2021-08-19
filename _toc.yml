@@ -5,6 +5,6 @@ parts:
     numbered: true
     chapters:
     - file: lectures/2_statistical_modeling/part1
-    #- file: lectures/2_statistical_modeling/part2
-    #- file: lectures/2_statistical_modeling/part3
+    - file: lectures/2_statistical_modeling/part2
+    - file: lectures/2_statistical_modeling/part3
   
