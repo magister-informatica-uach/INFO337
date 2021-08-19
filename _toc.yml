@@ -1,0 +1,10 @@
+format: jb-book
+root: README
+parts:
+  - caption: Statistical modeling
+    numbered: true
+    chapters:
+    - file: lectures/2_statistical_modeling/part1
+    - file: lectures/2_statistical_modeling/part2
+    - file: lectures/2_statistical_modeling/part3
+  
