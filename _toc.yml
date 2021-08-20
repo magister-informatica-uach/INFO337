@@ -7,4 +7,13 @@ parts:
     - file: lectures/2_statistical_modeling/part1
     - file: lectures/2_statistical_modeling/part2
     - file: lectures/2_statistical_modeling/part3
-  
+  - caption: Statistical thinking
+    numbered: true
+    chapters:
+    - file: lectures/4_nonparametric_inference/lecture 
+    - file: lectures/5_linear_regression/lecture
+  - caption: Exploratory analysis
+    - file: lectures/9_mixture_models/lecture
+  - caption: Bayesian modeling
+    numbered: true
+    - file: lectures/11_MCMC/lecture 
