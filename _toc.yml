@@ -13,7 +13,10 @@ parts:
     - file: lectures/4_nonparametric_inference/lecture 
     - file: lectures/5_linear_regression/lecture
   - caption: Exploratory analysis
+    numbered: true
+    chapters:
     - file: lectures/9_mixture_models/lecture
   - caption: Bayesian modeling
     numbered: true
+    chapters:
     - file: lectures/11_MCMC/lecture 
