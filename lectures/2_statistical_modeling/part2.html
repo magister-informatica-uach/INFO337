@@ -43,8 +43,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -1906,11 +1904,13 @@ roTBs2RqAAAAAElFTkSuQmCC'
   }
 })(window);</script></div></div>
 </div>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>A small number of bins misses the features of the distribution, e.g. multimodality</p></li>
 <li><p>A large number of bins introduces noise</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="how-to-select-the-number-of-bins">
 <h3><span class="section-number">2.1.2. </span>How to select the number of bins?<a class="headerlink" href="#how-to-select-the-number-of-bins" title="Permalink to this headline">¶</a></h3>
@@ -1931,12 +1931,11 @@ h = 0.9 \frac{\min[\sigma, 0.7412 (q_{75} - q_{25})]}{N^{1/5}},
 N_{bins} = \frac{\max(x)-\min(x)}{h}
 \]</div>
 <p>The Silverman’s rule is optimal only if the underlying distribution is Gaussian</p>
-<p>In all these we have assumed a fixed width and uniformly sampled edges but in a more general case</p>
-<ul class="simple">
-<li><p>Bins could have different widths</p></li>
-<li><p>Bins could have irregular boundaries (edges)</p></li>
-</ul>
-<p>An example of these is the <a class="reference external" href="https://www.astroml.org/examples/algorithms/plot_bayesian_blocks.html">Bayesian blocks method</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In all these we have assumed a fixed width and uniformly sampled edges but in a more general case the bins could have different widths and/or irregular boundaries (edges)</p>
+</div>
+<p>The <a class="reference external" href="https://www.astroml.org/examples/algorithms/plot_bayesian_blocks.html">Bayesian blocks method</a> can be used to build histograms with variable-sized bins</p>
 </div>
 </div>
 <div class="section" id="kernel-density-estimation-kde">
@@ -1958,11 +1957,10 @@ N_{bins} = \frac{\max(x)-\min(x)}{h}
 <blockquote>
 <div><p>KDE places a kernel on top of each point and then averages all the kernels to obtain the density</p>
 </div></blockquote>
-<p><strong>Avoid confusion:</strong></p>
-<ul class="simple">
-<li><p>Assuming that the data is <strong>Gaussian distributed</strong> and using KDE with the <strong>Gaussian kernel</strong> are very <strong>different things</strong>!</p></li>
-<li><p>Using the Gaussian kernel for non-Gaussian data is perfectly fine.</p></li>
-</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Assuming that the data is <strong>Gaussian distributed</strong> and using KDE with the <strong>Gaussian kernel</strong> are very <strong>different things</strong>! Using the Gaussian kernel for non-Gaussian data is perfectly fine.</p>
+</div>
 <div class="section" id="id1">
 <h3><span class="section-number">2.2.1. </span>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>KDE is implemented in the <code class="docutils literal notranslate"><span class="pre">sklearn.neighbors</span></code> module as</p>
