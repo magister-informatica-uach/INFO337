@@ -1,6 +1,14 @@
 format: jb-book
 root: README
 parts:
+  - caption: Elementos de Teoría de Probabilidades
+    numbered: true
+    chapters:
+    - file: lectures/1_TeoriaProbabilidades/parte1
+    - file: lectures/1_TeoriaProbabilidades/parte2
+    - file: lectures/1_TeoriaProbabilidades/parte3
+    - file: lectures/1_TeoriaProbabilidades/parte4
+    - file: lectures/1_TeoriaProbabilidades/parte5
   - caption: Statistical modeling
     numbered: true
     chapters:
