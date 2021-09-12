@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Elementos Básicos de Teoría de Probabilidades &#8212; Herramientas estadísticas para la investigación</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="2. Variables Aleatorias" href="parte2.html" />
+    <link rel="prev" title="Herramientas estadísticas para la investigación" href="../../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Herramientas estadísticas para la investigación</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Elementos de Teoría de Probabilidades
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Elementos Básicos de Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte5.html">
+   5. Teoremas Asintóticos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part2.html">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+   9. Inferencia estadística con tests no-paramétricos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/1_TeoriaProbabilidades/parte1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/1_TeoriaProbabilidades/parte1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teoria-de-probabilidades">
+   1.1. Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimento-espacio-muestral-evento">
+   1.2. Experimento, Espacio Muestral, Evento
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilidades">
+   1.3. Probabilidades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definicion-formal-de-probabilidad">
+   1.4. Definición Formal de Probabilidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#propiedades">
+   1.5. Propiedades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-asignamos-valores-de-probabilidad">
+   1.6. ¿Cómo asignamos valores de probabilidad?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilidades-condicionales">
+   1.7. Probabilidades condicionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independencia">
+   1.8. Independencia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independencia-condicional">
+   1.9. Independencia Condicional
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ley-de-las-probabilidades-totales">
+   1.10. Ley de las Probabilidades totales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regla-de-bayes">
+   1.11. Regla de Bayes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teorema-de-bayes">
+   1.12. Teorema de Bayes
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="elementos-basicos-de-teoria-de-probabilidades">
+<h1><span class="section-number">1. </span>Elementos Básicos de Teoría de Probabilidades<a class="headerlink" href="#elementos-basicos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p>Teoría de Probabilidades</p></li>
+<li><p>Experimento, espacio muestral, evento</p></li>
+<li><p>Definición Formal de Probabilidades</p></li>
+<li><p>Probabilidades Condicionales, Independencia e Independecia Condicional</p></li>
+<li><p>Ley de las Probabilidades Totales</p></li>
+<li><p>Regla de Bayes</p></li>
+</ul>
+<div class="section" id="teoria-de-probabilidades">
+<h2><span class="section-number">1.1. </span>Teoría de Probabilidades<a class="headerlink" href="#teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Modelamiento de fenómenos aleatorios (por ejemplo, lanzamiento de un dado, el tiempo)
+<a class="reference internal" href="../../_images/daos.jpg"><img alt="../../_images/daos.jpg" src="../../_images/daos.jpg" style="width: 200px;" /></a></p></li>
+<li><p>Fundamento de la estadística: que es la recolección, organización, análisis, interpretación y presentación de datos.</p></li>
+</ul>
+</div>
+<div class="section" id="experimento-espacio-muestral-evento">
+<h2><span class="section-number">1.2. </span>Experimento, Espacio Muestral, Evento<a class="headerlink" href="#experimento-espacio-muestral-evento" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Experimento: fenónemo aleatorio</p></li>
+<li><p>Espacio Muestral: conjunto de todos los posibles valores que puede tomar un experimento.</p></li>
+<li><p>Evento: cualquier subconjunto del espacio muestral
+“&gt;8 caras en 10 lanzamientos de una moneda”, “mañana estará soleado en Valdivia”</p></li>
+</ul>
+</div>
+<div class="section" id="probabilidades">
+<h2><span class="section-number">1.3. </span>Probabilidades<a class="headerlink" href="#probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>¿Qué tan posible es que un evento ocurra?</p></li>
+</ul>
+<p>Dos perspectivas:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque frecuentista:}\)</span> frecuencias observadas al repetir muchas veces un experimento.
+La probablidad de obtener cara en el lanzamiento de una moneda es 0.5</p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque Bayesiano:}\)</span> incertidumbre subjetiva, grado de creencia (a priori) que es revisado por la observación (probabilidad a posteriori)
+Yo pienso que hay 0.1 de probabilidad de que un estudiante conozca este concepto.</p></li>
+</ul>
+</div>
+<div class="section" id="definicion-formal-de-probabilidad">
+<h2><span class="section-number">1.4. </span>Definición Formal de Probabilidad<a class="headerlink" href="#definicion-formal-de-probabilidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una Probabilidad <span class="math notranslate nohighlight">\(P\)</span> es una función que cumple:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{cc} P:&amp; {\cal P}(\Omega) \to [0,1]\\
+&amp;A \to P(A)
+\end{array}\end{split}\]</div>
+<p>que cumple lo siguiente:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll} 1. &amp; \forall A \subset \Omega, P(A) \geq 0\\
+2. &amp;  P(\Omega) = 1\\
+3. &amp; Sean \,\, A_1,...,A_n \subset \Omega: A_i \cap A_j =\phi, \forall i,j=1...n =&gt; P(A_1\cup...\cup A_n) = P(A_1)+...+P(A_n)\\
+\end{array}\)</span></p>
+</div>
+<div class="section" id="propiedades">
+<h2><span class="section-number">1.5. </span>Propiedades<a class="headerlink" href="#propiedades" title="Enlazar permanentemente con este título">¶</a></h2>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A) = 1 - P(A^C)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( P(\phi) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Si A \subset B =&gt; P(A) \leq P(B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( P(A) \leq 1 \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \forall A,B \in \Omega\,\, P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="como-asignamos-valores-de-probabilidad">
+<h2><span class="section-number">1.6. </span>¿Cómo asignamos valores de probabilidad?<a class="headerlink" href="#como-asignamos-valores-de-probabilidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque frecuentista relativo:}\)</span> Sea <span class="math notranslate nohighlight">\(n\)</span> el número de experimentos, y <span class="math notranslate nohighlight">\(n(A)\)</span> el número de veces que el evento <span class="math notranslate nohighlight">\(A\)</span> ocurre en la realización de esos experimentos, entonces <span class="math notranslate nohighlight">\(P(A) = \frac{n(A)}{n}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque frecuentista clásico:}\)</span> Sea <span class="math notranslate nohighlight">\(n(A)\)</span> el número elementos en el evento <span class="math notranslate nohighlight">\(A\)</span>, y <span class="math notranslate nohighlight">\(n(\Omega)\)</span> el número de elementos en el espacio muestral <span class="math notranslate nohighlight">\(\Omega\)</span>, entonce <span class="math notranslate nohighlight">\(P(A) = \frac{n(A)}{n(\Omega)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque Bayesiano:}\)</span> Yo pienso que la probabilidad de que me gane un proyecto es <span class="math notranslate nohighlight">\(0.9\)</span> (probabilidad a priori).</p></li>
+</ul>
+</div>
+<div class="section" id="probabilidades-condicionales">
+<h2><span class="section-number">1.7. </span>Probabilidades condicionales<a class="headerlink" href="#probabilidades-condicionales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span>, si <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>, se define:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
+P(A\mid B) &amp; = &amp;\frac{P(A \cap B)}{P(B)}
+\end{array}\)</span></p>
+<p>Si además se cumple que <span class="math notranslate nohighlight">\(P(A)&gt;0\)</span>, se tiene:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+P(A\cap B)&amp; = &amp;P(A\mid B)P(B) = P(B\mid A)P(A)
+\end{array}\)</span></p>
+<p>Esto se puede extender a mas eventos:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+P(A\cap B \cap C)&amp; = &amp;P(A)P(B\mid A) P(C\mid A \cap B) 
+\end{array}\)</span></p>
+<p>siempre que <span class="math notranslate nohighlight">\(P(A), P(A\cap B)&gt; 0\)</span></p>
+</div>
+<div class="section" id="independencia">
+<h2><span class="section-number">1.8. </span>Independencia<a class="headerlink" href="#independencia" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>¿Cómo determinar que dos eventos son independientes?</p>
+<p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span> con <span class="math notranslate nohighlight">\(P(A),P(B) &gt;0\)</span>, si cualquiera de las siguientes condiciones se cumple:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A\cap B) = P(A)P(B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A\mid B)  =  P(A)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(B\mid A)  = P(B)\)</span></p></li>
+</ol>
+<p>se dice que <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span>.</p>
+</div>
+<div class="section" id="independencia-condicional">
+<h2><span class="section-number">1.9. </span>Independencia Condicional<a class="headerlink" href="#independencia-condicional" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>¿Cómo determinar que dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes dados un tercer evento <span class="math notranslate nohighlight">\(C\)</span>?</p>
+<p>Sean <span class="math notranslate nohighlight">\(A, B, C \subset \Omega\)</span> con <span class="math notranslate nohighlight">\(P(A\cap C),P(B\cap C), P(C)&gt;0\)</span>, si cualquiera de las siguientes condiciones se cumple:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A\cap B \mid C)  =  P(A\mid C)P(B\mid C)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A\mid B \cap C) =  P(A \mid C)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(B\mid A \cap C)  =  P(B \mid C)\)</span></p></li>
+</ol>
+<p>se dice que <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span> condicionalmente a <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p>Ejemplo: Altura, Vocabulario y Edad</p>
+</div>
+<div class="section" id="ley-de-las-probabilidades-totales">
+<h2><span class="section-number">1.10. </span>Ley de las Probabilidades totales<a class="headerlink" href="#ley-de-las-probabilidades-totales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Consideremos ahora una partición del espacio muestral <span class="math notranslate nohighlight">\(\{B_i\}_{i=1,..n}\)</span>, es decir:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+\bigcup_{i=1}^n \limits  B_i = \Omega, &amp; &amp; B_i\cap B_j = \phi \qquad \forall i,j=1,..n, i\neq j
+\end{array}\)</span></p>
+<p>entonces:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+P(A) &amp; = &amp; \sum_{i=1}^n \limits P(A\mid B_i) P(B_i)
+\end{array}\)</span></p>
+<p>Ejemplo: Sea <span class="math notranslate nohighlight">\(A\)</span> = {Pedro acepta trabajo en Chile}
+y <span class="math notranslate nohighlight">\(B_i\)</span> = {Oferta de trabajo para Pedro en region <span class="math notranslate nohighlight">\(i\)</span> }, <span class="math notranslate nohighlight">\(i=1,...,15\)</span></p>
+<a class="reference internal image-reference" href="../../_images/chile.png"><img alt="../../_images/chile.png" src="../../_images/chile.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="regla-de-bayes">
+<h2><span class="section-number">1.11. </span>Regla de Bayes<a class="headerlink" href="#regla-de-bayes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A partir de la defición de probabilidades condicionales se puede deducir la regla de Bayes:</p>
+<p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span> tales que <span class="math notranslate nohighlight">\(P(A),P(B)&gt;0\)</span>, entonces</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+P(B\mid A)&amp; = &amp; \frac{P(A\mid B) P(B)}{P(A)}
+\end{array}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(B)\)</span> se denomina probabilidad a priori, <span class="math notranslate nohighlight">\(P(B \mid A)\)</span> probabilidad a posteriori</p>
+</div>
+<div class="section" id="teorema-de-bayes">
+<h2><span class="section-number">1.12. </span>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Consideremos una partición del espacio muestral <span class="math notranslate nohighlight">\(\{B_i\}_{i=1,..n}\)</span>, entonces:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+P(B_i \mid A) &amp; = &amp; \frac{P(A\mid B_i) P(B_i)}{P(A)}
+&amp; = &amp; \frac{P(A\mid B_i) P(B_i)}{\sum_{i=1}^n \limits P(A\mid B_i) P(B_i)}
+\end{array}\)</span></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./lectures/1_TeoriaProbabilidades"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../../README.html" title="anterior página">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">anterior</p>
+                <p class="prevnext-title">Herramientas estadísticas para la investigación</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="parte2.html" title="siguiente página">
+            <div class="prevnext-info">
+                <p class="prevnext-label">siguiente</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Variables Aleatorias</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse and Eliana Scheihing<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; Herramientas estadísticas para la investigación</title>
+    <title>Búsqueda &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -42,19 +42,13 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="_static/searchtools.js"></script>
     <script src="_static/language_data.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="#" />
   <script src="searchindex.js" defer></script>
   
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,40 +78,72 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="#" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p class="caption">
  <span class="caption-text">
-  Statistical modeling
+  Elementos de Teoría de Probabilidades
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="lectures/2_statistical_modeling/part1.html">
-   1. Parametric modeling
+  <a class="reference internal" href="lectures/1_TeoriaProbabilidades/parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lectures/2_statistical_modeling/part2.html">
-   2. Nonparametric modeling
+  <a class="reference internal" href="lectures/1_TeoriaProbabilidades/parte2.html">
+   2. Variables Aleatorias
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lectures/2_statistical_modeling/part3.html">
-   3. Bayesian modeling
+  <a class="reference internal" href="lectures/1_TeoriaProbabilidades/parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/1_TeoriaProbabilidades/parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/1_TeoriaProbabilidades/parte5.html">
+   5. Teoremas Asintóticos
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Statistical thinking
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/2_statistical_modeling/part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/2_statistical_modeling/part2.html">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lectures/2_statistical_modeling/part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lectures/4_nonparametric_inference/lecture.html">
-   4. Inferencia estadística con tests no-paramétricos
+   9. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
 </ul>
@@ -145,8 +171,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -161,8 +187,8 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
         
         
     </div>
@@ -171,8 +197,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -190,21 +216,21 @@
         
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
+  <h1 id="search-documentation">Búsqueda</h1>
   <div id="fallback" class="admonition warning">
   <script>$('#fallback').hide();</script>
   <p>
-    Please activate JavaScript to enable the search
-    functionality.
+    Por favor, active JavaScript para habilitar la funcionalidad
+    de búsqueda.
   </p>
   </div>
   <p>
-    Searching for multiple words only shows matches that contain
-    all words.
+    La búsqueda de varias palabras solo muestra coincidencias que contienen
+    todas las palabras.
   </p>
   <form action="" method="get">
     <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="search" />
+    <input type="submit" value="buscar" />
     <span id="search-progress" style="padding-left: 10px"></span>
   </form>
   
@@ -215,10 +241,14 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
         
         </div>
     </div>
@@ -226,7 +256,7 @@
     <div class="container">
       <p>
         
-          By Pablo Huijse and Eliana Scheihing<br/>
+          Por Pablo Huijse and Eliana Scheihing<br/>
         
       </p>
     </div>

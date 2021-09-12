@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Nonparametric modeling &#8212; Herramientas estadísticas para la investigación</title>
+    <title>7. Nonparametric modeling &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -41,21 +41,22 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Bayesian modeling" href="part3.html" />
-    <link rel="prev" title="1. Parametric modeling" href="part1.html" />
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="8. Bayesian modeling" href="part3.html" />
+    <link rel="prev" title="6. Parametric modeling" href="part1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,40 +83,72 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <p class="caption">
  <span class="caption-text">
-  Statistical modeling
+  Elementos de Teoría de Probabilidades
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="part1.html">
-   1. Parametric modeling
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   2. Nonparametric modeling
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="part3.html">
-   3. Bayesian modeling
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte5.html">
+   5. Teoremas Asintóticos
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Statistical thinking
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
-   4. Inferencia estadística con tests no-paramétricos
+   9. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
 </ul>
@@ -143,8 +176,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -152,7 +185,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -160,10 +193,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/lectures/2_statistical_modeling/part2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -176,8 +209,8 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
         
         
     </div>
@@ -186,8 +219,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -198,7 +231,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/2_statistical_modeling/part2.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -215,35 +248,35 @@
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> Contenido
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-histogram">
-   2.1. The Histogram
+   7.1. The Histogram
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example">
-     2.1.1. Example
+     7.1.1. Example
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-to-select-the-number-of-bins">
-     2.1.2. How to select the number of bins?
+     7.1.2. How to select the number of bins?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kernel-density-estimation-kde">
-   2.2. Kernel density estimation (KDE)
+   7.2. Kernel density estimation (KDE)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     2.2.1. Example
+     7.2.1. Example
     </a>
    </li>
   </ul>
@@ -1810,15 +1843,15 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="section" id="nonparametric-modeling">
-<h1><span class="section-number">2. </span>Nonparametric modeling<a class="headerlink" href="#nonparametric-modeling" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Nonparametric modeling<a class="headerlink" href="#nonparametric-modeling" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Non-parametric models are statistical models that do not assume an underlying distribution</p>
 <p>In this lesson we will review two non-parametric models: Histograms and Kernel Density Estimation (KDE). More advanced non-parametric models and methods will be reviewed in future lectures</p>
 <div class="section" id="the-histogram">
-<h2><span class="section-number">2.1. </span>The Histogram<a class="headerlink" href="#the-histogram" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>The Histogram<a class="headerlink" href="#the-histogram" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>The histogram is a numerical representation of a distribution which allows us to visualize our data and explore its statistical features</p>
 <p>In its simplest version the histogram is built by dividing the data range in <strong>bins</strong> and counting the observations that fall on a given bin (frequency). In this case the parameters that we have to provide are the size and location of the bins</p>
 <div class="section" id="example">
-<h3><span class="section-number">2.1.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.1. </span>Example<a class="headerlink" href="#example" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A histogram can be easily computed using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="c1"># the data</span>
                 <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># number of bins (int) or array of edges</span>
@@ -1917,7 +1950,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 })(window);</script></div></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Nota</p>
 <ul class="simple">
 <li><p>A small number of bins misses the features of the distribution, e.g. multimodality</p></li>
 <li><p>A large number of bins introduces noise</p></li>
@@ -1925,7 +1958,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="section" id="how-to-select-the-number-of-bins">
-<h3><span class="section-number">2.1.2. </span>How to select the number of bins?<a class="headerlink" href="#how-to-select-the-number-of-bins" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.2. </span>How to select the number of bins?<a class="headerlink" href="#how-to-select-the-number-of-bins" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>The number of bins could be cross-validated using the data. A broadly used metric for to cross-validate histograms is the Asymptotic Mean Integrated Square Error (AMISE)</p>
 <p>There are also “rules of thumb”, that are generally ok as a first step. Two examples are the Scott’s and Silverman’s rule. These rules</p>
 <ul class="simple">
@@ -1944,14 +1977,14 @@ N_{bins} = \frac{\max(x)-\min(x)}{h}
 \]</div>
 <p>The Silverman’s rule is optimal only if the underlying distribution is Gaussian</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Nota</p>
 <p>In all these we have assumed a fixed width and uniformly sampled edges but in a more general case the bins could have different widths and/or irregular boundaries (edges)</p>
 </div>
 <p>The <a class="reference external" href="https://www.astroml.org/examples/algorithms/plot_bayesian_blocks.html">Bayesian blocks method</a> can be used to build histograms with variable-sized bins</p>
 </div>
 </div>
 <div class="section" id="kernel-density-estimation-kde">
-<h2><span class="section-number">2.2. </span>Kernel density estimation (KDE)<a class="headerlink" href="#kernel-density-estimation-kde" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Kernel density estimation (KDE)<a class="headerlink" href="#kernel-density-estimation-kde" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>KDE can be though as an alternative to histogram where each point has its “own bin”, and bins can overlap. Becasue of this KDE does not require choosing bin boundaries, only bin width</p>
 <p>The unidimensional KDE for a set <span class="math notranslate nohighlight">\(\{x_i\}_{i=1,\ldots, N}\)</span> is</p>
 <div class="math notranslate nohighlight">
@@ -1970,11 +2003,11 @@ N_{bins} = \frac{\max(x)-\min(x)}{h}
 <div><p>KDE places a kernel on top of each point and then averages all the kernels to obtain the density</p>
 </div></blockquote>
 <div class="admonition caution">
-<p class="admonition-title">Caution</p>
+<p class="admonition-title">Prudencia</p>
 <p>Assuming that the data is <strong>Gaussian distributed</strong> and using KDE with the <strong>Gaussian kernel</strong> are very <strong>different things</strong>! Using the Gaussian kernel for non-Gaussian data is perfectly fine.</p>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">2.2.1. </span>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Example<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>KDE is implemented in the <code class="docutils literal notranslate"><span class="pre">sklearn.neighbors</span></code> module as</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">KernelDensity</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="c1"># The kernel function</span>
               <span class="n">bandwidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># The width of the kernel</span>
@@ -2074,12 +2107,32 @@ N_{bins} = \frac{\max(x)-\min(x)}{h}
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="part1.html" title="previous page"><span class="section-number">1. </span>Parametric modeling</a>
-    <a class='right-next' id="next-link" href="part3.html" title="next page"><span class="section-number">3. </span>Bayesian modeling</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="part1.html" title="anterior página">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">anterior</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Parametric modeling</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="part3.html" title="siguiente página">
+            <div class="prevnext-info">
+                <p class="prevnext-label">siguiente</p>
+                <p class="prevnext-title"><span class="section-number">8. </span>Bayesian modeling</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
@@ -2087,7 +2140,7 @@ N_{bins} = \frac{\max(x)-\min(x)}{h}
     <div class="container">
       <p>
         
-          By Pablo Huijse and Eliana Scheihing<br/>
+          Por Pablo Huijse and Eliana Scheihing<br/>
         
       </p>
     </div>

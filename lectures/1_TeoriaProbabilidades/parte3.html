@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Estadísticos principales &#8212; Herramientas estadísticas para la investigación</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="4. Variables aleatorias especiales" href="parte4.html" />
+    <link rel="prev" title="2. Variables Aleatorias" href="parte2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Herramientas estadísticas para la investigación</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Elementos de Teoría de Probabilidades
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parte5.html">
+   5. Teoremas Asintóticos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part2.html">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+   9. Inferencia estadística con tests no-paramétricos
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/1_TeoriaProbabilidades/parte3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/1_TeoriaProbabilidades/parte3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#esperanza">
+   3.1. Esperanza
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#propiedades">
+     3.1.1. Propiedades
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varianza-y-covarianza">
+   3.2. Varianza y covarianza
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.1. Propiedades
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otros-estadisticos">
+   3.3. Otros estadísticos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="estadisticos-principales">
+<h1><span class="section-number">3. </span>Estadísticos principales<a class="headerlink" href="#estadisticos-principales" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p>Esperanzas, varianza y ley débil de los grandes números</p></li>
+<li><p>Variables aleatorias especiales</p></li>
+</ul>
+<div class="section" id="esperanza">
+<h2><span class="section-number">3.1. </span>Esperanza<a class="headerlink" href="#esperanza" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La esperanza o  valor esperado de una v.a. <span class="math notranslate nohighlight">\(X\)</span> se denota <span class="math notranslate nohighlight">\(E[X]\)</span> y se calcula como:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll} 
+E[X] = 
+\left\{\begin{array}{ll} \sum_i x_i P(X=x_i) &amp; si\,X\, discreta\\
+                          \int x f_X(x)dx &amp; si\,X\, continua\\
+\end{array} \right .\\
+\end{array}\)</span></p>
+<p>Consideremos <span class="math notranslate nohighlight">\(g\)</span> una función a valores reales, entonces:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+E[g(X)] &amp; = &amp; 
+\left\{\begin{array}{ll} \sum_i g(x_i) P(X=x_i) &amp; si\,X\, discreta\\
+                          \int g(x) f_X(x)dx &amp; si\,X\, continua\\
+\end{array}\right .\\
+\end{array}\)</span></p>
+<p>Para el caso especial de <span class="math notranslate nohighlight">\(g(x) = x^n\)</span> se define el n-ésimo momento de X como:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
+E[X^n] &amp; = &amp; 
+\left\{\begin{array}{ll} \sum_i x_i^n P(X=x_i) &amp; si\,X\, discreta\\
+                          \int x^n f_X(x)dx &amp; si\,X\, continua\\
+\end{array}\right .\\
+\end{array}\)</span></p>
+<p>La esperanza es el primer momento y se denota <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<div class="section" id="propiedades">
+<h3><span class="section-number">3.1.1. </span>Propiedades<a class="headerlink" href="#propiedades" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Sean <span class="math notranslate nohighlight">\(a,b \in \cal{R}\)</span> entonces:</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
+E[aX+b] &amp; = &amp; aE[X] + b \\
+E[X + Y] &amp; = &amp; E[X] + E[Y]\\
+\end{array}\)</span></p>
+</div>
+</div>
+<div class="section" id="varianza-y-covarianza">
+<h2><span class="section-number">3.2. </span>Varianza y covarianza<a class="headerlink" href="#varianza-y-covarianza" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La varianza mide la variación de la v.a. entorno a la esperanza o media <span class="math notranslate nohighlight">\(\mu\)</span>, y se define como</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+\begin{array}{ll} 
+Var(X) = E[(X-\mu)^2] = E[X^2] - \mu^2
+\end{array}
+\end{equation}\)</span></p>
+<p>Se cumple que:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+\begin{array}{ll} 
+Var(aX+b) = a^2 Var(X)
+\end{array}
+\end{equation}\)</span></p>
+<p>Se define además la desviación estándar <span class="math notranslate nohighlight">\(\sigma = \sqrt{Var(X)}\)</span></p>
+<p>La covarianza mide la relación (lineal) que hay entre dos v.a. <span class="math notranslate nohighlight">\(X\)</span> e <span class="math notranslate nohighlight">\(Y\)</span>. Si denotamos <span class="math notranslate nohighlight">\(\mu_X = E[X]\)</span> y <span class="math notranslate nohighlight">\( \mu_Y= E[Y]\)</span> entonces:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+\begin{array}{lll}
+Cov(X,Y) &amp; = &amp; E[(X-\mu_X)(Y-\mu_y)]
+\end{array}
+\end{equation}\)</span></p>
+<p>La correlación es una medida normalizada:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+\begin{array}{lll}
+Corr(X,Y) &amp; = &amp; \frac{Cov(X,Y)}{Var(X) Var(Y)}
+\end{array}
+\end{equation}\)</span></p>
+<div class="section" id="id1">
+<h3><span class="section-number">3.2.1. </span>Propiedades<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
+Cov(X,Y) &amp; = &amp; Cov(Y,X) \\
+Cov(X,X) &amp; = &amp; Var(X)\\
+Cov(X+Z,Y) &amp; = &amp; Cov(X,Y) + Cov(Z,Y)\\
+Cov(\sum_i \limits X_i,Y) &amp; = &amp; \sum_i \limits Cov(X_i,Y)\\
+Var(X+Y) &amp; = &amp; Var(X) + Var(Y) + 2Cov(X,Y)\\
+Var(\sum_i \limits X_i) &amp; = &amp; 
+\sum_i \limits Var(X_i) + \sum_i \limits \sum_{j\neq i} \limits Cov(X_i,X_j)
+\end{array}\)</span></p>
+</div>
+</div>
+<div class="section" id="otros-estadisticos">
+<h2><span class="section-number">3.3. </span>Otros estadísticos<a class="headerlink" href="#otros-estadisticos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(\begin{array}{lll}
+\text{ Asimetría (skewness) } &amp; = &amp;  \frac{E[(X-\mu)^3]}{\sigma^3} = \frac{E[X^3]-3\mu\sigma^2 - \mu^3}{\sigma^3}\\
+&amp;&amp;\\
+\text{ Curtosis }&amp; = &amp;\frac{E[(X-\mu)^4]}{\sigma^4} = \frac{E[X^4] - 4\mu E[X^3] + 6\mu^2\sigma^2 + 3\mu^4}{\sigma^4}\\
+\end{array}\)</span></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./lectures/1_TeoriaProbabilidades"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="parte2.html" title="anterior página">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">anterior</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Variables Aleatorias</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="parte4.html" title="siguiente página">
+            <div class="prevnext-info">
+                <p class="prevnext-label">siguiente</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>Variables aleatorias especiales</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse and Eliana Scheihing<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
