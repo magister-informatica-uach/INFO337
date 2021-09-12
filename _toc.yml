@@ -9,13 +9,13 @@ parts:
     - file: lectures/1_TeoriaProbabilidades/parte3
     - file: lectures/1_TeoriaProbabilidades/parte4
     - file: lectures/1_TeoriaProbabilidades/parte5
-  - caption: Statistical modeling
+  - caption: Modelamiento Estadístico
     numbered: true
     chapters:
     - file: lectures/2_statistical_modeling/part1
     - file: lectures/2_statistical_modeling/part2
     - file: lectures/2_statistical_modeling/part3
-  - caption: Statistical thinking
+  - caption: Pensamiento Estadístico
     numbered: true
     chapters:
     - file: lectures/4_nonparametric_inference/lecture 

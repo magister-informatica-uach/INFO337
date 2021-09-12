@@ -25,7 +25,7 @@ sphinx:
   extra_extensions: [bokeh.sphinxext.bokeh_plot]
   config:
     html_show_copyright: false
-    language: en
+    language: es
     myst_enable_extensions: 
     - amsmath
     - colon_fence
@@ -36,6 +36,7 @@ sphinx:
     - replacements
     - smartquotes
     - substitution
+    - html_admonition
 
 latex:
   latex_documents:
