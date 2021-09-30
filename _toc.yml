@@ -19,8 +19,6 @@ parts:
     numbered: true
     chapters:
     - file: lectures/3_InferenciaParametrica/parte1
-    - file: lectures/3_InferenciaParametrica/parte2
-    - file: lectures/3_InferenciaParametrica/parte3
     #- file: lectures/4_nonparametric_inference/lecture 
     #- file: lectures/5_linear_regression/lecture
   #- caption: Exploratory analysis
