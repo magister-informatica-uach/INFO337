@@ -151,21 +151,6 @@
    9. Inferencia en Estadística Paramétrica
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte2.html">
-   10. Estimación de Intervalos de confianza
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte3.html">
-   12. Test de Hipótesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
-   15. Inferencia estadística con tests no-paramétricos
-  </a>
- </li>
 </ul>
 
     </div>
@@ -268,64 +253,46 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#teoria-de-probabilidades">
-   1.1. Teoría de Probabilidades
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experimento-espacio-muestral-evento">
-   1.2. Experimento, Espacio Muestral, Evento
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#probabilidades">
-   1.3. Probabilidades
+   1.1. Probabilidades
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definicion-formal-de-probabilidad">
-   1.4. Definición Formal de Probabilidad
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#propiedades">
-   1.5. Propiedades
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#como-asignamos-valores-de-probabilidad">
-   1.6. ¿Cómo asignamos valores de probabilidad?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#probabilidades-condicionales">
-   1.7. Probabilidades condicionales
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#independencia">
-   1.8. Independencia
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#independencia-condicional">
-   1.9. Independencia Condicional
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ley-de-las-probabilidades-totales">
-   1.10. Ley de las Probabilidades totales
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regla-de-bayes">
-   1.11. Regla de Bayes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#teorema-de-bayes">
-   1.12. Teorema de Bayes
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definicion-formal-de-probabilidad">
+     1.1.1. Definición Formal de Probabilidad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probabilidades-condicionales">
+     1.1.2. Probabilidades condicionales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independencia">
+     1.1.3. Independencia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#independencia-condicional">
+     1.1.4. Independencia Condicional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ley-de-las-probabilidades-totales">
+     1.1.5. Ley de las Probabilidades totales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regla-de-bayes">
+     1.1.6. Regla de Bayes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teorema-de-bayes">
+     1.1.7. Teorema de Bayes
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -348,25 +315,21 @@
 <li><p>Ley de las Probabilidades Totales</p></li>
 <li><p>Regla de Bayes</p></li>
 </ul>
-<div class="section" id="teoria-de-probabilidades">
-<h2><span class="section-number">1.1. </span>Teoría de Probabilidades<a class="headerlink" href="#teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Teoría de Probabilidades</strong></p>
 <ul class="simple">
 <li><p>Modelamiento de fenómenos aleatorios (por ejemplo, lanzamiento de un dado, el tiempo)
 <a class="reference internal" href="../../_images/daos.jpg"><img alt="../../_images/daos.jpg" src="../../_images/daos.jpg" style="width: 200px;" /></a></p></li>
 <li><p>Fundamento de la estadística: que es la recolección, organización, análisis, interpretación y presentación de datos.</p></li>
 </ul>
-</div>
-<div class="section" id="experimento-espacio-muestral-evento">
-<h2><span class="section-number">1.2. </span>Experimento, Espacio Muestral, Evento<a class="headerlink" href="#experimento-espacio-muestral-evento" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Experimento, Espacio Muestral, Evento</strong></p>
 <ul class="simple">
 <li><p>Experimento: fenónemo aleatorio</p></li>
 <li><p>Espacio Muestral: conjunto de todos los posibles valores que puede tomar un experimento.</p></li>
 <li><p>Evento: cualquier subconjunto del espacio muestral
 “&gt;8 caras en 10 lanzamientos de una moneda”, “mañana estará soleado en Valdivia”</p></li>
 </ul>
-</div>
 <div class="section" id="probabilidades">
-<h2><span class="section-number">1.3. </span>Probabilidades<a class="headerlink" href="#probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Probabilidades<a class="headerlink" href="#probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>¿Qué tan posible es que un evento ocurra?</p></li>
 </ul>
@@ -377,9 +340,8 @@ La probablidad de obtener cara en el lanzamiento de una moneda es 0.5</p></li>
 <li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque Bayesiano:}\)</span> incertidumbre subjetiva, grado de creencia (a priori) que es revisado por la observación (probabilidad a posteriori)
 Yo pienso que hay 0.1 de probabilidad de que un estudiante conozca este concepto.</p></li>
 </ul>
-</div>
 <div class="section" id="definicion-formal-de-probabilidad">
-<h2><span class="section-number">1.4. </span>Definición Formal de Probabilidad<a class="headerlink" href="#definicion-formal-de-probabilidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.1. </span>Definición Formal de Probabilidad<a class="headerlink" href="#definicion-formal-de-probabilidad" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una Probabilidad <span class="math notranslate nohighlight">\(P\)</span> es una función que cumple:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{cc} P:&amp; {\cal P}(\Omega) \to [0,1]\\
@@ -390,9 +352,7 @@ Yo pienso que hay 0.1 de probabilidad de que un estudiante conozca este concepto
 2. &amp;  P(\Omega) = 1\\
 3. &amp; Sean \,\, A_1,...,A_n \subset \Omega: A_i \cap A_j =\phi, \forall i,j=1...n =&gt; P(A_1\cup...\cup A_n) = P(A_1)+...+P(A_n)\\
 \end{array}\)</span></p>
-</div>
-<div class="section" id="propiedades">
-<h2><span class="section-number">1.5. </span>Propiedades<a class="headerlink" href="#propiedades" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Propiedades</strong></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(A) = 1 - P(A^C)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( P(\phi) = 0\)</span></p></li>
@@ -400,9 +360,7 @@ Yo pienso que hay 0.1 de probabilidad de que un estudiante conozca este concepto
 <li><p><span class="math notranslate nohighlight">\( P(A) \leq 1 \)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\( \forall A,B \in \Omega\,\, P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></p></li>
 </ol>
-</div>
-<div class="section" id="como-asignamos-valores-de-probabilidad">
-<h2><span class="section-number">1.6. </span>¿Cómo asignamos valores de probabilidad?<a class="headerlink" href="#como-asignamos-valores-de-probabilidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>¿Cómo asignamos valores de probabilidad?</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque frecuentista relativo:}\)</span> Sea <span class="math notranslate nohighlight">\(n\)</span> el número de experimentos, y <span class="math notranslate nohighlight">\(n(A)\)</span> el número de veces que el evento <span class="math notranslate nohighlight">\(A\)</span> ocurre en la realización de esos experimentos, entonces <span class="math notranslate nohighlight">\(P(A) = \frac{n(A)}{n}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\textbf{Enfoque frecuentista clásico:}\)</span> Sea <span class="math notranslate nohighlight">\(n(A)\)</span> el número elementos en el evento <span class="math notranslate nohighlight">\(A\)</span>, y <span class="math notranslate nohighlight">\(n(\Omega)\)</span> el número de elementos en el espacio muestral <span class="math notranslate nohighlight">\(\Omega\)</span>, entonce <span class="math notranslate nohighlight">\(P(A) = \frac{n(A)}{n(\Omega)}\)</span></p></li>
@@ -410,7 +368,7 @@ Yo pienso que hay 0.1 de probabilidad de que un estudiante conozca este concepto
 </ul>
 </div>
 <div class="section" id="probabilidades-condicionales">
-<h2><span class="section-number">1.7. </span>Probabilidades condicionales<a class="headerlink" href="#probabilidades-condicionales" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.2. </span>Probabilidades condicionales<a class="headerlink" href="#probabilidades-condicionales" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span>, si <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>, se define:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
 P(A\mid B) &amp; = &amp;\frac{P(A \cap B)}{P(B)}
@@ -426,7 +384,7 @@ P(A\cap B \cap C)&amp; = &amp;P(A)P(B\mid A) P(C\mid A \cap B)
 <p>siempre que <span class="math notranslate nohighlight">\(P(A), P(A\cap B)&gt; 0\)</span></p>
 </div>
 <div class="section" id="independencia">
-<h2><span class="section-number">1.8. </span>Independencia<a class="headerlink" href="#independencia" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.3. </span>Independencia<a class="headerlink" href="#independencia" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>¿Cómo determinar que dos eventos son independientes?</p>
 <p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span> con <span class="math notranslate nohighlight">\(P(A),P(B) &gt;0\)</span>, si cualquiera de las siguientes condiciones se cumple:</p>
 <ol class="simple">
@@ -437,7 +395,7 @@ P(A\cap B \cap C)&amp; = &amp;P(A)P(B\mid A) P(C\mid A \cap B)
 <p>se dice que <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span>.</p>
 </div>
 <div class="section" id="independencia-condicional">
-<h2><span class="section-number">1.9. </span>Independencia Condicional<a class="headerlink" href="#independencia-condicional" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.4. </span>Independencia Condicional<a class="headerlink" href="#independencia-condicional" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>¿Cómo determinar que dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes dados un tercer evento <span class="math notranslate nohighlight">\(C\)</span>?</p>
 <p>Sean <span class="math notranslate nohighlight">\(A, B, C \subset \Omega\)</span> con <span class="math notranslate nohighlight">\(P(A\cap C),P(B\cap C), P(C)&gt;0\)</span>, si cualquiera de las siguientes condiciones se cumple:</p>
 <ol class="simple">
@@ -449,7 +407,7 @@ P(A\cap B \cap C)&amp; = &amp;P(A)P(B\mid A) P(C\mid A \cap B)
 <p>Ejemplo: Altura, Vocabulario y Edad</p>
 </div>
 <div class="section" id="ley-de-las-probabilidades-totales">
-<h2><span class="section-number">1.10. </span>Ley de las Probabilidades totales<a class="headerlink" href="#ley-de-las-probabilidades-totales" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.5. </span>Ley de las Probabilidades totales<a class="headerlink" href="#ley-de-las-probabilidades-totales" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consideremos ahora una partición del espacio muestral <span class="math notranslate nohighlight">\(\{B_i\}_{i=1,..n}\)</span>, es decir:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll}
 \bigcup_{i=1}^n \limits  B_i = \Omega, &amp; &amp; B_i\cap B_j = \phi \qquad \forall i,j=1,..n, i\neq j
@@ -463,7 +421,7 @@ y <span class="math notranslate nohighlight">\(B_i\)</span> = {Oferta de trabajo
 <a class="reference internal image-reference" href="../../_images/chile.png"><img alt="../../_images/chile.png" src="../../_images/chile.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="regla-de-bayes">
-<h2><span class="section-number">1.11. </span>Regla de Bayes<a class="headerlink" href="#regla-de-bayes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.6. </span>Regla de Bayes<a class="headerlink" href="#regla-de-bayes" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A partir de la defición de probabilidades condicionales se puede deducir la regla de Bayes:</p>
 <p>Sean <span class="math notranslate nohighlight">\(A, B \subset \Omega\)</span> tales que <span class="math notranslate nohighlight">\(P(A),P(B)&gt;0\)</span>, entonces</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll}
@@ -472,12 +430,13 @@ P(B\mid A)&amp; = &amp; \frac{P(A\mid B) P(B)}{P(A)}
 <p><span class="math notranslate nohighlight">\(P(B)\)</span> se denomina probabilidad a priori, <span class="math notranslate nohighlight">\(P(B \mid A)\)</span> probabilidad a posteriori</p>
 </div>
 <div class="section" id="teorema-de-bayes">
-<h2><span class="section-number">1.12. </span>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">1.1.7. </span>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consideremos una partición del espacio muestral <span class="math notranslate nohighlight">\(\{B_i\}_{i=1,..n}\)</span>, entonces:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll}
 P(B_i \mid A) &amp; = &amp; \frac{P(A\mid B_i) P(B_i)}{P(A)}
 &amp; = &amp; \frac{P(A\mid B_i) P(B_i)}{\sum_{i=1}^n \limits P(A\mid B_i) P(B_i)}
 \end{array}\)</span></p>
+</div>
 </div>
 </div>
 

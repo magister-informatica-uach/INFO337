@@ -151,21 +151,6 @@
    9. Inferencia en Estadística Paramétrica
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte2.html">
-   10. Estimación de Intervalos de confianza
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte3.html">
-   12. Test de Hipótesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
-   15. Inferencia estadística con tests no-paramétricos
-  </a>
- </li>
 </ul>
 
     </div>
@@ -286,13 +271,6 @@
   <a class="reference internal nav-link" href="#variables-aleatorias-multidimensionales">
    2.4. Variables Aleatorias Multidimensionales
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejemplo">
-     2.4.1. Ejemplo:
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regla-de-bayes">
@@ -345,8 +323,9 @@ X:&amp; \Omega \to \{0,1\}\\
 X:&amp; \Omega \to \mathbb{N}\\
 &amp;\omega \to X(\omega)= n \\
 \end{array}\)</span></p>
-<p>dónde n representa el número de clientes que llegan al banco el lunes entre 9 y 10 am
-$<span class="math notranslate nohighlight">\(P(X=10) = f(10) = ?\)</span>$</p>
+<p>dónde n representa el número de clientes que llegan al banco el lunes entre 9 y 10 am</p>
+<div class="math notranslate nohighlight">
+\[P(X=10) = f(10) = ?\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">##caso en que el nro de clientes se modela como Poisson de media 10</span>
@@ -387,8 +366,9 @@ X:&amp; \Omega \to \mathbb{R}\\
 &amp;\omega \to X(\omega)= x \\
 f_X(x)&amp; = \frac{1}{2\sqrt{2\pi}} exp(\frac{-(x-60)^2}{8})
 \end{array}\)</span></p>
-<p>dónde x representa el peso de un individuo.
-$<span class="math notranslate nohighlight">\(P(58 &lt;= X &lt;= 62) = \int_{58}^{62} f(x) dx = F_X(62) - F_X(58) = \int_0^{62} f(x)dx - \int_0^{58} f(x)dx ?\)</span>$</p>
+<p>dónde x representa el peso de un individuo.</p>
+<div class="math notranslate nohighlight">
+\[P(58 &lt;= X &lt;= 62) = \int_{58}^{62} f(x) dx = F_X(62) - F_X(58) = \int_0^{62} f(x)dx - \int_0^{58} f(x)dx ?\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">rbokeh</span><span class="p">)</span>
@@ -509,8 +489,7 @@ Se denomina Vector Aleatorio Discreto si los valores son enteros multidimensiona
 <p><span class="math notranslate nohighlight">\(\begin{array}{cl} {\bf X}:&amp; \Omega \to \mathbb R^k\\
 &amp;\omega \to {\bf X}(\omega)=(X_1(\omega),\cdots,X_k(\omega)) = (x_1,\cdots,x_k)
 \end{array}\)</span></p>
-<div class="section" id="ejemplo">
-<h3><span class="section-number">2.4.1. </span>Ejemplo:<a class="headerlink" href="#ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Ejemplo:</strong></p>
 <p>Sea</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{cl}
 (X,Y):&amp;\Omega \to \mathbb R_{+}^2\\
@@ -546,7 +525,6 @@ Se denomina Vector Aleatorio Discreto si los valores son enteros multidimensiona
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/parte2_9_0.png" src="../../_images/parte2_9_0.png" />
-</div>
 </div>
 </div>
 </div>

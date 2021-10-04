@@ -151,21 +151,6 @@
    9. Inferencia en Estadística Paramétrica
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte2.html">
-   10. Estimación de Intervalos de confianza
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../3_InferenciaParametrica/parte3.html">
-   12. Test de Hipótesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
-   15. Inferencia estadística con tests no-paramétricos
-  </a>
- </li>
 </ul>
 
     </div>
@@ -286,16 +271,13 @@
   <a class="reference internal nav-link" href="#distribucion-normal-o-gaussiana">
    4.4. Distribución Normal o Gaussiana
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distribucion-normal-estandarizada">
-   4.5. Distribución Normal Estandarizada
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regla-empirica-68-95-99-7">
-   4.6. Regla Empírica 68-95-99.7
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribucion-normal-estandarizada">
+     4.4.1. Distribución Normal Estandarizada
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -449,9 +431,8 @@ Curtosis(X) &amp; = &amp; 3 \\
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="distribucion-normal-estandarizada">
-<h2><span class="section-number">4.5. </span>Distribución Normal Estandarizada<a class="headerlink" href="#distribucion-normal-estandarizada" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">4.4.1. </span>Distribución Normal Estandarizada<a class="headerlink" href="#distribucion-normal-estandarizada" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(Z \sim \cal{N}(0,1)\)</span> si su densidad de probabilidad cumple:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
 f_X(x) &amp; = &amp; \frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})\qquad, -\infty &lt; x &lt;\infty\\
@@ -460,9 +441,7 @@ Var(X)&amp; =&amp;1\\
 \end{array}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\(X \sim \cal{N}(\mu,\sigma^2)\)</span>, entonces <span class="math notranslate nohighlight">\(Z = \frac{X-\mu}{\sigma} \sim \cal{N}(0,1)\)</span></p>
 <p>Esta transformación se denomina “Z-score” y se utiliza incluso si la v.a. no cumple el supuesto de normalidad. Se suele denominar estandarización o normalización.</p>
-</div>
-<div class="section" id="regla-empirica-68-95-99-7">
-<h2><span class="section-number">4.6. </span>Regla Empírica 68-95-99.7<a class="headerlink" href="#regla-empirica-68-95-99-7" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Regla Empírica 68-95-99.7</strong></p>
 <p>Si <span class="math notranslate nohighlight">\(X \sim \cal{N}(\mu,\sigma^2)\)</span>, entonces:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{lll} 
 P(\mu-\sigma &lt; X &lt; \mu+\sigma) &amp; = &amp; 0.68\\
@@ -471,6 +450,7 @@ P(\mu-3\sigma &lt; X &lt; \mu+3\sigma) &amp; = &amp; 0.997\\
 \end{array}\)</span></p>
 <a class="reference internal image-reference" href="../../_images/reglaNormal.png"><img alt="../../_images/reglaNormal.png" src="../../_images/reglaNormal.png" style="width: 400px;" /></a>
 <p>Muy útil para la detección de outliers, bajo el supuesto de normalidad.</p>
+</div>
 </div>
 </div>
 
