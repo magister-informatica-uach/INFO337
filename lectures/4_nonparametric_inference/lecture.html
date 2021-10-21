@@ -44,8 +44,6 @@
     <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,7 +55,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="11. Introduction" href="../5_linear_regression/part1.html" />
+    <link rel="next" title="11. Introduction to linear regression" href="../5_linear_regression/part1.html" />
     <link rel="prev" title="9. Inferencia en Estadística Paramétrica" href="../3_InferenciaParametrica/parte1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -167,7 +165,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part1.html">
-   11. Introduction
+   11. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
@@ -2177,8 +2175,8 @@ F_n(x) = \frac{1}{N} \sum_{i=1}^N \mathbb{1}[X_i&lt;x]
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(D_n\)</span> es menor que el valor crítico no podemos rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2ac99396-937c-46a3-9ca9-dc0fe47663c4" name="85154dc9-832f-4103-b368-696f78683d59" type="radio">
-</input><label class="tabbed-label" for="2ac99396-937c-46a3-9ca9-dc0fe47663c4">
+<input checked="checked" id="4a1dfac2-059c-41e4-bf28-c81c771203ba" name="f31c5def-6dda-4094-9632-3aa61f911068" type="radio">
+</input><label class="tabbed-label" for="4a1dfac2-059c-41e4-bf28-c81c771203ba">
 Python</label><div class="tabbed-content docutils">
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Arreglo de muestras o función rvs de scipy.stats</span>
@@ -2192,8 +2190,8 @@ Python</label><div class="tabbed-content docutils">
 </div>
 <p>La función retorna una estructura con el valor del <span class="math notranslate nohighlight">\(D_n\)</span> y el p-value</p>
 </div>
-<input id="08e6f46e-69e9-4895-8a2a-05d9d1008c09" name="85154dc9-832f-4103-b368-696f78683d59" type="radio">
-</input><label class="tabbed-label" for="08e6f46e-69e9-4895-8a2a-05d9d1008c09">
+<input id="377a63b5-bd9d-4ca9-b167-8ae0a8b6a877" name="f31c5def-6dda-4094-9632-3aa61f911068" type="radio">
+</input><label class="tabbed-label" for="377a63b5-bd9d-4ca9-b167-8ae0a8b6a877">
 R</label><div class="tabbed-content docutils">
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">stats</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ks.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Vector con datos numéricos</span>
@@ -2838,7 +2836,7 @@ T(x) = \frac{1}{N} \sum_{i=1}^N x_i^2 (x_i - 1)
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../3_InferenciaParametrica/parte1.html" title="previous page"><span class="section-number">9. </span>Inferencia en Estadística Paramétrica</a>
-    <a class='right-next' id="next-link" href="../5_linear_regression/part1.html" title="next page"><span class="section-number">11. </span>Introduction</a>
+    <a class='right-next' id="next-link" href="../5_linear_regression/part1.html" title="next page"><span class="section-number">11. </span>Introduction to linear regression</a>
 
         </div>
         
