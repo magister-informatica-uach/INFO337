@@ -20,7 +20,6 @@ parts:
     chapters:
     - file: lectures/3_InferenciaParametrica/parte1
     - file: lectures/4_nonparametric_inference/lecture 
-    - file: lectures/5_linear_regression/lecture
     - file: lectures/6_ANOVA/anova_y_asociacionDiscretas
   #- caption: Exploratory analysis
     #numbered: true
