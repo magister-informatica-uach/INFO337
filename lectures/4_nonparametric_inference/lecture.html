@@ -183,6 +183,11 @@
    14. Linear models and Basis functions
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
+   15. Regresiones para Respuestas Discretas
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -2180,8 +2185,8 @@ F_n(x) = \frac{1}{N} \sum_{i=1}^N \mathbb{1}[X_i&lt;x]
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(D_n\)</span> es menor que el valor crítico no podemos rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="096d6f70-8083-4247-b1ba-e3f21d458f9c" name="24c891f3-2eaf-4d98-a6dd-4fb5fc688e57" type="radio">
-</input><label class="tabbed-label" for="096d6f70-8083-4247-b1ba-e3f21d458f9c">
+<input checked="checked" id="a9a35dfa-1fde-4f92-b69b-ec846c2f439c" name="fd2dfcd1-22e9-49b9-a094-bff07af7e268" type="radio">
+</input><label class="tabbed-label" for="a9a35dfa-1fde-4f92-b69b-ec846c2f439c">
 Python</label><div class="tabbed-content docutils">
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Arreglo de muestras o función rvs de scipy.stats</span>
@@ -2195,8 +2200,8 @@ Python</label><div class="tabbed-content docutils">
 </div>
 <p>La función retorna una estructura con el valor del <span class="math notranslate nohighlight">\(D_n\)</span> y el p-value</p>
 </div>
-<input id="9aaa343f-e1b5-4eca-8d0e-9967f9cd7b6f" name="24c891f3-2eaf-4d98-a6dd-4fb5fc688e57" type="radio">
-</input><label class="tabbed-label" for="9aaa343f-e1b5-4eca-8d0e-9967f9cd7b6f">
+<input id="24c86328-226a-494a-8d3a-2a0f2811421f" name="fd2dfcd1-22e9-49b9-a094-bff07af7e268" type="radio">
+</input><label class="tabbed-label" for="24c86328-226a-494a-8d3a-2a0f2811421f">
 R</label><div class="tabbed-content docutils">
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">stats</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ks.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Vector con datos numéricos</span>

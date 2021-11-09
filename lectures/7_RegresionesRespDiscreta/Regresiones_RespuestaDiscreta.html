@@ -1,0 +1,1356 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15. Regresiones para Respuestas Discretas &#8212; Herramientas estadísticas para la investigación</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="14. Linear models and Basis functions" href="../5_linear_regression/part3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Herramientas estadísticas para la investigación</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Elementos de Teoría de Probabilidades
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte5.html">
+   5. Teoremas Asintóticos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part2.html">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html">
+   9. Inferencia en Estadística Paramétrica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+   10. Inferencia estadística con tests no-paramétricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
+   11. Análisis de Asociación de Variables Aleatorias
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regresión Lineal
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part1.html">
+   12. Introduction to linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part2.html">
+   13. Multivariate linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part3.html">
+   14. Linear models and Basis functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   15. Regresiones para Respuestas Discretas
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-logistica">
+   15.1. Regresión Logística
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimacion-de-parametros-beta">
+     15.1.1. Estimación de parámetros
+     <span class="math notranslate nohighlight">
+      \(\beta\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluacion-del-ajuste-del-modelo">
+     15.1.2. Evaluación del Ajuste del modelo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-de-poisson">
+   15.2. Regresión de Poisson
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     15.2.1. Estimación de parámetros
+     <span class="math notranslate nohighlight">
+      \(\beta\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="regresiones-para-respuestas-discretas">
+<h1><span class="section-number">15. </span>Regresiones para Respuestas Discretas<a class="headerlink" href="#regresiones-para-respuestas-discretas" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta sesión vamos a analizar una generalización del modelo de regresion lineal que permite modelar un conjunto de datos,  en que la variable a explicar es discreta y las variables explicativas son numéricas o categóricas. Dos ejemplos de ello son los  modelos de regresión logística y regresión de Poisson, que estimaremos en R con ayuda de la función <code class="docutils literal notranslate"><span class="pre">glm</span></code>.</p>
+<div class="section" id="regresion-logistica">
+<h2><span class="section-number">15.1. </span>Regresión Logística<a class="headerlink" href="#regresion-logistica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este caso la variable a explicar es <strong>binaria</strong> y las variables explicativas son numéricas o categóricas.</p>
+<p><strong>Formalmente:</strong></p>
+<p>Sea <span class="math notranslate nohighlight">\(y \in \{0,1\}\)</span> la variable a explicar y <span class="math notranslate nohighlight">\(\textbf{x} \in \mathbb{R}^k\)</span> las variables explicativas.</p>
+<p>Dos cambios respecto de la regresión lineal:</p>
+<ul class="simple">
+<li><p>El primero es que <span class="math notranslate nohighlight">\(y |\textbf{x}\)</span> se modela como una v.a. con distribución <span class="math notranslate nohighlight">\(\textbf{Bernoulli}\)</span> en lugar de una Normal, es decir:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[p(y |\textbf{x},\beta)= Ber(\mu(\textbf{x}))\]</div>
+<p>dónde</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}[y|\textbf{x}] = p(y=1|\textbf{x}) = \mu(\textbf{x})\]</div>
+<ul class="simple">
+<li><p>Y lo segundo es que, al igual que en la regresión lineal, se considera una combinación lineal de las variables explicativas, pero esta combinación lineal es pasada como parámetro a una función <span class="math notranslate nohighlight">\(\mu\)</span> que toma valores en el intervalo <span class="math notranslate nohighlight">\([0,1]\)</span>, de manera que:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mu(x) = \sigma(\beta^T\textbf{x})\]</div>
+<p>dónde <span class="math notranslate nohighlight">\(\sigma\)</span> es la función sigmoidal definida por:</p>
+<div class="math notranslate nohighlight">
+\[\sigma(\eta) = \frac{1}{1+exp(-\eta)} = \frac{e^{\eta}}{e^{\eta}+1}\]</div>
+<p>y su inversa conocida también como <span class="math notranslate nohighlight">\(\textbf{logística}\)</span> o <span class="math notranslate nohighlight">\(\textbf{logit}\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[\text{logit}(p) = ln\left(\frac{p}{1- p}\right)\]</div>
+<p>entonces se cumple que</p>
+<div class="math notranslate nohighlight">
+\[ \text{logit}(\mu(\textbf{x}))= \text{logit}(\sigma(\beta^T\textbf{x})) = \beta^T\textbf{x}\]</div>
+<p>Asi, se obtiene el modelo:</p>
+<div class="math notranslate nohighlight">
+\[\text{logit}(\mathbb{E}[y|\textbf{x}]) = \beta^T\textbf{x}\]</div>
+<p>denominado regresión logística, por su similitud con la regresión lineal, aunque es una forma de clasificación mas que una regresión.</p>
+<p>El coeficiente <span class="math notranslate nohighlight">\(\frac{p}{1-p}\)</span> se denomina suele denominar riesgo (odd en inglés) pues es la tasa entre las probabilidades de respuesta “positiva” y “negativa”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">grDevices</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#gráfica de la función sigmoide</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">10</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">0.01</span><span class="p">)</span>
+<span class="n">sigma</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">){</span><span class="nf">return</span><span class="p">(</span> <span class="nf">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nf">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="m">+1</span><span class="p">))}</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span><span class="nf">sigma</span><span class="p">(</span><span class="n">eta</span><span class="p">),</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_2_0.png" src="../../_images/Regresiones_RespuestaDiscreta_2_0.png" />
+</div>
+</div>
+<div class="section" id="estimacion-de-parametros-beta">
+<h3><span class="section-number">15.1.1. </span>Estimación de parámetros <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#estimacion-de-parametros-beta" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los parámetros <span class="math notranslate nohighlight">\(\beta\)</span> se pueden estimar por máxima verosimilitud.
+En efecto, sea la muestra <span class="math notranslate nohighlight">\(\{(y_i,\textbf{x}_i), i=1,\cdots,n\}\)</span>, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{lll}
+\log \mathcal{L} (\beta) &amp; = &amp;  {\displaystyle \sum_{i=1}^n} y_i \log \sigma(\beta^T \textbf{x}_i) + {\displaystyle \sum_{i=1}^n}  (1-y_i) \log (1- \sigma(\beta^T \textbf{x}_i))\\
+&amp;  = &amp;{\displaystyle \sum_{i=1}^n} y_i \log \left(\frac{\sigma(\beta^T \textbf{x}_i)}{1- \sigma(\beta^T \textbf{x}_i)}\right) + {\displaystyle \sum_{i=1}^n}  \log (1- \sigma(\beta^T \textbf{x}_i))\\
+&amp; = &amp; {\displaystyle \sum_{i=1}^n}  y_i \beta^T \textbf{x}_i + {\displaystyle \sum_{i=1}^n}  \log (1- e^{\beta^T \textbf{x}_i})
+\end{array}\end{split}\]</div>
+<p>A partir de esta función de verosimilitud no es posible obtener de manera analítica los  estimadores máximo verosímiles de <span class="math notranslate nohighlight">\(\beta\)</span>. Se requiere utilizar algún algoritmo de aproximación como Newton-Raphson para las raices del gradiente de <span class="math notranslate nohighlight">\(\log \mathcal{L}(\beta)\)</span> o utilizar directamente el algoritmo del gradiente descendente.</p>
+<p>En el caso de Newton-Raphson las ecuaciones de aproximación quedan:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}^{nuevo} = \hat{\beta}^{viejo} + (X^TW X)^{-1}X^T(\textbf{y} - \hat{\mu})\]</div>
+<p>donde <span class="math notranslate nohighlight">\(X \in M_{nxk}\)</span> es la matriz de valores de las <span class="math notranslate nohighlight">\(k\)</span> variables explicativas en las <span class="math notranslate nohighlight">\(n\)</span> observaciones,</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mu}_i = \frac{e^{X_{i}\hat{\beta}^{viejo}}}{e^{X_{i}\beta^{viejo}}+1}\]</div>
+<p>y <span class="math notranslate nohighlight">\(W \in M_{nxn}\)</span> es la matriz diagonal con:</p>
+<div class="math notranslate nohighlight">
+\[ w_{ii} = \hat{\mu}_i ( 1- \hat{\mu}_i)\]</div>
+<p>Lo criterios de convergencia del método iterativo utilizado para estimar los parámetros pueden ser varios, pero en todos ellos la idea subyacente es que:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}^{nuevo} \approx \hat{\beta}^{viejo} \qquad \mbox{ o } \qquad\log \mathcal{L}(\hat{\beta}^{viejo}) \approx log \mathcal{L} (\hat{\beta}^{nuevo})\qquad\mbox{ o }\qquad \hat{\mu}^{viejo} \approx \hat{\mu}^{nuevo}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejemplo de regresión logística para datos SAT</span>
+
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;datosSAT.csv&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;;&quot;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+
+<span class="c1">#TrLevel es el nivel alcanzado: 1 si pasó el curso 0 si no</span>
+<span class="c1">#SAT es el puntaje obtenido en el test de Lenguaje</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">SAT</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">TrLevel</span><span class="p">)))</span> <span class="o">+</span>
+  <span class="nf">geom_density</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">.</span><span class="m">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    TrLevel         SAT       
+ Min.   :0.0   Min.   :463.0  
+ 1st Qu.:0.0   1st Qu.:543.5  
+ Median :1.0   Median :567.5  
+ Mean   :0.7   Mean   :559.5  
+ 3rd Qu.:1.0   3rd Qu.:582.0  
+ Max.   :1.0   Max.   :649.0  
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_4_1.png" src="../../_images/Regresiones_RespuestaDiscreta_4_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">TrLevel</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">SAT</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">,</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;steelblue&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_classic</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Ignoring unknown parameters: fun”No summary function supplied, defaulting to `mean_se()
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_5_1.png" src="../../_images/Regresiones_RespuestaDiscreta_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">TrLevel</span> <span class="o">~</span> <span class="n">SAT</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = TrLevel ~ SAT, family = binomial(link = &quot;logit&quot;), 
+    data = datos)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2918  -0.1830   0.3662   0.5057   1.5301  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept) -31.65827   12.69071  -2.495   0.0126 *
+SAT           0.05878    0.02296   2.560   0.0105 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 36.652  on 29  degrees of freedom
+Residual deviance: 21.993  on 28  degrees of freedom
+AIC: 25.993
+
+Number of Fisher Scoring iterations: 5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#graficamos los resultados</span>
+<span class="n">dat</span> <span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">),</span><span class="n">datos</span><span class="o">$</span><span class="n">SAT</span><span class="p">)</span>
+<span class="n">prob</span> <span class="o">&lt;-</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">dat</span><span class="o">%*%</span><span class="n">res</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">SAT</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">SAT</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">TrLevel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_7_0.png" src="../../_images/Regresiones_RespuestaDiscreta_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="evaluacion-del-ajuste-del-modelo">
+<h3><span class="section-number">15.1.2. </span>Evaluación del Ajuste del modelo<a class="headerlink" href="#evaluacion-del-ajuste-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Cálculo de residuos</strong></p>
+<p>Si notamos
+$<span class="math notranslate nohighlight">\( \hat{p}_i = \sigma(\hat{\beta}^T x_i)\)</span>$</p>
+<p>entonces se define el residuo en la verosimilitud correspondiente a la observación <span class="math notranslate nohighlight">\(i\)</span> en el modelo estimado como:</p>
+<div class="math notranslate nohighlight">
+\[dev_i = -2 [y_i log (\hat{p}_i) + (1-y_i) log (1-  \hat{p}_i)]\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_9_0.png" src="../../_images/Regresiones_RespuestaDiscreta_9_0.png" />
+</div>
+</div>
+<p><strong>Coeficiente de información de Akaike, AIC</strong></p>
+<p>Recordemos que</p>
+<div class="math notranslate nohighlight">
+\[AIC = 2k - 2logL\]</div>
+<p>donde k es el número de parámetros del modelo. Cuando se comparan modelos se escoge aquel con menor AIC.</p>
+<p><strong>Error de clasificación: Matriz de confusión</strong></p>
+<p>La matriz de confusión permite analizar los errores de clasificación:</p>
+<ul class="simple">
+<li><p>Error tipo I o “falso positivo”: caso predicho con valor 1, cuando se observa 0</p></li>
+<li><p>Error tipo II o “falso negativo”: caso predicho con valor 0 cuando se observa 1</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">prob</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">,</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">TrLevel</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">errorI</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="n">errorII</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">errorI</span><span class="p">,</span><span class="n">errorII</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
+         0  1
+  FALSE  6  1
+  TRUE   3 20
+[1] 0.1304348 0.1428571 0.1333333
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Cuantificando Habilidad Predictiva: Curva ROC</strong></p>
+<p>Este análisis considera variar el valor p(=0.5 por omisión) que guía la clasificación de los datos y se observa como varían la sensibilidad (tasa de verdaderos positivos sobre el total de positivos)  en relación al inverso de la especificidad (tasa de verdaderos negativos sobre el total de negativos). Si el área bajo la curva ROC es cercana a 1 se trata de un buen clasificador, si es cercana a 0.5 corresponde a una clasificación aleatoria (igual probabilidad de positivo o negativo).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">min</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0116176757174035</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">19</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">prob</span><span class="p">),</span><span class="n">.</span><span class="m">95</span><span class="p">,</span><span class="n">.</span><span class="m">05</span><span class="p">)){</span>
+    <span class="n">t1</span><span class="o">=</span><span class="nf">table</span><span class="p">(</span><span class="n">prob</span><span class="o">&gt;</span><span class="n">p</span><span class="p">,</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">TrLevel</span><span class="p">))</span>
+    <span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">p</span><span class="p">,(</span><span class="n">t1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">2</span><span class="p">]),(</span><span class="n">t1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p1</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p1</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            [,1]      [,2]      [,3]
+ [1,] 0.01161768 1.0000000 0.1111111
+ [2,] 0.06161768 1.0000000 0.3333333
+ [3,] 0.11161768 1.0000000 0.3333333
+ [4,] 0.16161768 1.0000000 0.3333333
+ [5,] 0.21161768 1.0000000 0.3333333
+ [6,] 0.26161768 1.0000000 0.4444444
+ [7,] 0.31161768 0.9523810 0.5555556
+ [8,] 0.36161768 0.9523810 0.5555556
+ [9,] 0.41161768 0.9523810 0.5555556
+[10,] 0.46161768 0.9523810 0.6666667
+[11,] 0.51161768 0.9523810 0.6666667
+[12,] 0.56161768 0.9523810 0.6666667
+[13,] 0.61161768 0.8571429 0.6666667
+[14,] 0.66161768 0.8095238 0.6666667
+[15,] 0.71161768 0.8095238 0.6666667
+[16,] 0.76161768 0.8095238 0.8888889
+[17,] 0.81161768 0.6666667 0.8888889
+[18,] 0.86161768 0.6666667 0.8888889
+[19,] 0.91161768 0.4285714 0.8888889
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_15_1.png" src="../../_images/Regresiones_RespuestaDiscreta_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple plot function</span>
+<span class="c1">#</span>
+<span class="c1"># ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)</span>
+<span class="c1"># - cols:   Number of columns in layout</span>
+<span class="c1"># - layout: A matrix specifying the layout. If present, &#39;cols&#39; is ignored.</span>
+<span class="c1">#</span>
+<span class="c1"># If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),</span>
+<span class="c1"># then plot 1 will go in the upper left, 2 will go in the upper right, and</span>
+<span class="c1"># 3 will go all the way across the bottom.</span>
+<span class="c1">#</span>
+<span class="n">multiplot</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> <span class="n">plotlist</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="kc">NULL</span><span class="p">)</span> <span class="p">{</span>
+  
+
+  <span class="c1"># Make a list from the ... arguments and plotlist</span>
+  <span class="n">plots</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="kc">...</span><span class="p">),</span> <span class="n">plotlist</span><span class="p">)</span>
+
+  <span class="n">numPlots</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">plots</span><span class="p">)</span>
+
+  <span class="c1"># If layout is NULL, then use &#39;cols&#39; to determine layout</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">layout</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1"># Make the panel</span>
+    <span class="c1"># ncol: Number of columns of plots</span>
+    <span class="c1"># nrow: Number of rows needed, calculated from # of cols</span>
+    <span class="n">layout</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">cols</span> <span class="o">*</span> <span class="nf">ceiling</span><span class="p">(</span><span class="n">numPlots</span><span class="o">/</span><span class="n">cols</span><span class="p">)),</span>
+                    <span class="n">ncol</span> <span class="o">=</span> <span class="n">cols</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="nf">ceiling</span><span class="p">(</span><span class="n">numPlots</span><span class="o">/</span><span class="n">cols</span><span class="p">))</span>
+  <span class="p">}</span>
+
+ <span class="nf">if </span><span class="p">(</span><span class="n">numPlots</span><span class="o">==</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">plots</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="c1"># Set up the page</span>
+    <span class="nf">grid.newpage</span><span class="p">()</span>
+    <span class="nf">pushViewport</span><span class="p">(</span><span class="nf">viewport</span><span class="p">(</span><span class="n">layout</span> <span class="o">=</span> <span class="nf">grid.layout</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">layout</span><span class="p">),</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">layout</span><span class="p">))))</span>
+
+    <span class="c1"># Make each plot, in the correct location</span>
+    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">numPlots</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1"># Get the i,j matrix positions of the regions that contain this subplot</span>
+      <span class="n">matchidx</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">layout</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="n">arr.ind</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+
+      <span class="nf">print</span><span class="p">(</span><span class="n">plots</span><span class="p">[[</span><span class="n">i</span><span class="p">]],</span> <span class="n">vp</span> <span class="o">=</span> <span class="nf">viewport</span><span class="p">(</span><span class="n">layout.pos.row</span> <span class="o">=</span> <span class="n">matchidx</span><span class="o">$</span><span class="n">row</span><span class="p">,</span>
+                                      <span class="n">layout.pos.col</span> <span class="o">=</span> <span class="n">matchidx</span><span class="o">$</span><span class="n">col</span><span class="p">))</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ejemplo de regresión logística para datos de PSU de estudiantes de primer año universitario</span>
+<span class="c1">#y su relación con la estrategia de aprendizaje Elaborativa del estudiante (0, bajo nivel - 1 normal o alto nivel)</span>
+<span class="c1">#obtenida en un test de diagnóstico</span>
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;DatosEjemplo.csv&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;;&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Elaborativo MAT LENG CIENCIA
+1            0 429  573     443
+2            0 572  534     497
+3            1 631  692     611
+4            0 713  654     694
+5            1 591  523     537
+6            0 610  530     558
+7            1 619  628     409
+8            0 596  628     625
+9            1 644  466     523
+10           0 644  628     591
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Elaborativo          MAT             LENG          CIENCIA     
+ Min.   :0.0000   Min.   :429.0   Min.   :442.0   Min.   :371.0  
+ 1st Qu.:0.0000   1st Qu.:581.0   1st Qu.:530.0   1st Qu.:523.0  
+ Median :1.0000   Median :605.0   Median :573.0   Median :570.0  
+ Mean   :0.6796   Mean   :603.8   Mean   :576.9   Mean   :560.7  
+ 3rd Qu.:1.0000   3rd Qu.:636.0   3rd Qu.:620.0   3rd Qu.:606.0  
+ Max.   :1.0000   Max.   :725.0   Max.   :716.0   Max.   :694.0  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>103</li>
+	<li>4</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">MAT</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">)))</span> <span class="o">+</span>
+  <span class="nf">geom_density</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">.</span><span class="m">4</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">LENG</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">)))</span> <span class="o">+</span>
+  <span class="nf">geom_density</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">.</span><span class="m">4</span><span class="p">)</span>
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">CIENCIA</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">)))</span> <span class="o">+</span>
+  <span class="nf">geom_density</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">.</span><span class="m">4</span><span class="p">)</span>
+  
+<span class="nf">multiplot</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_19_0.png" src="../../_images/Regresiones_RespuestaDiscreta_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MAT</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">,</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;steelblue&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_classic</span><span class="p">()</span>
+
+<span class="n">f2</span><span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">LENG</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">,</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;steelblue&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_classic</span><span class="p">()</span>
+    
+<span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">Elaborativo</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">CIENCIA</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
+    <span class="nf">stat_summary</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">,</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;steelblue&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">theme_classic</span><span class="p">()</span>
+
+<span class="nf">multiplot</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Ignoring unknown parameters: fun”Warning message:
+“Ignoring unknown parameters: fun”Warning message:
+“Ignoring unknown parameters: fun”No summary function supplied, defaulting to `mean_se()
+No summary function supplied, defaulting to `mean_se()
+No summary function supplied, defaulting to `mean_se()
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_20_1.png" src="../../_images/Regresiones_RespuestaDiscreta_20_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## análisis con las 3 variables</span>
+<span class="n">res0</span><span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">Elaborativo</span> <span class="o">~</span> <span class="n">MAT</span><span class="o">+</span><span class="n">LENG</span><span class="o">+</span><span class="n">CIENCIA</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">res0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = Elaborativo ~ MAT + LENG + CIENCIA, family = binomial(link = &quot;logit&quot;), 
+    data = datos)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9029  -1.3534   0.7578   0.8999   1.1856  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -3.4698760  2.8740756  -1.207    0.227
+MAT          0.0009539  0.0055064   0.173    0.862
+LENG         0.0062689  0.0041219   1.521    0.128
+CIENCIA      0.0001063  0.0045875   0.023    0.982
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 129.20  on 102  degrees of freedom
+Residual deviance: 125.65  on  99  degrees of freedom
+AIC: 133.65
+
+Number of Fisher Scoring iterations: 4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">res0</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (Intercept)           MAT          LENG       CIENCIA 
+-3.4698760404  0.0009539276  0.0062689095  0.0001062675 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">103</span><span class="p">),</span><span class="n">datos</span><span class="o">$</span><span class="n">MAT</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">CIENCIA</span><span class="p">)</span>
+<span class="n">vec</span> <span class="o">&lt;-</span> <span class="n">res0</span><span class="o">$</span><span class="n">coefficients</span>
+<span class="n">prob0</span> <span class="o">&lt;-</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">dat</span><span class="o">%*%</span><span class="n">vec</span><span class="p">)</span>
+<span class="n">tab</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">prob0</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">,</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">errorI</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="n">errorII</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">errorI</span><span class="p">,</span><span class="n">errorII</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
+         0  1
+  FALSE  0  3
+  TRUE  33 67
+[1] 0.3300000 1.0000000 0.3495146
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="n">p0</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">prob0</span><span class="p">),</span><span class="n">.</span><span class="m">85</span><span class="p">,</span><span class="n">.</span><span class="m">05</span><span class="p">)){</span>
+    <span class="n">t1</span><span class="o">=</span><span class="nf">table</span><span class="p">(</span><span class="n">prob0</span><span class="o">&gt;</span><span class="n">p</span><span class="p">,</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+    <span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">p</span><span class="p">,(</span><span class="n">t1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">2</span><span class="p">]),(</span><span class="n">t1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">p0</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p0</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p0</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          [,1]       [,2]       [,3]
+[1,] 0.4952148 0.98571429 0.00000000
+[2,] 0.5452148 0.90000000 0.06060606
+[3,] 0.5952148 0.87142857 0.21212121
+[4,] 0.6452148 0.70000000 0.54545455
+[5,] 0.6952148 0.51428571 0.69696970
+[6,] 0.7452148 0.30000000 0.81818182
+[7,] 0.7952148 0.10000000 0.93939394
+[8,] 0.8452148 0.02857143 1.00000000
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_24_1.png" src="../../_images/Regresiones_RespuestaDiscreta_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## análisis con 2 variables</span>
+<span class="n">res1</span><span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">Elaborativo</span> <span class="o">~</span> <span class="n">MAT</span><span class="o">+</span><span class="n">LENG</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">res1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = Elaborativo ~ MAT + LENG, family = binomial(link = &quot;logit&quot;), 
+    data = datos)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9033  -1.3510   0.7515   0.8978   1.1853  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -3.473364   2.870078  -1.210    0.226
+MAT          0.001026   0.004539   0.226    0.821
+LENG         0.006303   0.003856   1.635    0.102
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 129.20  on 102  degrees of freedom
+Residual deviance: 125.65  on 100  degrees of freedom
+AIC: 131.65
+
+Number of Fisher Scoring iterations: 4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#graficamos los resultados</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">10</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="n">ma</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">429</span><span class="p">,</span><span class="m">726</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<span class="n">le</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">429</span><span class="p">,</span><span class="m">726</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="n">dens</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">res1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">res1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">res1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">outer</span><span class="p">(</span><span class="n">ma</span><span class="p">,</span><span class="n">le</span><span class="p">,</span><span class="n">dens</span><span class="p">)</span>
+<span class="n">pmat</span><span class="o">&lt;-</span> <span class="nf">persp</span><span class="p">(</span><span class="n">ma</span><span class="p">,</span><span class="n">le</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">ticktype</span> <span class="o">=</span> <span class="s">&quot;detailed&quot;</span><span class="p">,</span><span class="n">zlab</span><span class="o">=</span><span class="s">&quot;logit&quot;</span><span class="p">,</span><span class="n">zlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">phi</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">theta</span><span class="o">=</span><span class="m">60</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="nf">trans3d</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">MAT</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">,</span><span class="n">pmat</span><span class="o">=</span><span class="n">pmat</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_26_0.png" src="../../_images/Regresiones_RespuestaDiscreta_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">103</span><span class="p">),</span><span class="n">datos</span><span class="o">$</span><span class="n">MAT</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">)</span>
+<span class="n">prob1</span> <span class="o">&lt;-</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">dat</span><span class="o">%*%</span><span class="n">res1</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<span class="n">tab</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">prob1</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">,</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">errorI</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="n">errorII</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">errorI</span><span class="p">,</span><span class="n">errorII</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
+         0  1
+  FALSE  0  3
+  TRUE  33 67
+[1] 0.3300000 1.0000000 0.3495146
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">prob1</span><span class="p">),</span><span class="n">.</span><span class="m">85</span><span class="p">,</span><span class="n">.</span><span class="m">05</span><span class="p">)){</span>
+    <span class="n">t1</span><span class="o">=</span><span class="nf">table</span><span class="p">(</span><span class="n">prob1</span><span class="o">&gt;</span><span class="n">p</span><span class="p">,</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+    <span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">p</span><span class="p">,(</span><span class="n">t1</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">2</span><span class="p">]),(</span><span class="n">t1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t1</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p1</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p1</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          [,1]       [,2]       [,3]
+[1,] 0.4953638 0.98571429 0.00000000
+[2,] 0.5453638 0.88571429 0.06060606
+[3,] 0.5953638 0.87142857 0.21212121
+[4,] 0.6453638 0.71428571 0.54545455
+[5,] 0.6953638 0.51428571 0.69696970
+[6,] 0.7453638 0.30000000 0.81818182
+[7,] 0.7953638 0.10000000 0.93939394
+[8,] 0.8453638 0.02857143 1.00000000
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_28_1.png" src="../../_images/Regresiones_RespuestaDiscreta_28_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">res2</span><span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">Elaborativo</span> <span class="o">~</span> <span class="n">LENG</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span><span class="n">family</span> <span class="o">=</span> <span class="nf">binomial</span><span class="p">(</span><span class="n">link</span> <span class="o">=</span> <span class="s">&quot;logit&quot;</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">res2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = Elaborativo ~ LENG, family = binomial(link = &quot;logit&quot;), 
+    data = datos)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.8979  -1.3454   0.7518   0.8943   1.2238  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)  
+(Intercept) -3.025041   2.071847  -1.460   0.1443  
+LENG         0.006599   0.003628   1.819   0.0689 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 129.2  on 102  degrees of freedom
+Residual deviance: 125.7  on 101  degrees of freedom
+AIC: 129.7
+
+Number of Fisher Scoring iterations: 4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#graficamos los resultados</span>
+<span class="n">dat</span> <span class="o">&lt;-</span><span class="nf">cbind</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">103</span><span class="p">),</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">)</span>
+<span class="n">prob2</span> <span class="o">&lt;-</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">dat</span><span class="o">%*%</span><span class="n">res2</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">,</span><span class="n">prob2</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">LENG</span><span class="p">,</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_30_0.png" src="../../_images/Regresiones_RespuestaDiscreta_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">prob2</span><span class="o">&gt;</span><span class="m">0.5</span><span class="p">,</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="n">errorI</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="n">errorII</span> <span class="o">&lt;-</span> <span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">tab</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">errorI</span><span class="p">,</span><span class="n">errorII</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       
+         0  1
+  FALSE  0  2
+  TRUE  33 68
+[1] 0.3267327 1.0000000 0.3398058
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">prob2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.4729352
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">prob2</span><span class="p">),</span><span class="n">.</span><span class="m">85</span><span class="p">,</span><span class="n">.</span><span class="m">05</span><span class="p">)){</span>
+    <span class="n">t2</span><span class="o">=</span><span class="nf">table</span><span class="p">(</span><span class="n">prob2</span><span class="o">&gt;</span><span class="n">p</span><span class="p">,</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">Elaborativo</span><span class="p">))</span>
+    <span class="n">p2</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">p</span><span class="p">,(</span><span class="n">t2</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t2</span><span class="p">[,</span><span class="m">2</span><span class="p">]),(</span><span class="n">t2</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">])</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">t2</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p0</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p0</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p1</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p1</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p2</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span><span class="n">p2</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;1-especificidad&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;sensibilidad&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          [,1]       [,2]       [,3]
+[1,] 0.4729352 0.98571429 0.00000000
+[2,] 0.5229352 0.94285714 0.00000000
+[3,] 0.5729352 0.88571429 0.09090909
+[4,] 0.6229352 0.77142857 0.36363636
+[5,] 0.6729352 0.58571429 0.63636364
+[6,] 0.7229352 0.42857143 0.78787879
+[7,] 0.7729352 0.18571429 0.93939394
+[8,] 0.8229352 0.07142857 0.96969697
+</pre></div>
+</div>
+<img alt="../../_images/Regresiones_RespuestaDiscreta_33_1.png" src="../../_images/Regresiones_RespuestaDiscreta_33_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regresion-de-poisson">
+<h2><span class="section-number">15.2. </span>Regresión de Poisson<a class="headerlink" href="#regresion-de-poisson" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este caso la variable a explicar es <strong>discreta</strong>, mas precisamente es una variable de conteo o a valores en <span class="math notranslate nohighlight">\(\it N\)</span>  y las variables explicativas son numéricas o categóricas.</p>
+<p><strong>Formalmente:</strong></p>
+<p>Sea <span class="math notranslate nohighlight">\(y \in \{0,1,2, \cdots\}\)</span> la variable a explicar y <span class="math notranslate nohighlight">\(\textbf{x} \in \mathbb{R}^k\)</span> las variables explicativas.</p>
+<p>Entonces <span class="math notranslate nohighlight">\(y\mid \textbf{x}\)</span> se modela como una v.a. con distribución <span class="math notranslate nohighlight">\(\textbf{Poisson}\)</span>, es decir:</p>
+<div class="math notranslate nohighlight">
+\[p(y |\textbf{x},\beta)= Poisson(\lambda(\textbf{x},\beta))\]</div>
+<p>dónde, al igual que en la regresión lineal, se considera una combinación lineal de las variables explicativas, pero esta combinación lineal es pasada como parámetro a una función <span class="math notranslate nohighlight">\( \lambda\)</span> que toma valores positivos:</p>
+<div class="math notranslate nohighlight">
+\[\lambda(\textbf{x},\beta) = \lambda_{\textbf{x},\beta}=e^{\beta^T\textbf{x}}\]</div>
+<p>Así,</p>
+<div class="math notranslate nohighlight">
+\[p(y |\textbf{x},\beta) = p(y | \lambda_{\textbf{x},\beta}) = \frac{\lambda_{\textbf{x},\beta}^{y}}{y!} \exp \left ({-\lambda_{\textbf{x},\beta}} \right) = 
+\frac{e^{y \beta^T\textbf{x}}}{y!} \exp \left (-e^{\beta^T\textbf{x}} \right)\]</div>
+<p>Notar que en este caso, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\log E(Y \mid \textbf{x}) = \log \lambda_{\textbf{x},\beta} = \beta^T \textbf{x}\]</div>
+<div class="section" id="id1">
+<h3><span class="section-number">15.2.1. </span>Estimación de parámetros <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los parámetros <span class="math notranslate nohighlight">\(\beta\)</span> se pueden estimar por máxima verosimilitud.
+En efecto, sea la muestra <span class="math notranslate nohighlight">\(\{(y_i,\textbf{x}_i), i=1,\cdots,n\}\)</span>, se tiene:</p>
+<div class="math notranslate nohighlight">
+\[\log \mathcal{L} (\beta) =   {\displaystyle \sum_{i=1}^n}\left (y_i \beta^T \textbf{x}_i -  e^{\beta^T \textbf{x}_i} - \log(y_i!)\right)\]</div>
+<p>A partir de esta función de verosimilitud no es posible obtener de manera analítica los  estimadores máximo verosímiles de <span class="math notranslate nohighlight">\(\beta\)</span>. Utilizando Newton-Raphson para aproximar las raices del gradiente de <span class="math notranslate nohighlight">\(\log \mathcal{L}(\beta)\)</span> se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}^{nuevo} = \hat{\beta}^{viejo} + (X^TW X)^{-1}X^T(\textbf{y} - \hat{\lambda})\]</div>
+<p>donde <span class="math notranslate nohighlight">\(X \in M_{nxk}\)</span> es la matriz de valores de las <span class="math notranslate nohighlight">\(k\)</span> variables explicativas en las <span class="math notranslate nohighlight">\(n\)</span> observaciones,</p>
+<div class="math notranslate nohighlight">
+\[\hat{\lambda}_i = e^{X_{i}\beta^{viejo}}\]</div>
+<p>y <span class="math notranslate nohighlight">\(W \in M_{nxn}\)</span> es la matriz diagonal con:</p>
+<div class="math notranslate nohighlight">
+\[ w_{ii} = \hat{\lambda}_i\]</div>
+<p>Lo criterios de convergencia del método iterativo utilizado para estimar los parámetros pueden ser varios, pero en todos ellos la idea subyacente es que</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}^{nuevo} \approx \hat{\beta}^{viejo} \qquad \mbox{o} \qquad \log \mathcal{L}(\hat{\beta}^{viejo}) \approx log \mathcal{L} (\hat{\beta}^{nuevo})\qquad \mbox{o} \qquad \hat{\lambda}^{viejo} \approx \hat{\lambda}^{nuevo}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#ejemplo de regresión de Poisson que considera datos simulados sobre 200 estudiantes de EM</span>
+<span class="c1">#la variable a explicar es el número de premios obtenidos y las variables explicativas</span>
+<span class="c1">#son sus puntajes en el examen final de matemáticas, y el tipo de programa en que </span>
+<span class="c1">#están matriculados: general, vocacional o académico.</span>
+<span class="nf">require</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">10</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://stats.idre.ucla.edu/stat/data/poisson_sim.csv&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">within</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">prog</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;General&quot;</span><span class="p">,</span> <span class="s">&quot;Academic&quot;</span><span class="p">,</span> 
+                                                     <span class="s">&quot;Vocational&quot;</span><span class="p">))</span>
+  <span class="n">id</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">,])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    id num_awards       prog math
+1   45          0 Vocational   41
+2  108          0    General   41
+3   15          0 Vocational   44
+4   67          0 Vocational   42
+5  153          0 Vocational   40
+6   51          0    General   42
+7  164          0 Vocational   46
+8  133          0 Vocational   40
+9    2          0 Vocational   33
+10  53          0 Vocational   46
+11   1          0 Vocational   40
+12 128          0   Academic   38
+13  16          0 Vocational   44
+14 106          0 Vocational   37
+15  89          0 Vocational   40
+16 134          0    General   39
+17  19          0    General   43
+18 145          0 Vocational   38
+19  11          0   Academic   45
+20 117          0 Vocational   39
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       id        num_awards           prog          math      
+ 1      :  1   Min.   :0.00   General   : 45   Min.   :33.00  
+ 2      :  1   1st Qu.:0.00   Academic  :105   1st Qu.:45.00  
+ 3      :  1   Median :0.00   Vocational: 50   Median :52.00  
+ 4      :  1   Mean   :0.63                    Mean   :52.65  
+ 5      :  1   3rd Qu.:1.00                    3rd Qu.:59.00  
+ 6      :  1   Max.   :6.00                    Max.   :75.00  
+ (Other):194                                                  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">with</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nf">tapply</span><span class="p">(</span><span class="n">num_awards</span><span class="p">,</span> <span class="n">prog</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;M (SD) = %1.2f (%1.2f)&quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl class=dl-horizontal>
+	<dt>General</dt>
+		<dd>'M (SD) = 0.20 (0.40)'</dd>
+	<dt>Academic</dt>
+		<dd>'M (SD) = 1.00 (1.28)'</dd>
+	<dt>Vocational</dt>
+		<dd>'M (SD) = 0.24 (0.52)'</dd>
+</dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">num_awards</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">prog</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span><span class="o">=</span><span class="n">.</span><span class="m">5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;dodge&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_39_0.png" src="../../_images/Regresiones_RespuestaDiscreta_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">m1</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">num_awards</span> <span class="o">~</span> <span class="n">prog</span> <span class="o">+</span> <span class="n">math</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s">&quot;poisson&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = num_awards ~ prog + math, family = &quot;poisson&quot;, data = p)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2043  -0.8436  -0.5106   0.2558   2.6796  
+
+Coefficients:
+               Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    -5.24712    0.65845  -7.969 1.60e-15 ***
+progAcademic    1.08386    0.35825   3.025  0.00248 ** 
+progVocational  0.36981    0.44107   0.838  0.40179    
+math            0.07015    0.01060   6.619 3.63e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 287.67  on 199  degrees of freedom
+Residual deviance: 189.45  on 196  degrees of freedom
+AIC: 373.5
+
+Number of Fisher Scoring iterations: 6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">with</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">res.deviance</span> <span class="o">=</span> <span class="n">deviance</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df.residual</span><span class="p">,</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="nf">pchisq</span><span class="p">(</span><span class="n">deviance</span><span class="p">,</span> <span class="n">df.residual</span><span class="p">,</span> <span class="n">lower.tail</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>res.deviance</th><th scope=col>df</th><th scope=col>p</th></tr></thead>
+<tbody>
+	<tr><td>189.4496 </td><td>196      </td><td>0.6182274</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## calculate and store predicted values</span>
+<span class="n">p</span><span class="o">$</span><span class="n">phat</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;response&quot;</span><span class="p">)</span>
+
+<span class="c1">## order by program and then by math</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="n">p</span><span class="p">[</span><span class="nf">with</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nf">order</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">math</span><span class="p">)),</span> <span class="p">]</span>
+
+<span class="c1">## create the plot</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">phat</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">prog</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">num_awards</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">.</span><span class="m">5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="nf">position_jitter</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">.</span><span class="m">2</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_line</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Math Score&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Expected number of awards&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Regresiones_RespuestaDiscreta_42_0.png" src="../../_images/Regresiones_RespuestaDiscreta_42_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./lectures/7_RegresionesRespDiscreta"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../5_linear_regression/part3.html" title="previous page"><span class="section-number">14. </span>Linear models and Basis functions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse and Eliana Scheihing<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
