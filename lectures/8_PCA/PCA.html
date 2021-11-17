@@ -1,0 +1,1222 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16. Análisis Exploratorio y Reducción de la Dimensionalidad &#8212; Herramientas estadísticas para la investigación</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="15. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Herramientas estadísticas para la investigación</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Elementos de Teoría de Probabilidades
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte5.html">
+   5. Teoremas Asintóticos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part1.html">
+   6. Parametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part2.html">
+   7. Nonparametric modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part3.html">
+   8. Bayesian modeling
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pensamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html">
+   9. Inferencia en Estadística Paramétrica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+   10. Inferencia estadística con tests no-paramétricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
+   11. Análisis de Asociación de Variables Aleatorias
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regresión Lineal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part1.html">
+   12. Introduction to linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part2.html">
+   13. Multivariate linear regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part3.html">
+   14. Linear models and Basis functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
+   15. Regresiones para Respuestas Discretas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Exploratory analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   16. Análisis Exploratorio y Reducción de la Dimensionalidad
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/8_PCA/PCA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/8_PCA/PCA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-de-componentes-principales">
+   16.1. Análisis de Componentes Principales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enfoque-basado-en-proyecciones-ortogonales">
+     16.1.1. Enfoque basado en proyecciones ortogonales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enfoque-de-descomposicion-en-valores-singulares-svd">
+     16.1.2. Enfoque de Descomposición en Valores Singulares (SVD)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-del-numero-de-componentes-principales">
+     16.1.3. Selección del número de componentes principales
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejercicio-2">
+       16.1.3.1. Ejercicio 2:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otro-enfoque-modelos-lineales-latentes">
+   16.2. Otro enfoque: Modelos Lineales Latentes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-factorial">
+     16.2.1. Análisis Factorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="analisis-exploratorio-y-reduccion-de-la-dimensionalidad">
+<h1><span class="section-number">16. </span>Análisis Exploratorio y Reducción de la Dimensionalidad<a class="headerlink" href="#analisis-exploratorio-y-reduccion-de-la-dimensionalidad" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="analisis-de-componentes-principales">
+<h2><span class="section-number">16.1. </span>Análisis de Componentes Principales<a class="headerlink" href="#analisis-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El análisis de componentes principales (PCA) es el proceso mediante el cual se calculan los componentes principales de una matriz de datos con el objeto de realizar una comprensión de los datos. PCA es un enfoque no supervisado, lo que significa que se realiza en un conjunto de variables <span class="math notranslate nohighlight">\(X_1, X_2,…, X_d\)</span> sin respuesta asociada <span class="math notranslate nohighlight">\(Y\)</span>. PCA reduce la dimensionalidad del conjunto de datos, lo que permite explicar la mayor parte de la variabilidad utilizando menos variables. El PCA se usa comúnmente como una primera herramienta de visualización de los datos, para reducir el número de variables y evitar la multicolinealidad, o cuando se tienen demasiados predictores en relación con el número de observaciones.</p>
+<div class="section" id="enfoque-basado-en-proyecciones-ortogonales">
+<h3><span class="section-number">16.1.1. </span>Enfoque basado en proyecciones ortogonales<a class="headerlink" href="#enfoque-basado-en-proyecciones-ortogonales" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> una matriz de <span class="math notranslate nohighlight">\(n\)</span> datos <span class="math notranslate nohighlight">\(d\)</span>-dimensionales, con cada componente  de media nula, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = \begin{pmatrix}
+x_{11} &amp;...&amp; x_{1d} \\
+&amp;...&amp;\\
+x_{n1}&amp;...&amp; x_{nd} \\
+\end{pmatrix}
+\quad donde \quad \bar{\bf{x}_j}=0, \quad j=1,...,d\end{split}\]</div>
+<p>Buscamos la dirección <span class="math notranslate nohighlight">\(w'=(w_1,...,w_d)\)</span> tal que la proyección de <span class="math notranslate nohighlight">\(X\)</span> sobre esta dirección maximice la varianza empírica de <span class="math notranslate nohighlight">\(Xw\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\max_w \hat{\sigma}^2(Xw) \quad \text{s. a} \quad \|w\|=1\]</div>
+<p>Tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}^2(Xw) =  w'X'Xw  - (\mathbb{E}(Xw))^2= w' \hat{\Sigma} w\]</div>
+<p>donde  <span class="math notranslate nohighlight">\(\hat{\Sigma}\)</span> es la varianza empírica de <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{\Sigma} = X'X = \begin{pmatrix}
+\sum_{i=1}^n (x_{i1})^2 &amp;...&amp; \sum_{i=1}^n (x_{i1}x_{id}) \\
+&amp;...&amp;\\
+\sum_{i=1}^n (x_{id}x_{i1})&amp;...&amp; \sum_{i=1}^n (x_{id})^2  \\
+\end{pmatrix}\end{split}\]</div>
+<p>Para maximizar la varianza <span class="math notranslate nohighlight">\(\hat{\sigma}^2(Xw)\)</span>, construimos el Lagrangiano:</p>
+<div class="math notranslate nohighlight">
+\[L = w' \hat{\Sigma} w + \lambda (w'w-1)\]</div>
+<p>La condición de máximo queda:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial w} = 2 \hat{\Sigma} w - 2\lambda w = 0 \quad \implies \quad \hat{\Sigma} w = \lambda w\]</div>
+<p>Con lo cual <span class="math notranslate nohighlight">\(w\)</span> es un vector propio de <span class="math notranslate nohighlight">\(\hat{\Sigma}\)</span>,  y por lo tanto</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}^2(Xw) = w' \hat{\Sigma} w = w' (\lambda w) = \lambda\]</div>
+<p>la dirección de máxima varianza es la dirección asociada al vector propio cuyo valor propio es máximo.
+Este procedimiento puede iterarse para obtener la segunda proyección (ortogonal a la primera) de máxima varianza, que será el vector propio correspondiente al segundo mayor valor propio.</p>
+<p><strong>Referencias</strong>:</p>
+<ol class="simple">
+<li><p>Kevin Murphy (2012) “Machine Learning, a probabilistic approach”, Capítulo 12. MIT Press</p></li>
+<li><p>Hastie, Tibshirani and Friedman, “The elements of statistical learning” 2nd Ed., Springer, Capítulo 14</p></li>
+<li><p>Ethem Alpayin (2004) “Introduction to Machine Learning”, Capítulo 6, MIT Press</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;IRdisplay&quot;</span><span class="p">))</span>
+<span class="nf">display_png</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;figura1.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_2_0.png" src="../../_images/PCA_2_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="enfoque-de-descomposicion-en-valores-singulares-svd">
+<h3><span class="section-number">16.1.2. </span>Enfoque de Descomposición en Valores Singulares (SVD)<a class="headerlink" href="#enfoque-de-descomposicion-en-valores-singulares-svd" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Otro enfoque posible es considerar la descomposición siguiente para la matriz <span class="math notranslate nohighlight">\(X\)</span>.
+Supongamos que <span class="math notranslate nohighlight">\(n&gt;d\)</span>, entonces existen matrices U, S, V tales que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{matrix}
+X &amp; =  &amp; U&amp; S &amp; V^T\\
+&amp;&amp;&amp;&amp;\\
+\begin{pmatrix}
+x_{11} &amp;...&amp; x_{1d} \\
+&amp;...&amp;\\
+&amp;...&amp;\\
+&amp;...&amp;\\
+x_{n1}&amp;...&amp; x_{nd} \\
+\end{pmatrix} &amp; = &amp;
+\begin{pmatrix}
+u_{11} &amp;...&amp; u_{1d} \\
+&amp;...&amp;\\
+&amp;...&amp;\\
+&amp;...&amp;\\
+u_{n1}&amp;...&amp; u_{nd} \\
+\end{pmatrix} 
+&amp;
+\begin{pmatrix}
+\sigma_{1} &amp;...&amp; 0 \\
+&amp;...&amp;\\
+0 &amp;...&amp; \sigma_{d} \\
+\end{pmatrix}
+&amp;
+\begin{pmatrix}
+v_{11} &amp;...&amp; v_{d1} \\
+&amp;...&amp;\\
+v_{1d}&amp;...&amp; v_{dd} \\
+\end{pmatrix}
+\end{matrix}\end{split}\]</div>
+<p>tales que <span class="math notranslate nohighlight">\(U\)</span> tiene columnas ortonormales, es decir <span class="math notranslate nohighlight">\(U^TU = I_{dxd}\)</span> y <span class="math notranslate nohighlight">\(V\)</span> con filas y columnas ortonormales, i.e., <span class="math notranslate nohighlight">\(V^TV= VV^T= I_{dxd}\)</span>, y <span class="math notranslate nohighlight">\(S\)</span> es una matriz diagonal conteniendo los valores singulares <span class="math notranslate nohighlight">\(\sigma_1,...,\sigma_d\)</span>.</p>
+<p>Con esto, resulta que</p>
+<div class="math notranslate nohighlight">
+\[X^TX = (USV^T)^T(USV^T) = VS^TU^TUSV^T= VS^TSV^T = VDV^T\]</div>
+<p>donde <span class="math notranslate nohighlight">\(D\)</span> es la matriz diagonal que contiene los cuadrados de los valores singulares <span class="math notranslate nohighlight">\({\sigma_1}^2,...,{\sigma_d}^2\)</span>. Y entonces:</p>
+<div class="math notranslate nohighlight">
+\[X^TX V = VD\]</div>
+<p>Es decir <span class="math notranslate nohighlight">\(V\)</span> es la matriz de los vectores propios de <span class="math notranslate nohighlight">\(\Sigma\)</span> y <span class="math notranslate nohighlight">\({\sigma_i}^2, i=1,...,d\)</span> los valores propios respectivos.</p>
+<p>Por otra parte:</p>
+<div class="math notranslate nohighlight">
+\[XX^T = (USV^T)(USV^T)^T = USV^TVS^TU^T=USS^TU^T = UDU^T\]</div>
+<p>con lo cual</p>
+<div class="math notranslate nohighlight">
+\[XX^T U = UD\]</div>
+<p>Es decir <span class="math notranslate nohighlight">\(U\)</span> es la matriz de vectores propios de <span class="math notranslate nohighlight">\(XX^T\)</span>  y <span class="math notranslate nohighlight">\({\sigma_i}^2, i=1,...,d\)</span> los valores propios respectivos.</p>
+<p><strong>Ejemplo Ilustrativo:</strong></p>
+<p>Consideremos el conjunto de datos de “USArrests” que está integrado en R. Este es un conjunto de datos que contiene cuatro variables que representan el número de arrestos por cada 100.000 residentes por asalto, asesinato y violación en cada uno de los cincuenta estados de EE. UU. en el año 1973. Los datos  contienen también  el porcentaje de la población que vive en áreas urbanas, UrbanPop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="s">&quot;USArrests&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">USArrests</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 10 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>Murder</th><th scope=col>Assault</th><th scope=col>UrbanPop</th><th scope=col>Rape</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Alabama</th><td>13.2</td><td>236</td><td>58</td><td>21.2</td></tr>
+	<tr><th scope=row>Alaska</th><td>10.0</td><td>263</td><td>48</td><td>44.5</td></tr>
+	<tr><th scope=row>Arizona</th><td> 8.1</td><td>294</td><td>80</td><td>31.0</td></tr>
+	<tr><th scope=row>Arkansas</th><td> 8.8</td><td>190</td><td>50</td><td>19.5</td></tr>
+	<tr><th scope=row>California</th><td> 9.0</td><td>276</td><td>91</td><td>40.6</td></tr>
+	<tr><th scope=row>Colorado</th><td> 7.9</td><td>204</td><td>78</td><td>38.7</td></tr>
+	<tr><th scope=row>Connecticut</th><td> 3.3</td><td>110</td><td>77</td><td>11.1</td></tr>
+	<tr><th scope=row>Delaware</th><td> 5.9</td><td>238</td><td>72</td><td>15.8</td></tr>
+	<tr><th scope=row>Florida</th><td>15.4</td><td>335</td><td>80</td><td>31.9</td></tr>
+	<tr><th scope=row>Georgia</th><td>17.4</td><td>211</td><td>60</td><td>25.8</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Preparando los datos:</strong></p>
+<p>Para desarrollar los algoritmos vistos es preferible que cada variable  se centre en cero y que tengan una escala común. Por ejemplo, la varianza de Asalto es 6945, mientras que la varianza de Asesinato es solo 18.97. Los datos de Asalto no son necesariamente más variables, simplemente están en una escala diferente en relación con el Asesinato.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">display_png</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;figura2.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_7_0.png" src="../../_images/PCA_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># calcula varianzas para cada variable</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">USArrests</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">USArrests</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>18.9704653061224</dd><dt>Assault</dt><dd>6945.16571428571</dd><dt>UrbanPop</dt><dd>209.518775510204</dd><dt>Rape</dt><dd>87.7291591836735</dd></dl>
+</div><div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>7.788</dd><dt>Assault</dt><dd>170.76</dd><dt>UrbanPop</dt><dd>65.54</dd><dt>Rape</dt><dd>21.232</dd></dl>
+</div></div>
+</div>
+<p>Una posibilidad es estandarizar las variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># escalando los datos</span>
+<span class="n">scaled_df</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">USArrests</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">)</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="nf">apply</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 6 × 4 of type dbl</caption>
+<thead>
+	<tr><th scope=col>Murder</th><th scope=col>Assault</th><th scope=col>UrbanPop</th><th scope=col>Rape</th></tr>
+</thead>
+<tbody>
+	<tr><td>1.24256408</td><td>0.7828393</td><td>-0.5209066</td><td>-0.003416473</td></tr>
+	<tr><td>0.50786248</td><td>1.1068225</td><td>-1.2117642</td><td> 2.484202941</td></tr>
+	<tr><td>0.07163341</td><td>1.4788032</td><td> 0.9989801</td><td> 1.042878388</td></tr>
+	<tr><td>0.23234938</td><td>0.2308680</td><td>-1.0735927</td><td>-0.184916602</td></tr>
+	<tr><td>0.27826823</td><td>1.2628144</td><td> 1.7589234</td><td> 2.067820292</td></tr>
+	<tr><td>0.02571456</td><td>0.3988593</td><td> 0.8608085</td><td> 1.864967207</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>1</dd><dt>Assault</dt><dd>1</dd><dt>UrbanPop</dt><dd>1</dd><dt>Rape</dt><dd>1</dd></dl>
+</div><div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>-7.66308674501892e-17</dd><dt>Assault</dt><dd>1.11240769200271e-16</dd><dt>UrbanPop</dt><dd>-4.33280798392555e-16</dd><dt>Rape</dt><dd>8.94239109844319e-17</dd></dl>
+</div></div>
+</div>
+<p>Sin embargo, no siempre el escalado  deseable. Un ejemplo sería si cada variable en el conjunto de datos tuviera las mismas unidades y el analista deseara capturar esta diferencia en la varianza para sus resultados. Dado que Asesinato, Asalto y Violación se miden según las ocurrencias por cada 100,000 personas, esto puede ser razonable dependiendo de cómo quiera interpretar los resultados. Pero como UrbanPop se mide como un porcentaje de la población total, no tendría sentido comparar la variabilidad de UrbanPop con el asesinato, el asalto y la violación.</p>
+<p>Lo importante a recordar es que el PCA está influenciado por la magnitud de cada variable; por lo tanto, los resultados obtenidos cuando realizamos PCA también dependerán de si las variables se han escalado individualmente.</p>
+<p>El objetivo del PCA es explicar la mayor parte de la variabilidad en los datos con un número menor de variables que el conjunto de datos original. Para un conjunto de datos de gran tamaño con p variables, podríamos examinar las gráficas por pares de cada variable contra cada otra variable, pero incluso para un p moderado, el número de gráficos se vuelve excesivo y no es útil. Por ejemplo, cuando <span class="math notranslate nohighlight">\(p = 10\)</span> hay <span class="math notranslate nohighlight">\(p (p − 1)/2 = 45\)</span> diagramas de dispersión que podrían analizarse. Claramente, se requiere un método mejor para visualizar las n observaciones cuando p es grande. En particular, nos gustaría encontrar una representación de baja dimensión de los datos que capturen la mayor cantidad de información posible. Por ejemplo, si podemos obtener una representación bidimensional de los datos que capturan la mayor parte de la información, entonces podemos  proyectar las observaciones en este espacio de baja dimensión.</p>
+<p>PCA proporciona una herramienta para hacer precisamente esto. Encuentra una representación de baja dimensión de un conjunto de datos que contiene la mayor cantidad de variación posible. La idea es que cada una de las <span class="math notranslate nohighlight">\(n\)</span> observaciones vive en el espacio p-dimensional, pero no todas estas dimensiones son igualmente interesantes. PCA busca un pequeño número de dimensiones que sean lo más interesantes posible, donde el concepto de interesante se mide por la cantidad de observaciones que varían a lo largo de cada dimensión. Cada una de las dimensiones encontradas por PCA es una combinación lineal de las características p y podemos tomar estas combinaciones lineales de las mediciones y reducir el número de gráficos necesarios para el análisis visual mientras retenemos la mayor parte de la información presente en los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculando valores y vectores propios de la matriz de covarianzas empírica</span>
+<span class="n">arrests.cov</span> <span class="o">&lt;-</span> <span class="nf">cov</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">)</span>
+<span class="n">arrests.eigen</span> <span class="o">&lt;-</span> <span class="nf">eigen</span><span class="p">(</span><span class="n">arrests.cov</span><span class="p">)</span>
+<span class="n">arrests.eigen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eigen() decomposition
+$values
+[1] 2.4802416 0.9897652 0.3565632 0.1734301
+
+$vectors
+           [,1]       [,2]       [,3]        [,4]
+[1,] -0.5358995  0.4181809 -0.3412327  0.64922780
+[2,] -0.5831836  0.1879856 -0.2681484 -0.74340748
+[3,] -0.2781909 -0.8728062 -0.3780158  0.13387773
+[4,] -0.5434321 -0.1673186  0.8177779  0.08902432
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extrayendo los pesos de los dos primeras componentes principales </span>
+<span class="n">w</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="n">arrests.eigen</span><span class="o">$</span><span class="n">vectors</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> 
+<span class="nf">row.names</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Murder&quot;</span><span class="p">,</span> <span class="s">&quot;Assault&quot;</span><span class="p">,</span> <span class="s">&quot;UrbanPop&quot;</span><span class="p">,</span> <span class="s">&quot;Rape&quot;</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;PC1&quot;</span><span class="p">,</span> <span class="s">&quot;PC2&quot;</span><span class="p">)</span>
+<span class="n">w</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 4 × 2 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>PC1</th><th scope=col>PC2</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Murder</th><td>0.5358995</td><td>-0.4181809</td></tr>
+	<tr><th scope=row>Assault</th><td>0.5831836</td><td>-0.1879856</td></tr>
+	<tr><th scope=row>UrbanPop</th><td>0.2781909</td><td> 0.8728062</td></tr>
+	<tr><th scope=row>Rape</th><td>0.5434321</td><td> 0.1673186</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcula proyección de los datos en cada componente principal </span>
+<span class="n">PC1</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">w</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span>
+<span class="n">PC2</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">scaled_df</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">w</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+
+<span class="c1"># Crea nuevo dataframe con la proyección</span>
+<span class="n">PC</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">State</span> <span class="o">=</span> <span class="nf">row.names</span><span class="p">(</span><span class="n">USArrests</span><span class="p">),</span> <span class="n">PC1</span><span class="p">,</span> <span class="n">PC2</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">PC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>State</th><th scope=col>PC1</th><th scope=col>PC2</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Alabama   </td><td> 0.9756604</td><td>-1.1220012</td></tr>
+	<tr><th scope=row>2</th><td>Alaska    </td><td> 1.9305379</td><td>-1.0624269</td></tr>
+	<tr><th scope=row>3</th><td>Arizona   </td><td> 1.7454429</td><td> 0.7384595</td></tr>
+	<tr><th scope=row>4</th><td>Arkansas  </td><td>-0.1399989</td><td>-1.1085423</td></tr>
+	<tr><th scope=row>5</th><td>California</td><td> 2.4986128</td><td> 1.5274267</td></tr>
+	<tr><th scope=row>6</th><td>Colorado  </td><td> 1.4993407</td><td> 0.9776297</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">))</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">))</span>
+<span class="c1"># Grafico en primer plano principal</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">PC</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">PC1</span><span class="p">,</span> <span class="n">PC2</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="n">modelr</span><span class="o">::</span><span class="nf">geom_ref_line</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span> <span class="o">+</span>
+  <span class="n">modelr</span><span class="o">::</span><span class="nf">geom_ref_line</span><span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_text</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="n">State</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Primera Componente Principal&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Segunda Componente Principal&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Proyección en primer plano principal del los datos USArrests&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_17_0.png" src="../../_images/PCA_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="seleccion-del-numero-de-componentes-principales">
+<h3><span class="section-number">16.1.3. </span>Selección del número de componentes principales<a class="headerlink" href="#seleccion-del-numero-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Como ya se ha mencionado el PCA reduce la dimensionalidad al mismo tiempo que explica la mayor parte de la variabilidad, pero existe un método más técnico para medir exactamente qué porcentaje de la varianza se mantuvo en estos componentes principales.</p>
+<p>La proporción de varianza explicada (PVE) por la m-ésima componente principal se calcula utilizando la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[PVE = \frac{\sum_{i=1}^n \sum_{j=1}^d (w_{jm}x_{ij})^2}{\sum_{i=1}^n \sum_{j=1}^d {x_{ij}}^2}\]</div>
+<p>De los cálculos previos se tiene que otra manera de calcular el PVE de la m-ésima componente principal es considerando los valores propios:</p>
+<div class="math notranslate nohighlight">
+\[PVE = \frac{\lambda_m}{\sum_{j=1}^d \lambda_j}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PVE</span> <span class="o">&lt;-</span> <span class="n">arrests.eigen</span><span class="o">$</span><span class="n">values</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">arrests.eigen</span><span class="o">$</span><span class="n">values</span><span class="p">)</span>
+<span class="nf">round</span><span class="p">(</span><span class="n">PVE</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.62</li><li>0.25</li><li>0.09</li><li>0.04</li></ol>
+</div></div>
+</div>
+<p>La primera componente principal en el ejemplo explica el 62% de la variabilidad, y la segunda componente principal explica el 25%. Juntas, las dos primeras componentes principales explican el 87% de la variabilidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de la PVE</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="n">PVEplot</span> <span class="o">&lt;-</span> <span class="nf">barplot</span><span class="p">(</span><span class="n">PVE</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Componente Principal&quot;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&quot;PVE&quot;</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span> <span class="s">&quot;Gráfico PVE&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">names.arg</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">))</span>
+<span class="n">cumPVE</span> <span class="o">&lt;-</span> <span class="nf">barplot</span><span class="p">(</span><span class="nf">cumsum</span><span class="p">(</span><span class="n">PVE</span><span class="p">),</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Componente Principal&quot;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span> <span class="s">&quot;Gráfico PVE Acumulada&quot;</span><span class="p">,</span> <span class="n">names.arg</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_21_0.png" src="../../_images/PCA_21_0.png" />
+</div>
+</div>
+<p><strong>Número Óptimo de Componentes principales</strong></p>
+<p>En este ejemplo el número óptimo de componentes principales es 2, pues con ellas se conserva e 87% de la varianza.</p>
+<p><strong>Las funciones predefinidas en R:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">USArrests</span><span class="p">)</span>
+<span class="n">pca_res</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">pca_res</span><span class="p">)</span>
+<span class="n">pca_res</span><span class="o">$</span><span class="n">sdev</span>
+<span class="n">pca_res</span><span class="o">$</span><span class="n">rotation</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="n">pca_res</span><span class="o">$</span><span class="n">rotation</span>
+<span class="n">pca_res</span><span class="o">$</span><span class="n">center</span>
+<span class="n">pca_res</span><span class="o">$</span><span class="n">scale</span>
+<span class="n">pca_res</span><span class="o">$</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="o">-</span><span class="n">pca_res</span><span class="o">$</span><span class="n">x</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">pca_res</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pca_res</span><span class="p">)</span>
+<span class="nf">barplot</span><span class="p">(</span><span class="nf">cumsum</span><span class="p">(</span><span class="n">pca_res</span><span class="o">$</span><span class="n">sdev</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'sdev'</li><li>'rotation'</li><li>'center'</li><li>'scale'</li><li>'x'</li></ol>
+</div><div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1.57487827439123</li><li>0.994869414817764</li><li>0.597129115502527</li><li>0.41644938195396</li></ol>
+</div><div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>7.788</dd><dt>Assault</dt><dd>170.76</dd><dt>UrbanPop</dt><dd>65.54</dd><dt>Rape</dt><dd>21.232</dd></dl>
+</div><div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Murder</dt><dd>4.35550976420929</dd><dt>Assault</dt><dd>83.3376608400171</dd><dt>UrbanPop</dt><dd>14.4747634008368</dd><dt>Rape</dt><dd>9.36638453105965</dd></dl>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviations (1, .., p=4):
+[1] 1.5748783 0.9948694 0.5971291 0.4164494
+
+Rotation (n x k) = (4 x 4):
+               PC1        PC2        PC3         PC4
+Murder   0.5358995 -0.4181809  0.3412327 -0.64922780
+Assault  0.5831836 -0.1879856  0.2681484  0.74340748
+UrbanPop 0.2781909  0.8728062  0.3780158 -0.13387773
+Rape     0.5434321  0.1673186 -0.8177779 -0.08902432
+</pre></div>
+</div>
+<img alt="../../_images/PCA_24_5.png" src="../../_images/PCA_24_5.png" />
+<img alt="../../_images/PCA_24_6.png" src="../../_images/PCA_24_6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">biplot</span><span class="p">(</span><span class="n">pca_res</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_25_0.png" src="../../_images/PCA_25_0.png" />
+</div>
+</div>
+<div class="section" id="ejercicio-2">
+<h4><span class="section-number">16.1.3.1. </span>Ejercicio 2:<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>a) Explique a que corresponden cada una de las componente del objeto resultante de utilizar la función prcomp</p>
+<p>b) Explique como se relacionan variables y observaciones en este último gráfico.
+Compare los resultados obtenidos utilizando la función predefinida en R prcomp con aquellos de los cálculos previos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## recuperando los datos originales o una aproximación de ellos</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">pca_res</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">datos</span><span class="p">))</span>
+<span class="c1">#proyección en el primer plano principal</span>
+<span class="n">pr</span> <span class="o">=</span> <span class="n">pca_res</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">pr</span><span class="p">)</span>
+<span class="n">pr_datos</span> <span class="o">&lt;-</span> <span class="n">datos</span><span class="o">%*%</span><span class="n">pr</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">pr_datos</span><span class="p">)</span>
+<span class="c1">#volviendo al espacio original</span>
+<span class="n">rec</span> <span class="o">&lt;-</span> <span class="n">pr_datos</span><span class="o">%*%</span><span class="nf">t</span><span class="p">(</span><span class="n">pr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Murder Assault UrbanPop Rape
+Alabama          13.2     236       58 21.2
+Alaska           10.0     263       48 44.5
+Arizona           8.1     294       80 31.0
+Arkansas          8.8     190       50 19.5
+California        9.0     276       91 40.6
+Colorado          7.9     204       78 38.7
+Connecticut       3.3     110       77 11.1
+Delaware          5.9     238       72 15.8
+Florida          15.4     335       80 31.9
+Georgia          17.4     211       60 25.8
+Hawaii            5.3      46       83 20.2
+Idaho             2.6     120       54 14.2
+Illinois         10.4     249       83 24.0
+Indiana           7.2     113       65 21.0
+Iowa              2.2      56       57 11.3
+Kansas            6.0     115       66 18.0
+Kentucky          9.7     109       52 16.3
+Louisiana        15.4     249       66 22.2
+Maine             2.1      83       51  7.8
+Maryland         11.3     300       67 27.8
+Massachusetts     4.4     149       85 16.3
+Michigan         12.1     255       74 35.1
+Minnesota         2.7      72       66 14.9
+Mississippi      16.1     259       44 17.1
+Missouri          9.0     178       70 28.2
+Montana           6.0     109       53 16.4
+Nebraska          4.3     102       62 16.5
+Nevada           12.2     252       81 46.0
+New Hampshire     2.1      57       56  9.5
+New Jersey        7.4     159       89 18.8
+New Mexico       11.4     285       70 32.1
+New York         11.1     254       86 26.1
+North Carolina   13.0     337       45 16.1
+North Dakota      0.8      45       44  7.3
+Ohio              7.3     120       75 21.4
+Oklahoma          6.6     151       68 20.0
+Oregon            4.9     159       67 29.3
+Pennsylvania      6.3     106       72 14.9
+Rhode Island      3.4     174       87  8.3
+South Carolina   14.4     279       48 22.5
+South Dakota      3.8      86       45 12.8
+Tennessee        13.2     188       59 26.9
+Texas            12.7     201       80 25.5
+Utah              3.2     120       80 22.9
+Vermont           2.2      48       32 11.2
+Virginia          8.5     156       63 20.7
+Washington        4.0     145       73 26.2
+West Virginia     5.7      81       39  9.3
+Wisconsin         2.6      53       66 10.8
+Wyoming           6.8     161       60 15.6
+[1] 50  4
+                PC1         PC2         PC3         PC4
+Murder   0.04170432 -0.04482166  0.07989066 -0.99492173
+Assault  0.99522128 -0.05876003 -0.06756974  0.03893830
+UrbanPop 0.04633575  0.97685748 -0.20054629 -0.05816914
+Rape     0.07515550  0.20071807  0.97408059  0.07232502
+                     PC1      PC2         PC3          PC4
+Alabama        239.70349 46.45394  -5.8730769  -5.78404849
+Alaska         267.72878 39.91901  16.7484308   0.71789947
+Arizona        298.96954 66.73235  -5.0655924   0.97753765
+Arkansas       193.24136 41.19804  -3.1679547  -2.85515395
+California     282.32428 80.42202   3.3677289  -0.56432165
+Colorado       209.87731 71.62154   8.9012188  -1.65468386
+Connecticut    114.01404 70.83448 -11.7988012  -2.67624527
+Delaware       241.63235 59.25575 -14.6591014   0.35183363
+Florida        340.14570 64.17664  -6.3760772  -4.62382827
+Georgia        215.43650 50.61171   0.2313854 -10.71982040
+Hawaii          51.36522 82.19316   0.3462988  -6.84899696
+Idaho          123.10432 48.43276  -4.8982076  -0.02831923
+Illinois       253.89342 70.79901  -9.2614088  -3.74378830
+Indiana        117.35036 60.74822   0.3600164  -5.02557772
+Iowa            59.31454 54.55982  -4.0321734  -2.50665157
+Kansas         119.11163 61.05919  -2.9937799  -4.02893925
+Kentucky       112.51815 47.22868  -1.1410550  -7.25236397
+Louisiana      253.17896 53.60703  -7.2060137  -7.85970656
+Maine           85.64028 46.41412  -8.0705497  -1.25994807
+Maryland       304.23146 52.89492  -5.7253169  -1.44782331
+Massachusetts  153.63504 77.35213 -10.8852924  -2.34132861
+Michigan       260.35285 63.80651   3.0861981  -3.87519545
+Minnesota       75.94651 63.11155  -3.3715703  -2.64425189
+Mississippi    261.75768 30.47353  -8.3815803  -7.25590524
+Missouri       182.88761 63.17759   2.1224357  -4.05555306
+Montana        112.41769 48.39145  -1.5397887  -3.62209021
+Nebraska       105.80478 57.69076  -2.9101232  -2.71958113
+Nevada         258.51490 73.00414  12.5105508  -3.71034380
+New Hampshire   60.12397 53.16739  -5.6605310  -2.44023700
+New Jersey     164.08560 81.03929  -9.6883014  -4.98857485
+New Mexico     289.76949 57.56550  -1.1168741  -1.99489979
+New York       259.19556 73.82592  -8.0994036  -4.26816691
+North Carolina 339.22684 26.80534 -15.0743075  -1.26495482
+North Dakota    47.40573 41.76691  -4.6899739  -1.07518364
+Ohio           124.81450 70.18128  -1.7208133  -5.40526323
+Oklahoma       155.20760 61.27208  -3.8312873  -3.19580182
+Oregon         163.75109 61.76802   4.7518365  -0.46213667
+Pennsylvania   110.21218 66.81350  -6.5846126  -5.25108287
+Rhode Island   177.96530 76.27592 -20.8481637  -1.06788788
+South Carolina 282.18239 34.36584  -5.4109391  -4.62789381
+South Dakota    88.79461 41.30409  -2.0637641  -2.12386017
+Tennessee      192.40759 51.39538   2.7219835  -7.29900331
+Texas          206.19245 70.88691  -3.7715533  -7.61815161
+Utah           124.98793 75.55041  -1.5899755  -1.50844232
+Vermont         50.18686 30.58839   1.4246336  -1.37116188
+Virginia       160.08388 56.14934  -2.3327559  -4.54998839
+Washington     149.82549 67.86992   1.4029836  -0.68506570
+West Virginia   83.35668 34.94907  -3.7801275  -4.11302566
+Wisconsin       56.72500 63.40953  -6.0894648  -3.58111996
+Wyoming        164.46679 51.97750  -7.1725909  -2.85828013
+               Murder Assault UrbanPop Rape
+Alabama          13.2     236       58 21.2
+Alaska           10.0     263       48 44.5
+Arizona           8.1     294       80 31.0
+Arkansas          8.8     190       50 19.5
+California        9.0     276       91 40.6
+Colorado          7.9     204       78 38.7
+Connecticut       3.3     110       77 11.1
+Delaware          5.9     238       72 15.8
+Florida          15.4     335       80 31.9
+Georgia          17.4     211       60 25.8
+Hawaii            5.3      46       83 20.2
+Idaho             2.6     120       54 14.2
+Illinois         10.4     249       83 24.0
+Indiana           7.2     113       65 21.0
+Iowa              2.2      56       57 11.3
+Kansas            6.0     115       66 18.0
+Kentucky          9.7     109       52 16.3
+Louisiana        15.4     249       66 22.2
+Maine             2.1      83       51  7.8
+Maryland         11.3     300       67 27.8
+Massachusetts     4.4     149       85 16.3
+Michigan         12.1     255       74 35.1
+Minnesota         2.7      72       66 14.9
+Mississippi      16.1     259       44 17.1
+Missouri          9.0     178       70 28.2
+Montana           6.0     109       53 16.4
+Nebraska          4.3     102       62 16.5
+Nevada           12.2     252       81 46.0
+New Hampshire     2.1      57       56  9.5
+New Jersey        7.4     159       89 18.8
+New Mexico       11.4     285       70 32.1
+New York         11.1     254       86 26.1
+North Carolina   13.0     337       45 16.1
+North Dakota      0.8      45       44  7.3
+Ohio              7.3     120       75 21.4
+Oklahoma          6.6     151       68 20.0
+Oregon            4.9     159       67 29.3
+Pennsylvania      6.3     106       72 14.9
+Rhode Island      3.4     174       87  8.3
+South Carolina   14.4     279       48 22.5
+South Dakota      3.8      86       45 12.8
+Tennessee        13.2     188       59 26.9
+Texas            12.7     201       80 25.5
+Utah              3.2     120       80 22.9
+Vermont           2.2      48       32 11.2
+Virginia          8.5     156       63 20.7
+Washington        4.0     145       73 26.2
+West Virginia     5.7      81       39  9.3
+Wisconsin         2.6      53       66 10.8
+Wyoming           6.8     161       60 15.6
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Volviendo al ejemplo de los dígitos:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mnist</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;mnist_train.csv&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="c1">#agregando nombres a las columnas</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">mnist</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="o">&lt;-</span><span class="s">&quot;Digit&quot;</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="nf">ncol</span><span class="p">(</span><span class="n">mnist</span><span class="p">),</span><span class="n">by</span><span class="o">=</span><span class="m">1</span><span class="p">)){</span><span class="nf">colnames</span><span class="p">(</span><span class="n">mnist</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;-</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;pixel&quot;</span><span class="p">,</span><span class="nf">as.character</span><span class="p">(</span><span class="n">i</span><span class="m">-1</span><span class="p">),</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)}</span>
+
+<span class="c1">#selección de datos que representan el Nro 3</span>
+<span class="n">datos3</span> <span class="o">&lt;-</span> <span class="n">mnist</span><span class="p">[</span><span class="n">mnist</span><span class="o">$</span><span class="n">Digit</span><span class="o">==</span><span class="m">3</span><span class="p">,</span><span class="m">-1</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">datos3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1431  784
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">##separando las columnas con sólo 0`s</span>
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">1431</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">784</span><span class="p">)</span>
+<span class="n">col0</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">k</span><span class="o">=</span><span class="m">0</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">784</span><span class="p">){</span>
+   <span class="n">vec</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">datos3</span><span class="p">[,</span><span class="n">j</span><span class="p">])</span>
+    <span class="nf">if</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="m">0</span><span class="p">)</span>
+        <span class="n">col0</span> <span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="n">col0</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">else</span><span class="p">{</span>
+        <span class="n">k</span> <span class="o">&lt;-</span> <span class="n">k</span><span class="m">+1</span>
+        <span class="n">datos</span><span class="p">[,</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">vec</span>  
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="n">datos</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="n">k</span><span class="p">]</span>
+<span class="n">col0</span> <span class="o">&lt;-</span> <span class="n">col0</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">datos</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">col0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1431  536
+[1] 248
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#reducción de dimensiones usando PCA</span>
+<span class="n">res</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="c1">#utilizando j componentes</span>
+<span class="n">j</span><span class="o">=</span><span class="m">10</span>
+<span class="n">pr</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">res</span><span class="o">$</span><span class="n">rotation</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="n">j</span><span class="p">],</span><span class="n">ncol</span><span class="o">=</span><span class="n">j</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">536</span><span class="p">)</span>
+
+<span class="c1">#proyección en j componentes</span>
+<span class="n">pr_datos</span> <span class="o">&lt;-</span> <span class="n">datos</span><span class="o">%*%</span><span class="n">pr</span>
+
+<span class="c1">#reconstrucción a partir de la proyección en j componentes</span>
+<span class="n">rec</span> <span class="o">&lt;-</span> <span class="nf">trunc</span><span class="p">(</span><span class="n">pr_datos</span><span class="o">%*%</span><span class="nf">t</span><span class="p">(</span><span class="n">pr</span><span class="p">))</span>
+<span class="n">rect</span> <span class="o">&lt;-</span> <span class="n">rec</span>
+
+<span class="c1">#truncando al rango de valores de grises</span>
+<span class="n">rect</span><span class="p">[</span><span class="n">rec</span><span class="p">[,]</span><span class="o">&lt;</span><span class="m">0</span><span class="p">]</span><span class="o">&lt;-</span><span class="m">0</span>
+<span class="n">rect</span><span class="p">[</span><span class="n">rec</span><span class="p">[,]</span><span class="o">&gt;</span><span class="m">255</span><span class="p">]</span><span class="o">&lt;-</span><span class="m">255</span>
+
+<span class="c1">#agregando las columnas con ceros</span>
+<span class="n">datosR</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="m">784</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">1431</span><span class="p">)</span>
+<span class="n">k</span><span class="o">&lt;-</span><span class="m">1</span>
+<span class="n">l</span><span class="o">&lt;-</span><span class="m">1</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">784</span><span class="p">){</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">j</span><span class="o">!=</span><span class="n">col0</span><span class="p">[</span><span class="n">k</span><span class="p">]){</span>
+       <span class="n">datosR</span><span class="p">[,</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;-</span><span class="n">rect</span><span class="p">[,</span><span class="n">l</span><span class="p">]</span>
+       <span class="n">l</span><span class="o">&lt;-</span><span class="n">l</span><span class="m">+1</span>
+    <span class="p">}</span>
+    <span class="n">else</span>
+        <span class="n">k</span> <span class="o">&lt;-</span> <span class="n">k</span><span class="m">+1</span>
+<span class="p">}</span>
+<span class="c1">#comparación de la representación de una observación considerando las 784 variables o j</span>
+<span class="n">digit</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">datos3</span><span class="p">[</span><span class="m">48</span><span class="p">,]),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">28</span><span class="p">)</span>
+<span class="nf">image</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">grey.colors</span><span class="p">(</span><span class="m">255</span><span class="p">))</span>
+
+<span class="n">digitR</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">datosR</span><span class="p">[</span><span class="m">48</span><span class="p">,]),</span><span class="n">nrow</span><span class="o">=</span><span class="m">28</span><span class="p">)</span>
+<span class="nf">image</span><span class="p">(</span><span class="n">digitR</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">grey.colors</span><span class="p">(</span><span class="m">255</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_31_0.png" src="../../_images/PCA_31_0.png" />
+<img alt="../../_images/PCA_31_1.png" src="../../_images/PCA_31_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="otro-enfoque-modelos-lineales-latentes">
+<h2><span class="section-number">16.2. </span>Otro enfoque: Modelos Lineales Latentes<a class="headerlink" href="#otro-enfoque-modelos-lineales-latentes" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="analisis-factorial">
+<h3><span class="section-number">16.2.1. </span>Análisis Factorial<a class="headerlink" href="#analisis-factorial" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Consideremos que asociado a un vector aleatorio <span class="math notranslate nohighlight">\(d\)</span>-dimensional <span class="math notranslate nohighlight">\(x_i\)</span> existe un vector aleatorio de variables latentes <span class="math notranslate nohighlight">\(z_i\)</span> de menor dimension, <span class="math notranslate nohighlight">\(l\)</span>, que cumple:</p>
+<div class="math notranslate nohighlight">
+\[z_i \sim \mathcal{N}(z_i \mid \mu_0,\Sigma_0)\]</div>
+<p>y</p>
+<div class="math notranslate nohighlight">
+\[P(x_i\mid z_i ,\theta) = \mathcal{N}(Wz_i + \mu, \Psi)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(W\)</span> matriz de dimensiones <span class="math notranslate nohighlight">\(dxl\)</span> es conocida como matriz de coeficientes factoriales y <span class="math notranslate nohighlight">\(\Psi\)</span> es la matriz de covarianza de dimensión <span class="math notranslate nohighlight">\(dxd\)</span></p>
+<p>La idea principal del Análisis Factorial es  que <span class="math notranslate nohighlight">\(\Psi\)</span> es una matriz diagonal, es decir, que toda la correlación de las variables originales se concentra en las variables latentes.
+El caso especial en que:</p>
+<div class="math notranslate nohighlight">
+\[\Psi= \sigma^2 I\]</div>
+<p>se denomina <strong>Análisis de Componentes Principales Probabilístico (PPCA)</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">display_png</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;figura3.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_35_0.png" src="../../_images/PCA_35_0.png" />
+</div>
+</div>
+<p>En este contexto, si agregamos como restricciones que <span class="math notranslate nohighlight">\(W\)</span> sea ortonormal y que <span class="math notranslate nohighlight">\(\sigma^2 \to 0\)</span>, el modelo se reduce al <strong>PCA clásico</strong>.</p>
+<p>En efecto, se puede formular el siguiente teorema:</p>
+<p><strong>Teorema 1:</strong> Supongamos que buscamos una base lineal ortogonal de <span class="math notranslate nohighlight">\(l\)</span> vectores <span class="math notranslate nohighlight">\(w_j \in \mathbb{R}^d\)</span> y las correspondientes variables latentes <span class="math notranslate nohighlight">\(z_i \in  \mathbb{R}^l\)</span>, tales que se minimice el <strong>error de reconstrucción</strong> medio:</p>
+<div class="math notranslate nohighlight">
+\[J(W,Z) = \frac{1}{n} \sum_{i=1}^n \|x_i-\hat{x_i}\|^2\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[ \hat{x_i}= Wz_i\]</div>
+<p>Entonces, sujeto a que <span class="math notranslate nohighlight">\(W\)</span> es ortonormal, se puede demostrar que la solución óptima es</p>
+<div class="math notranslate nohighlight">
+\[\hat{W} = V_l\]</div>
+<p>donde <span class="math notranslate nohighlight">\(V_l\)</span> contiene los <span class="math notranslate nohighlight">\(l\)</span> vectores propios asociados a los mayores valores propios de la matrix de covarianzas empìricas de <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n x_i^T {x_i}\]</div>
+<p>Además la codificación óptima de los datos de dimensión <span class="math notranslate nohighlight">\(l\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[\hat{z_i} = W^Tx_i\]</div>
+<p>que es la proyección de los datos  en el espacio generado por los primeros <span class="math notranslate nohighlight">\(l\)</span> vectores propios  de <span class="math notranslate nohighlight">\(\Sigma\)</span>.</p>
+<p><strong>Demostración</strong>: ver en Murphy “Machine Learning, a probabilistic approach”, Capítulo 12.</p>
+<p>En el caso general <span class="math notranslate nohighlight">\(\sigma^2 &gt;0\)</span> se tiene el siguiente teorema, que corresponde al PPCA.</p>
+<p><strong>Teorema 2:</strong> Considere el modelo de análisis factorial con <span class="math notranslate nohighlight">\(\Psi = \sigma^2 I\)</span>. Entonces, se cumple que el log de la verosimilitud observada es:
+$<span class="math notranslate nohighlight">\(log p(X \mid W, \sigma^2) = \frac{-n}{2} ln |C| - \frac{1}{2}\sum_{i=1}^n {x_i}^T C^{-1} x_i = 
+\frac{-n}{2} ln |C| + tr(C^{-1} \hat{\Sigma})\)</span><span class="math notranslate nohighlight">\(
+donde \)</span><span class="math notranslate nohighlight">\(C = WW^T + \sigma^2 I\)</span><span class="math notranslate nohighlight">\( y 
+\)</span><span class="math notranslate nohighlight">\(\hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n x_i^T {x_i}\)</span><span class="math notranslate nohighlight">\(
+Se puede mostrar que este caso, los estimadores de máxima verosimilitud de \)</span>W<span class="math notranslate nohighlight">\( y \)</span>\sigma^2$ están dados por:</p>
+<div class="math notranslate nohighlight">
+\[\hat{W}  = V (\Lambda -\sigma^2I)^{1/2} \]</div>
+<p>donde <span class="math notranslate nohighlight">\(V\)</span> es la matriz cuyas columnas son los <span class="math notranslate nohighlight">\(l\)</span> primeros vectores propios de <span class="math notranslate nohighlight">\(\hat{\Sigma}\)</span> y <span class="math notranslate nohighlight">\(\Lambda\)</span> es una  matriz diagonal de <span class="math notranslate nohighlight">\(lxl\)</span> de los valores propios correspondientes. Además,
+$<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = \frac{1}{d-l} \sum_{j=l+1}^d \lambda_j\)</span>$
+que es la varianza promedio asociada a las dimensiones descartadas.</p>
+<p><strong>Demostración:</strong> Tipping y Bishop, 1999 (ver en Murphy “Machine Learning, a probabilistic approach”, Capítulo 12.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">display_png</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s">&quot;figura4.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_39_0.png" src="../../_images/PCA_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">##if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))</span>
+<span class="c1">##    install.packages(&quot;BiocManager&quot;)</span>
+<span class="c1">##</span>
+<span class="c1">##BiocManager::install(&quot;pcaMethods&quot;)</span>
+<span class="nf">suppressMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;pcaMethods&quot;</span><span class="p">))</span>
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">USArrests</span><span class="p">)</span>
+<span class="n">datos</span> <span class="o">&lt;-</span> <span class="nf">scale</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">pca</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;ppca&quot;</span><span class="p">,</span> <span class="n">nPcs</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="m">123</span><span class="p">)</span>
+<span class="c1">## Get the estimated complete observations</span>
+<span class="n">cObs</span> <span class="o">&lt;-</span> <span class="nf">completeObs</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1">## Plot the scores</span>
+<span class="nf">plotPcs</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_40_0.png" src="../../_images/PCA_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">pca</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;ppca&quot;</span><span class="p">,</span> <span class="n">nPcs</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="m">123</span><span class="p">)</span>
+<span class="c1">## Get the estimated complete observations</span>
+<span class="n">cObs</span> <span class="o">&lt;-</span> <span class="nf">completeObs</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1">## Plot the scores</span>
+<span class="nf">plotPcs</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;scores&quot;</span><span class="p">)</span>
+<span class="nf">biplot</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/PCA_41_0.png" src="../../_images/PCA_41_0.png" />
+<img alt="../../_images/PCA_41_1.png" src="../../_images/PCA_41_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./lectures/8_PCA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" title="previous page"><span class="section-number">15. </span>Regresiones para Respuestas Discretas</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse and Eliana Scheihing<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
