@@ -23,9 +23,10 @@ parts:
     - file: lectures/5_linear_regression/lecture
     - file: lectures/6_ANOVA/anova_y_asociacionDiscretas
     - file: lectures/7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta
-  #- caption: Exploratory analysis
-    #numbered: true
-    #chapters:
+  - caption: Exploratory analysis
+    numbered: true
+    chapters: 
+    - file: lectures/8_PCA/PCA
     #- file: lectures/9_mixture_models/lecture
   #- caption: Bayesian modeling
     #numbered: true
