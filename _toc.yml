@@ -27,8 +27,9 @@ parts:
     numbered: true
     chapters: 
     - file: lectures/8_PCA/PCA
-    #- file: lectures/9_mixture_models/lecture
-  #- caption: Bayesian modeling
-    #numbered: true
-    #chapters:
+    - file: lectures/9_mixture_models/lecture
+  - caption: Bayesian modeling
+    numbered: true
+    chapters:
+    - file: lectures/10_ModelamientoBayesiano/ModelamientoBayesiano
     #- file: lectures/11_MCMC/lecture 
