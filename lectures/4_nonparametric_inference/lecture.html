@@ -191,7 +191,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Exploratory analysis
+  Análisis Exploratorio
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -208,13 +208,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Bayesian modeling
+  Modelamiento Bayesiano
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
    18. Modelamiento Bayesiano
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_MCMC/lecture.html">
+   19. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -2220,8 +2225,8 @@ F_n(x) = \frac{1}{N} \sum_{i=1}^N \mathbb{1}[X_i&lt;x]
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(D_n\)</span> es menor que el valor crítico no podemos rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="10e7c6b6-b9ad-4a09-8b7d-8ae525b93ff2" name="bacfb243-3a11-458e-8026-7047d97e620f" type="radio">
-</input><label class="tabbed-label" for="10e7c6b6-b9ad-4a09-8b7d-8ae525b93ff2">
+<input checked="checked" id="4bbb2994-9e0e-422f-9e2e-45303ee081aa" name="25050f74-ff56-4240-a578-08ba701aaa52" type="radio">
+</input><label class="tabbed-label" for="4bbb2994-9e0e-422f-9e2e-45303ee081aa">
 Python</label><div class="tabbed-content docutils">
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Arreglo de muestras o función rvs de scipy.stats</span>
@@ -2235,8 +2240,8 @@ Python</label><div class="tabbed-content docutils">
 </div>
 <p>La función retorna una estructura con el valor del <span class="math notranslate nohighlight">\(D_n\)</span> y el p-value</p>
 </div>
-<input id="d8e1042e-6fc3-4fed-b596-5845f8650905" name="bacfb243-3a11-458e-8026-7047d97e620f" type="radio">
-</input><label class="tabbed-label" for="d8e1042e-6fc3-4fed-b596-5845f8650905">
+<input id="be65179b-d8fd-44f0-9f7a-ba825c0fd3aa" name="25050f74-ff56-4240-a578-08ba701aaa52" type="radio">
+</input><label class="tabbed-label" for="be65179b-d8fd-44f0-9f7a-ba825c0fd3aa">
 R</label><div class="tabbed-content docutils">
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">stats</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ks.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Vector con datos numéricos</span>
