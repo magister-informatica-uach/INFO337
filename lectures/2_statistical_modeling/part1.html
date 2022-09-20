@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Parametric modeling &#8212; Herramientas estadísticas para la investigación</title>
+    <title>7. Ajuste de modelos paramétricos con MLE &#8212; Herramientas estadísticas para la investigación</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,33 +32,38 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="7. Nonparametric modeling" href="part2.html" />
-    <link rel="prev" title="5. Teoremas Asintóticos" href="../1_TeoriaProbabilidades/parte5.html" />
+    <link rel="next" title="8. Nonparametric modeling" href="part2.html" />
+    <link rel="prev" title="6. Inferencia con modelos paramétricos y no paramétricos" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -75,6 +80,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -84,9 +93,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elementos de Teoría de Probabilidades
  </span>
@@ -118,29 +127,34 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelamiento Estadístico
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   6. Inferencia con modelos paramétricos y no paramétricos
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Parametric modeling
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   7. Nonparametric modeling
+   8. Nonparametric modeling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   8. Bayesian modeling
+   9. Bayesian modeling
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Pensamiento Estadístico
  </span>
@@ -148,21 +162,21 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html">
-   9. Inferencia en Estadística Paramétrica
+   10. Inferencia en Estadística Paramétrica
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
-   10. Inferencia estadística con tests no-paramétricos
+   11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   11. Análisis de Asociación de Variables Aleatorias
+   12. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Regresión Lineal
  </span>
@@ -170,26 +184,26 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part1.html">
-   12. Introduction to linear regression
+   13. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part2.html">
-   13. Multivariate linear regression
+   14. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part3.html">
-   14. Linear models and Basis functions
+   15. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   15. Regresiones para Respuestas Discretas
+   16. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Análisis Exploratorio
  </span>
@@ -197,16 +211,16 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   16. Análisis Exploratorio y Reducción de la Dimensionalidad
+   17. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   17. Gaussian Mixture Models
+   18. Gaussian Mixture Models
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelamiento Bayesiano
  </span>
@@ -214,12 +228,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   18. Modelamiento Bayesiano
+   19. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   19. A tutorial on Markov Chain Monte Carlo
+   20. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -268,7 +282,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -316,82 +330,53 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contenido
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   6.1. Introduction
+  <a class="reference internal nav-link" href="#la-verosimilitud">
+   7.1. La verosimilitud
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud-mle">
+   7.2. Estimación de máxima verosimilitud (MLE)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-statistical-inference">
-     6.1.1. What is statistical inference?
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-la-media-de-una-distribucion-gaussiana">
+     7.2.1. Ejemplo: MLE para la media de una distribución Gaussiana
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-difference-between-parametric-and-non-parametric-models">
-     6.1.2. The difference between parametric and non-parametric models
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-la-varianza-de-una-distribucion-gaussiana">
+     7.2.2. Ejemplo: MLE para la varianza de una distribución Gaussiana
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-difference-between-frequentist-and-bayesian-inference">
-     6.1.3. The difference between Frequentist and Bayesian inference
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-una-mezcla-de-gaussianas">
+     7.2.3. Ejemplo: MLE para una mezcla de Gaussianas
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequentist-approach-on-parametric-modeling">
-   6.2. Frequentist approach on parametric modeling
+  <a class="reference internal nav-link" href="#una-nota-sobre-estimadores-sesgados-e-insesgados">
+   7.3. Una nota sobre estimadores sesgados e insesgados
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-likelihood">
-     6.2.1. The likelihood
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#maximum-likelihood-estimation-mle">
-   6.3. Maximum Likelihood Estimation (MLE)
+  <a class="reference internal nav-link" href="#condiciones-de-optimalidad-e-incertidumbre-de-los-mles">
+   7.4. Condiciones de optimalidad e incertidumbre de los MLEs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-mle-for-the-mean-of-a-gaussian-distribution">
-     6.3.1. Example: MLE  for the mean of a Gaussian distribution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-mle-for-the-variance-of-a-gaussian-distribution">
-     6.3.2. Example: MLE for the variance of a Gaussian distribution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-note-on-biased-and-unbiased-estimators">
-     6.3.3. A note on biased and unbiased estimators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-mle-of-a-gaussian-mixture">
-     6.3.4. Example: MLE of a Gaussian mixture
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimality-properties-and-uncertainty-of-mles">
-   6.4. Optimality properties and uncertainty of MLEs
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-cramer-rao-bound-for-the-mle-of-mu">
-     6.4.1. Example: Cramer-Rao bound for the MLE of
+    <a class="reference internal nav-link" href="#ejemplo-cota-de-cramer-rao-para-el-mle-de-mu">
+     7.4.1. Ejemplo: Cota de Cramer-Rao para el MLE de
      <span class="math notranslate nohighlight">
       \(\mu\)
      </span>
@@ -400,25 +385,25 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hypothesis-tests-based-on-the-likelihood">
-   6.5. Hypothesis tests based on the likelihood
+  <a class="reference internal nav-link" href="#tests-de-hipotesis-basados-en-la-verosimilitud">
+   7.5. Tests de hipótesis basados en la verosimilitud
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wald-test">
-     6.5.1. Wald-test
+    <a class="reference internal nav-link" href="#test-de-wald">
+     7.5.1. Test de Wald
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#log-likelihood-ratio-test-or-wilks-test">
-     6.5.2. Log-likelihood ratio test or Wilks test
+    <a class="reference internal nav-link" href="#test-de-wilks">
+     7.5.2. Test de Wilks
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criteria-for-model-comparison">
-   6.6. Criteria for model comparison
+  <a class="reference internal nav-link" href="#criterios-para-comparacion-de-modelos">
+   7.6. Criterios para comparación de modelos
   </a>
  </li>
 </ul>
@@ -429,7 +414,94 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ajuste de modelos paramétricos con MLE</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-verosimilitud">
+   7.1. La verosimilitud
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud-mle">
+   7.2. Estimación de máxima verosimilitud (MLE)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-la-media-de-una-distribucion-gaussiana">
+     7.2.1. Ejemplo: MLE para la media de una distribución Gaussiana
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-la-varianza-de-una-distribucion-gaussiana">
+     7.2.2. Ejemplo: MLE para la varianza de una distribución Gaussiana
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-mle-para-una-mezcla-de-gaussianas">
+     7.2.3. Ejemplo: MLE para una mezcla de Gaussianas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#una-nota-sobre-estimadores-sesgados-e-insesgados">
+   7.3. Una nota sobre estimadores sesgados e insesgados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#condiciones-de-optimalidad-e-incertidumbre-de-los-mles">
+   7.4. Condiciones de optimalidad e incertidumbre de los MLEs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-cota-de-cramer-rao-para-el-mle-de-mu">
+     7.4.1. Ejemplo: Cota de Cramer-Rao para el MLE de
+     <span class="math notranslate nohighlight">
+      \(\mu\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-de-hipotesis-basados-en-la-verosimilitud">
+   7.5. Tests de hipótesis basados en la verosimilitud
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-wald">
+     7.5.1. Test de Wald
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-wilks">
+     7.5.2. Test de Wilks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#criterios-para-comparacion-de-modelos">
+   7.6. Criterios para comparación de modelos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -1982,189 +2054,133 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 </div>
-<div class="section" id="parametric-modeling">
-<h1><span class="section-number">6. </span>Parametric modeling<a class="headerlink" href="#parametric-modeling" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="introduction">
-<h2><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Modeling is a key step in the pipeline of statistical inference. In this series of lectures we will learn how to fit parametric and non-parametric models to our data.</p>
-<ul class="simple">
-<li><p>In the parametric case we will focus on the classical frequentist method to fit models: maximum likelihood estimation (MLE)</p></li>
-<li><p>Then we will review non-parametric modeling techniques such as the Histogram and Kernel density estimation</p></li>
-<li><p>After that we will go back to parametric modeling and extend MLE using priors: Maximum a posteriori</p></li>
-<li><p>Finally we will present key ideas on bayesian modeling that are to be further developed in a future series of lectures</p></li>
-</ul>
-<div class="section" id="what-is-statistical-inference">
-<h3><span class="section-number">6.1.1. </span>What is statistical inference?<a class="headerlink" href="#what-is-statistical-inference" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Inference is:</p>
-<blockquote>
-<div><p>To draw conclusions from facts through a scientific premise</p>
-</div></blockquote>
-<p>In the particular case of <strong>Statistical inference</strong> we have</p>
-<ul class="simple">
-<li><p>Facts: Observed data</p></li>
-<li><p>Premise: Probabilistic model</p></li>
-<li><p>Conclusion: An unobserved quantity of interest</p></li>
-<li><p>Objective: Quantify the uncertainty of the conclusion given the data and the premise</p></li>
-</ul>
-<p>The following are examples examples of statistical inference tasks:</p>
-<ul class="simple">
-<li><p><strong>Parameter estimation:</strong> What is the best estimate of a model parameter based on the observed data?</p></li>
-<li><p><strong>Confidence estimation:</strong> How trustworthy is our point estimate?</p></li>
-<li><p><strong>Hypothesis testing:</strong> Is the data consistent with a given hypothesis or model?</p></li>
-</ul>
-</div>
-<div class="section" id="the-difference-between-parametric-and-non-parametric-models">
-<h3><span class="section-number">6.1.2. </span>The difference between parametric and non-parametric models<a class="headerlink" href="#the-difference-between-parametric-and-non-parametric-models" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>To conduct inference we start by defining a statistical model</p>
-<p>Models can be broadly classified as:</p>
-<p><strong>Parametric:</strong></p>
-<ul class="simple">
-<li><p>It corresponds to an analytical function  (distribution) with free parameters</p></li>
-<li><p>Has an <em>a-priori</em> fixed number of parameters</p></li>
-<li><p>In general: Stronger assumptions, easier to interpret, faster to use</p></li>
-</ul>
-<p><strong>Non-parametric:</strong></p>
-<ul class="simple">
-<li><p>Distribution-free model but they do have parameters and assumptions (e.g. dependence)</p></li>
-<li><p>The number of parameters depends on the amount of training data</p></li>
-<li><p>In general: More flexible, harder to train</p></li>
-</ul>
-</div>
-<div class="section" id="the-difference-between-frequentist-and-bayesian-inference">
-<h3><span class="section-number">6.1.3. </span>The difference between Frequentist and Bayesian inference<a class="headerlink" href="#the-difference-between-frequentist-and-bayesian-inference" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>There are two main paradigms or perspectives for statistical inference: Frequentist (F) or classical and Bayesian (B). There are conceptual differences between these paradigms, for example</p>
-<p><strong>Definition of probability:</strong></p>
-<ul class="simple">
-<li><p>F: Relative frequency of an event. An objective property of the real world</p></li>
-<li><p>B: Degree of subjective belief. Probability statements can be made not only on data but also on parameters and models themselves</p></li>
-</ul>
-<p><strong>Interpretation of parameters:</strong></p>
-<ul class="simple">
-<li><p>F: They are unknown and fixed constants</p></li>
-<li><p>B: They have distributions that quantify the uncertainty of our knowledge about them. We can compute expected values of the parameters</p></li>
-</ul>
-<p>In this lecture we will focus on the frequentist approach to modeling. We will review the bayesian perspective in a future lesson</p>
-</div>
-</div>
-<div class="section" id="frequentist-approach-on-parametric-modeling">
-<h2><span class="section-number">6.2. </span>Frequentist approach on parametric modeling<a class="headerlink" href="#frequentist-approach-on-parametric-modeling" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>In the case of <strong>parametric inference</strong> we assume that observations follow a certain distribution, <em>i.e.</em> observations are a realization of a random process (sampling)</p>
-<p>The conceptual (iterative) steps of parametric inference are:</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="ajuste-de-modelos-parametricos-con-mle">
+<h1><span class="section-number">7. </span>Ajuste de modelos paramétricos con MLE<a class="headerlink" href="#ajuste-de-modelos-parametricos-con-mle" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En el caso de inferencia paramétrica asumimos que las observaciones siguen una cierta distribución, <em>i.e.</em> las observaciones son una realización (muestra) de un proceso aleatorio</p>
+<p>Los pasos conceptuales de la inferencia paramétrica son</p>
 <ol class="simple">
-<li><p><strong>Model fitting:</strong> Find parameters by fitting data to the current model</p></li>
-<li><p><strong>Model proposition:</strong> Propose a new model that accommodates important features of the data better than the previous one</p></li>
+<li><p><strong>Proposición</strong>: Se propone un modelo paramétrico en base a un proceso exploratorio sobre los datos</p></li>
+<li><p><strong>Ajuste:</strong> Se encuentran los valores de los parámetros que mejor ajustan los datos</p></li>
+<li><p><strong>Modificación:</strong> Se estudian los errores del modelo y de ser necesario se proponen modificaciones que acomodan características importantes de los datos que hayan sido omitidas anteriormente. Luego se vuelve al punto 2.</p></li>
 </ol>
-<p>In the frequentist approach step 1 is typically solved using <strong>Maximum Likelihood Estimation (MLE)</strong>. Other frequentist alternatives are the Method of Moments (MoM) and the M-estimator. Only MLE is covered in this lecture</p>
-<div class="section" id="the-likelihood">
-<h3><span class="section-number">6.2.1. </span>The likelihood<a class="headerlink" href="#the-likelihood" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>The likelihood function is a quantitative description of our experiment (measuring process), and it is the  starting point for <strong>parametric modeling</strong> for both the frequentist and bayesian paradigms. In simple terms the likelihood tells us how good our model is with respect to the <strong>observed data</strong></p>
-<p>Let’s now give a mathematical description of the likelihood</p>
+<p>En el paradigma frecuentista el paso 2 se resuelve típicamente utilizando la estimación de <strong>máxima verosimilitud (Maximum Likelihood Estimation, MLE)</strong>. Otros métodos frecuentistas son el <a class="reference external" href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_momentos_(estad%C3%ADstica)">método de los momentos</a> y el estimador-M. En esta lección nos concentraremos exclusivamente en el MLE</p>
+<div class="section" id="la-verosimilitud">
+<h2><span class="section-number">7.1. </span>La verosimilitud<a class="headerlink" href="#la-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La función de verosimilitud es una descripción cuantitativa de nuestro experimento o proceso de medición. Además es el punto de partida del modelamiento paramétrico en ambos paradigmas (F y B). En términos simples:</p>
+<blockquote>
+<div><p>la verosimilitud nos dice que tan bueno es nuestro modelo con respecto a los <strong>datos observados</strong></p>
+</div></blockquote>
+<p>Veamos ahora una definición matemática</p>
 <ul class="simple">
-<li><p>Suppose we have an experiment that we model as a set of R.Vs <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_N\)</span></p></li>
-<li><p>We also have observations/realizations from our R.Vs <span class="math notranslate nohighlight">\(\{x_i\} = x_1, x_2, \ldots, x_N\)</span></p></li>
-<li><p>We assume that the R.Vs follow a certain joint probability distribution <span class="math notranslate nohighlight">\(f(x_1, x_2, \ldots, x_N | \theta)\)</span> with parameters <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+<li><p>Sea el resultado de un experimento el cual modelamos como un conjunto de variables aleatorias (VA): <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_N\)</span></p></li>
+<li><p>Para cada una tenemos también observaciones (realizaciones): <span class="math notranslate nohighlight">\(\{x_i\} = x_1, x_2, \ldots, x_N\)</span></p></li>
+<li><p>Asumiremos que las VAs siguen una cierta distribución de probabilidad conjunta: <span class="math notranslate nohighlight">\(f(x_1, x_2, \ldots, x_N | \theta)\)</span> con parámetro <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
 </ul>
-<p>The likelihood function is then defined as</p>
+<p>En base a esto la verosimilitud se define como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\mathcal{L}(\theta) &amp;= P(X_1=x_1, X_2=x_2, \ldots, X_N=x_n) \nonumber \\
-&amp;= f(x_1, x_2, \ldots, x_N | \theta) \nonumber
-\end{align}
+\begin{split}
+\mathcal{L}(\theta) &amp;= P(X_1=x_1, X_2=x_2, \ldots, X_N=x_n) \\
+&amp;= f(x_1, x_2, \ldots, x_N | \theta),
+\end{split}
 \end{split}\]</div>
-<p>which is a function of the parameters <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p>For the examples in this lecture we will additionally assumme that our observations are <strong>independent and identically distributed</strong> (iid). With this we can simplify the previous expression as</p>
+<p>que es una función de los parámetros <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Para los ejemplos de esta clase asumiremos adicionalmente que nuestras observaciones son independientes e idénticamente distribuidas (i.i.d.). Con lo anterior podemos simplificar la expresión como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\mathcal{L}(\theta) &amp;= f(x_1| \theta) \cdot f(x_2| \theta) \cdot \ldots \cdot f(x_N| \theta) \nonumber \\
-&amp;= \prod_{i=1}^N f(x_i| \theta) \nonumber
-\end{align}
+\begin{split}
+\mathcal{L}(\theta) &amp;= f(x_1| \theta) \cdot f(x_2| \theta) \cdot \ldots \cdot f(x_N| \theta)  \\
+&amp;= \prod_{i=1}^N f(x_i| \theta) 
+\end{split}
 \end{split}\]</div>
-<p>The value of the likelihood itself does not hold much meaning, but it can be used to make comparisons between different values of the parameter vector <span class="math notranslate nohighlight">\(\theta\)</span>. <strong>The larger the likelihood the better the model</strong>, i.e. likelihood maximization allows us to find the best <span class="math notranslate nohighlight">\(\theta\)</span> for our data</p>
-<p>Before continuing consider the following</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El valor de la verosimilitud en si mismo no tiene mucho significado, pero puede usarse para hacer comparaciones entre distintos valores del vector de parámetros <span class="math notranslate nohighlight">\(\theta\)</span></p>
+</div>
+<p>En particular, mientras mayor es la verosimilitud, mejor es nuestro modelo, i.e. la maximización de la verosimilitud nos permite encontrar el mejor <span class="math notranslate nohighlight">\(\theta\)</span> para nuestras observaciones.</p>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p><strong>Likelihood is not probability</strong></p>
+<p>Verosimilitud no es lo mismo que probabilidad</p>
 </div>
 <ul class="simple">
-<li><p>The likelihood of a set of RVs does not integrate (or sum in the discrete case) to unity, <em>i.e.</em> in general the likelihood is not a valid probability density function.</p></li>
-<li><p>The likelihood by itself cannot be interpreted as a probability of <span class="math notranslate nohighlight">\(\theta\)</span>, it only tells us how likely is that <span class="math notranslate nohighlight">\(\{x_i\}\)</span> was generated by the distribution <span class="math notranslate nohighlight">\(f\)</span> with parameter <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+<li><p>La verosimilitud de una VA no integra a uno, <em>i.e.</em> en general la verosimilitud no es una densidad de probabilidad válida</p></li>
+<li><p>La verosimilitud en su misma no puede interpretarse como la probabilidad de <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+<li><p>La verosimilitud sólo puede decirnos que tan posible es que <span class="math notranslate nohighlight">\(\{x_i\}\)</span> haya sido generado por la distribución <span class="math notranslate nohighlight">\(f\)</span> con parámetros <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="maximum-likelihood-estimation-mle">
-<h2><span class="section-number">6.3. </span>Maximum Likelihood Estimation (MLE)<a class="headerlink" href="#maximum-likelihood-estimation-mle" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>In parametric modeling we are interested in finding <span class="math notranslate nohighlight">\(\theta\)</span> that best fit our observations.</p>
-<p>One method to do this is <strong>MLE</strong>:</p>
+<div class="section" id="estimacion-de-maxima-verosimilitud-mle">
+<h2><span class="section-number">7.2. </span>Estimación de máxima verosimilitud (MLE)<a class="headerlink" href="#estimacion-de-maxima-verosimilitud-mle" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En modelamiento paramétrico estamos interesados en encontrar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> que mejor ajusta a nuestras observaciones. El método que utilizaremos es MLE:</p>
 <ul class="simple">
-<li><p><strong>1</strong> Select a distribution (model) for the observations and formulate the likelihood <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span></p></li>
-<li><p><strong>2</strong> Search for <span class="math notranslate nohighlight">\(\theta\)</span> that maximizes <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span> given the data, <em>i.e.</em></p></li>
+<li><p><strong>1</strong> Seleccionar una distribución (modelo) para las observaciones y formular una verosimilitud <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span></p></li>
+<li><p><strong>2</strong> Buscar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> que maximiza <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span> dado los datos, <em>i.e.</em></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
 \hat \theta = \text{arg} \max_\theta \mathcal{L}(\theta),
 \]</div>
-<p>where the point estimate <span class="math notranslate nohighlight">\(\hat \theta\)</span>  is called the <strong>maximum likelihood estimator</strong> of <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p>After this we can</p>
+<p>donde el estimador puntual <span class="math notranslate nohighlight">\(\hat \theta\)</span> se llama <strong>estimador de máxima verosimilitud</strong> de <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Luego de esto podemos</p>
 <ul class="simple">
-<li><p><strong>3</strong> Determine the confidence region of <span class="math notranslate nohighlight">\(\hat \theta\)</span> either analytically or numerically (bootstrap, cross-validation, etc)</p></li>
-<li><p><strong>4</strong> Make conclusions about your model (hypothesis test)</p></li>
+<li><p><strong>3</strong> Determinar el intervalo de confianza de <span class="math notranslate nohighlight">\(\hat \theta\)</span> ya sea de forma analítica o numérica (bootstrap, validación-cruzada, etc)</p></li>
+<li><p><strong>4</strong> Extraer conclusiones sobre nuestro modelo (test de hipótesis)</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>A wrong assumption in step 1 can ruin your inference. Evaluate how appropriate your model is, compare with other models and suggest incremental improvements</p>
+<p>Un supuesto equivocado en el paso 1 invalidará nuestra inferencia. Siempre evalua que el método sea apropiado, compara con otros modelos y sugiere mejoras incrementales</p>
 </div>
-<div class="section" id="example-mle-for-the-mean-of-a-gaussian-distribution">
-<h3><span class="section-number">6.3.1. </span>Example: MLE  for the mean of a Gaussian distribution<a class="headerlink" href="#example-mle-for-the-mean-of-a-gaussian-distribution" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Let us consider a set of N measurements <span class="math notranslate nohighlight">\(\{x_i\}_{i=1,\ldots, N}\)</span> obtained from a sensor and that all were obtained under the same conditions</p>
-<p>The sensor used to measure the data has an error that follows a Gaussian distribution with known variance <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
-<p>If the conditions are the same then the measurements can be viewed as noisy realizations of the true value <span class="math notranslate nohighlight">\(\mu\)</span></p>
+<div class="section" id="ejemplo-mle-para-la-media-de-una-distribucion-gaussiana">
+<h3><span class="section-number">7.2.1. </span>Ejemplo: MLE para la media de una distribución Gaussiana<a class="headerlink" href="#ejemplo-mle-para-la-media-de-una-distribucion-gaussiana" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Consideremos un conjunto de N mediciones <span class="math notranslate nohighlight">\(\{x_i\}_{i=1,\ldots, N}\)</span> obtenidas de un sensor y que todas fueron obtenidas bajo las mismas condiciones. El sensor que se utilizó para medir los datos tiene un error que sigue una distribución Gaussiana con varianza conocida <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>Si las condiciones son las mismas entonces las mediciones pueden verse como muestras ruidosas en torno a un valor verdadero (intrínseco) que denominaremos <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 x_i = \mu + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma^2),
 \]</div>
-<p>and we can write the distribution of <span class="math notranslate nohighlight">\(x_i\)</span> as</p>
+<p>y por lo tanto podemos escribir la distribución de  <span class="math notranslate nohighlight">\(x_i\)</span> como</p>
 <div class="math notranslate nohighlight">
 \[
-f(x_i) = \mathcal{N}(x_i |\mu,\sigma^2) \quad \forall i
+f(x_i) = \mathcal{N}(x_i |\mu,\sigma^2) \quad \forall i.
 \]</div>
-<p>Finally, the likelihood of <span class="math notranslate nohighlight">\(\mu\)</span> given the measurements and the variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> is</p>
+<p>Luego la verosimilitud de <span class="math notranslate nohighlight">\(\mu\)</span> dadas las mediciones y la varianza es</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{L}(\mu) = f(\{x_i\}| \mu, \sigma^2) = \prod_{i=1}^N f(x_i| \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \prod_{i=1}^N  \exp  \left( -\frac{(x_i-\mu)^2}{2\sigma^2} \right)
 \]</div>
-<p>We can find <span class="math notranslate nohighlight">\(\mu\)</span> by maximizing the likelihood given <span class="math notranslate nohighlight">\(\{x_i\}\)</span></p>
+<p>Podemos encontrar el valor de <span class="math notranslate nohighlight">\(\mu\)</span> maximizando la expresión anterior</p>
 <div class="admonition tip">
 <p class="admonition-title">Truco</p>
-<p>In many cases it is more practical to find the maximum of the <strong>logarithm of the likelihood</strong> (e.g. distributions from the exponential family). Logarithm is a monotonic function and its maximum is the same as its argument.</p>
+<p>En muchos casos es más práctico encontrar el máximo del <strong>logaritmo de la verosimilitud</strong>. El logaritmo es una función monotónica y su máximo es idéntico al de su argumento</p>
 </div>
-<p>In this case the log likelihood is</p>
+<p>Lo anterior es particularmente conveniente en las distribuciones de <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_family">familia exponencial</a>. En el caso anterior la log-verosimilitud es</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\log \mathcal{L} (\mu) &amp;= \log \prod_{i=1}^N f(x_i|\mu, \sigma^2) \nonumber \\
-&amp;= \sum_{i=1}^N \log f(x_i|\mu, \sigma^2) \nonumber \\
-&amp;= - \frac{1}{2} \sum_{i=1}^N \log 2\pi\sigma^2 - \frac{1}{2} \sum_{i=1}^N  \frac{(x_i-\mu)^2}{\sigma^2}  \nonumber  \\
-&amp;=  - \frac{N}{2} \log 2\pi\sigma^2 - \frac{1}{2\sigma^{2}}   \sum_{i=1}^N (x_i-\mu)^2 \nonumber 
-\end{align}
+\begin{split}
+\log \mathcal{L} (\mu) &amp;= \log \prod_{i=1}^N f(x_i|\mu, \sigma^2)  \\
+&amp;= \sum_{i=1}^N \log f(x_i|\mu, \sigma^2)  \\
+&amp;= - \frac{1}{2} \sum_{i=1}^N \log 2\pi\sigma^2 - \frac{1}{2} \sum_{i=1}^N  \frac{(x_i-\mu)^2}{\sigma^2}    \\
+&amp;=  - \frac{N}{2} \log 2\pi\sigma^2 - \frac{1}{2\sigma^{2}}   \sum_{i=1}^N (x_i-\mu)^2  
+\end{split}
 \end{split}\]</div>
-<p>We maximize by making the derivative of the log likelihood equal to zero</p>
+<p>Que podemos maximizar tomando su derivada e igualando a cero:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{d  \log \mathcal{L} (\mu)}{d\mu} =  \frac{1}{\sigma^{2}}  \sum_{i=1}^N (x_i-\mu) =0
 \]</div>
-<p>Finally the MLE of <span class="math notranslate nohighlight">\(\mu\)</span> is</p>
+<p>Despejando se tiene que:</p>
 <div class="math notranslate nohighlight">
 \[
 \hat \mu = \frac{1}{N} \sum_{i=1}^N x_i, \quad \sigma &gt;0,
 \]</div>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_mean_and_covariance#Definition_of_the_sample_mean">sample mean</a> is the MLE estimator of the mean for a Gaussian likelihood</p>
+<p>que corresponde al estimador de máxima verosimilitud de <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La <a class="reference external" href="https://es.wikipedia.org/wiki/Estad%C3%ADstico_muestral#Media_muestral">media muestral</a> es el MLE de la media para una verosimilitud Gaussiana</p>
 </div>
-<div class="section" id="example-mle-for-the-variance-of-a-gaussian-distribution">
-<h3><span class="section-number">6.3.2. </span>Example: MLE for the variance of a Gaussian distribution<a class="headerlink" href="#example-mle-for-the-variance-of-a-gaussian-distribution" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Let’s say now that we don’t know the variance of the noise of the sensor</p>
-<p>The MLE estimator of the variance can be obtained using the same procedure:</p>
+</div>
+<div class="section" id="ejemplo-mle-para-la-varianza-de-una-distribucion-gaussiana">
+<h3><span class="section-number">7.2.2. </span>Ejemplo: MLE para la varianza de una distribución Gaussiana<a class="headerlink" href="#ejemplo-mle-para-la-varianza-de-una-distribucion-gaussiana" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Supongamos ahora que no se conoce la varianza del sensor en el ejemplo anterior. El MLE de la varianza puede obtenerse utilizando el mismo procedimiento:</p>
 <div class="math notranslate nohighlight">
 \[
 \log \mathcal{L} (\mu, \sigma^2) =  - \frac{N}{2} \log 2\pi\sigma^2 - \frac{1}{2\sigma^{2}}   \sum_{i=1}^N (x_i-\mu)^2 
@@ -2179,9 +2195,9 @@ f(x_i) = \mathcal{N}(x_i |\mu,\sigma^2) \quad \forall i
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>If the true mean is not known then this is a biased estimator of the true variance. MLE does not guarantee unbiased estimators</p>
+<p>Si el valor real de <span class="math notranslate nohighlight">\(\mu\)</span> no se conoce entonces este es un estimador sesgado de la varianza real. En general, el procedimiento MLE no garantiza que los estimadores sean insesgados</p>
 </div>
-<p>The following code example shows how the value of the MLEs of these parameters evolve as more data is observed</p>
+<p>El siguiente ejemplo muestra la evolución del MLE de estos parámetros a medida que se observan más datos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data from the sensor</span>
@@ -2240,134 +2256,136 @@ f(x_i) = \mathcal{N}(x_i |\mu,\sigma^2) \quad \forall i
 })(window);</script></div></div>
 </div>
 </div>
-<div class="section" id="a-note-on-biased-and-unbiased-estimators">
-<h3><span class="section-number">6.3.3. </span>A note on biased and unbiased estimators<a class="headerlink" href="#a-note-on-biased-and-unbiased-estimators" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>For a parameter <span class="math notranslate nohighlight">\(\theta\)</span> and an estimator <span class="math notranslate nohighlight">\(\hat \theta\)</span>, if</p>
+<div class="section" id="ejemplo-mle-para-una-mezcla-de-gaussianas">
+<h3><span class="section-number">7.2.3. </span>Ejemplo: MLE para una mezcla de Gaussianas<a class="headerlink" href="#ejemplo-mle-para-una-mezcla-de-gaussianas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Imaginemos ahora que nuestros datos <em>iid</em> provienen de una mezcla finita de <span class="math notranslate nohighlight">\(K\)</span> distribuciones Gaussianas:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_i|\pi,\mu,\sigma^2) = \sum_{k=1}^K \pi_k \mathcal{N}(x|\mu_k, \sigma_k^2),
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\sum_{k=1}^K \pi_k = 1\)</span> and <span class="math notranslate nohighlight">\(\pi_k \in [0, 1] ~~ \forall k\)</span></p>
+<p>La verosimilitud es</p>
+<div class="math notranslate nohighlight">
+\[
+\log \mathcal{L}(\pi,\mu,\sigma^2) = \sum_{i=1}^N \log \sum_{k=1}^K \pi_k \mathcal{N}(x|\mu_k, \sigma_k^2)
+\]</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>No se puede obtener una expresión analítica de los parámetros. En casos como este se utilizan métodos aproximados o y/o iterativas, e.g. gradiente descendente o <em>expectation maximization</em>. Veremos más sobre esto en el futuro</p>
+</div>
+</div>
+</div>
+<div class="section" id="una-nota-sobre-estimadores-sesgados-e-insesgados">
+<h2><span class="section-number">7.3. </span>Una nota sobre estimadores sesgados e insesgados<a class="headerlink" href="#una-nota-sobre-estimadores-sesgados-e-insesgados" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para un parámetro <span class="math notranslate nohighlight">\(\theta\)</span> y un estimador <span class="math notranslate nohighlight">\(\hat \theta\)</span>, si</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}[\hat \theta] = \theta,
 \]</div>
-<p>then <span class="math notranslate nohighlight">\(\hat \theta\)</span> is an unbiased estimator of <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p><strong>Is the MLE of <span class="math notranslate nohighlight">\(\mu\)</span> unbiased?</strong></p>
+<p>entonces <span class="math notranslate nohighlight">\(\hat \theta\)</span> es un estimador insesgado de <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p><strong>¿Es el MLE de <span class="math notranslate nohighlight">\(\mu\)</span> insesgado?</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\mathbb{E}[\hat \mu] &amp;= \mathbb{E} \left[ \frac{1}{N} \sum_{i=1}^N x_i \right]  \nonumber \\
-&amp;= \frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i] = \frac{1}{N} \sum_{i=1}^N \mu = \mu  \nonumber
-\end{align}
+\begin{split}
+\mathbb{E}[\hat \mu] &amp;= \mathbb{E} \left[ \frac{1}{N} \sum_{i=1}^N x_i \right]   \\
+&amp;= \frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i] = \frac{1}{N} \sum_{i=1}^N \mu = \mu  
+\end{split}
 \end{split}\]</div>
 <blockquote>
-<div><p>The answer is YES</p>
+<div><p>La respuesta es SI</p>
 </div></blockquote>
-<p><strong>Is the MLE of <span class="math notranslate nohighlight">\(\sigma^2\)</span> unbiased?</strong></p>
-<p>First lets expand the expression of the MLE of the variance</p>
+<p><strong>Es el MLE de <span class="math notranslate nohighlight">\(\sigma^2\)</span> insesgado?</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\hat \sigma^2 &amp;= \frac{1}{N} \sum_{i=1}^N \left(x_i- \frac{1}{N}\sum_{j=1}^N x_j \right)^2 \nonumber \\
-&amp;= \frac{1}{N} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N x_i  x_j \nonumber \\
-&amp;= \frac{1}{N} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j\neq i} x_i x_j - \frac{1}{N^2} \sum_{i=1}^N x_i^2 \nonumber  \\
-&amp;= \frac{N-1}{N^2} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j \neq i} x_i x_j  \nonumber
-\end{align}
+\begin{split}
+\hat \sigma^2 &amp;= \frac{1}{N} \sum_{i=1}^N \left(x_i- \frac{1}{N}\sum_{j=1}^N x_j \right)^2  \\
+&amp;= \frac{1}{N} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N x_i  x_j  \\
+&amp;= \frac{1}{N} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j\neq i} x_i x_j - \frac{1}{N^2} \sum_{i=1}^N x_i^2   \\
+&amp;= \frac{N-1}{N^2} \sum_{i=1}^N x_i^2 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j \neq i} x_i x_j  
+\end{split}
 \end{split}\]</div>
-<p>Then applying the expected value operator we get</p>
+<p>Luego aplicando el valor esperado tenemos</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\mathbb{E}[\hat \sigma^2] &amp;= \frac{N-1}{N^2} \sum_{i=1}^N \mathbb{E} [x_i^2] - \frac{1}{N^2} \sum_{i=1}^N \sum_{j \neq i} \mathbb{E} [x_i] \mathbb{E} [x_j] \nonumber  \\
-&amp;= \frac{N-1}{N} (\sigma^2 + \mu^2) - \frac{N-1}{N} \mu^2 \nonumber \\
-&amp;= \frac{N-1}{N} \sigma^2 \neq \sigma^2  \nonumber 
-\end{align}
+\begin{split}
+\mathbb{E}[\hat \sigma^2] &amp;= \frac{N-1}{N^2} \sum_{i=1}^N \mathbb{E} [x_i^2] - \frac{1}{N^2} \sum_{i=1}^N \sum_{j \neq i} \mathbb{E} [x_i] \mathbb{E} [x_j]   \\
+&amp;= \frac{N-1}{N} (\sigma^2 + \mu^2) - \frac{N-1}{N} \mu^2  \\
+&amp;= \frac{N-1}{N} \sigma^2 \neq \sigma^2   
+\end{split}
 \end{split}\]</div>
 <blockquote>
-<div><p>The answer is NO</p>
+<div><p>La respuesta es NO</p>
 </div></blockquote>
-<p><strong>Can we correct for the bias?</strong></p>
-<blockquote>
-<div><p>In this case, YES!</p>
-</div></blockquote>
-<p>If we multiply it by <span class="math notranslate nohighlight">\(\frac{N}{N-1}\)</span> we obtain the well known <a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">unbiased estimator of the variance</a></p>
+<p><strong>¿Es posible corregir este sesgo?</strong></p>
+<p>Si. Si multiplicamos por <span class="math notranslate nohighlight">\(\frac{N}{N-1}\)</span> se obtiene el conocido <a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">estimador insesgado de la varianza</a></p>
 <div class="math notranslate nohighlight">
 \[
 \hat \sigma_{u}^2 = \frac{N}{N-1} \hat \sigma^2 = \frac{1}{N-1} \sum_{i=1}^N (x_i- \hat\mu)^2
 \]</div>
 </div>
-<div class="section" id="example-mle-of-a-gaussian-mixture">
-<h3><span class="section-number">6.3.4. </span>Example: MLE of a Gaussian mixture<a class="headerlink" href="#example-mle-of-a-gaussian-mixture" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Let’s imagine that our <em>iid</em> data come from a mixture of Gaussians with K components</p>
-<div class="math notranslate nohighlight">
-\[
-f(x_i|\pi,\mu,\sigma^2) = \sum_{k=1}^K \pi_k \mathcal{N}(x|\mu_k, \sigma_k^2),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sum_{k=1}^K \pi_k = 1\)</span> and <span class="math notranslate nohighlight">\(\pi_k \in [0, 1] ~~ \forall k\)</span></p>
-<p>We can write the log likelihood as</p>
-<div class="math notranslate nohighlight">
-\[
-\log \mathcal{L}(\pi,\mu,\sigma^2) = \sum_{i=1}^N \log \sum_{k=1}^K \pi_k \mathcal{N}(x|\mu_k, \sigma_k^2)
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>In this case we cannot obtain analytical expressions for the parameters by setting the derivative to zero. We have to resort to iterative methods/optimizers, e.g. gradient descent, expectation maximization</p>
-</div>
-<p>We will come back to this in a future class on expectation maximization and Gaussian mixture models</p>
-</div>
-</div>
-<div class="section" id="optimality-properties-and-uncertainty-of-mles">
-<h2><span class="section-number">6.4. </span>Optimality properties and uncertainty of MLEs<a class="headerlink" href="#optimality-properties-and-uncertainty-of-mles" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Assuming that the data truly comes from the specified model the MLE is</p>
-<p><strong>Consistent:</strong> The estimate converge to the true parameter as data points increase</p>
+<div class="section" id="condiciones-de-optimalidad-e-incertidumbre-de-los-mles">
+<h2><span class="section-number">7.4. </span>Condiciones de optimalidad e incertidumbre de los MLEs<a class="headerlink" href="#condiciones-de-optimalidad-e-incertidumbre-de-los-mles" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Asumiendo que los datos vienen del modelo especificado entonces el MLE es</p>
+<p><strong>Consistente:</strong> El estimador converge al parámetro real a medida que los datos aumentan</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{N\to \infty} \hat \theta = \theta
 \]</div>
-<p><strong>Asymptotically normal:</strong> The distribution of the estimate approaches a normal centered at the true parameter.</p>
+<p><strong>Asintóticamente normal:</strong> La distribución del estimador se aproxima a una Gaussiana centrada en el valor real del parámetro</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{N\to \infty} p(\hat \theta) = \mathcal{N}(\hat \theta | \theta, \sigma_\theta^2),
 \]</div>
-<p>which is a consequence of the <strong>central limit theorem</strong></p>
-<p>For <em>i.i.d.</em> <span class="math notranslate nohighlight">\(\{X_i\}, i=1,\ldots,N\)</span> with <span class="math notranslate nohighlight">\(\mathbb{E}[X] &lt; \infty\)</span> and <span class="math notranslate nohighlight">\(\text{Var}[X] &lt; \infty\)</span> then</p>
+<p>lo cual es consecuencia del <strong>teorema central del límite</strong></p>
+<p>Para  <span class="math notranslate nohighlight">\(\{X_i\}, i=1,\ldots,N\)</span> <em>i.i.d.</em>, con <span class="math notranslate nohighlight">\(\mathbb{E}[X] &lt; \infty\)</span> y <span class="math notranslate nohighlight">\(\text{Var}[X] &lt; \infty\)</span> entonces</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{N\to\infty} \sqrt{N} (\bar X - \mathbb{E}[X]) = \mathcal{N}(0, \sigma^2)
 \]</div>
-<p>Because MLE have asymptotically normal distributions the log likelihood ratio have asymptotically a <em>chi-square</em> distributions (more about this later)</p>
-<p><strong>Minimum variance:</strong> The estimate achieve the theoretical minimal variance given by the <strong>Cramer-Rao bound</strong>. This bound is the inverse of the expected Fisher information, <em>i.e</em> the second derivative of <span class="math notranslate nohighlight">\(- \log L\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Dado que el MLE tiene distribución asintotica Gaussiana entonces el cociente entre log verosimilitudes tiene distribución asintótica chi-cuadrado</p>
+</div>
+<p><strong>Mínima varianza:</strong> El estimador alcanza la varianza mínima teórica dada por la cota de <a class="reference external" href="https://es.wikipedia.org/wiki/Cota_de_Cram%C3%A9r-Rao"><strong>Cramer-Rao</strong></a>:</p>
 <div class="math notranslate nohighlight">
 \[
 \sigma_{nm}^2 =  \left (- \frac{d^2 \log \mathcal{L} (\theta)}{d\theta_n \theta_m} \bigg\rvert_{\theta = \hat\theta}\right)^{-1}
 \]</div>
+<p>La cota corresponde al inverso de la “información de Fisher”, <em>i.e</em> la segunda derivada de <span class="math notranslate nohighlight">\(- \log L\)</span> con respecto a <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\sigma_{nm}^2\)</span> is the minimum variance achieved by an unbiased estimator.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma_{nn}^2\)</span> gives the marginal error bars</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\sigma_{nm} \neq 0 ~~ n\neq m\)</span>, then errors are correlated, <em>i.e</em> some combinations of parameters might be better determined than others</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_{nm}^2\)</span> es la varianza mínima que puede alcanzar un estimador insesgado</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma_{nn}^2\)</span> entrega las barras de error marginales</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\sigma_{nm} \neq 0 ~~ n\neq m\)</span>, entonces los errores son correlacionados, <em>i.e</em> algunas combinaciones de los parámetros puede ser mejor determinadas que otras</p></li>
 </ul>
 </div>
-<div class="section" id="example-cramer-rao-bound-for-the-mle-of-mu">
-<h3><span class="section-number">6.4.1. </span>Example: Cramer-Rao bound for the MLE of <span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#example-cramer-rao-bound-for-the-mle-of-mu" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Considering a Gaussian likelihood from the previous example</p>
+<div class="section" id="ejemplo-cota-de-cramer-rao-para-el-mle-de-mu">
+<h3><span class="section-number">7.4.1. </span>Ejemplo: Cota de Cramer-Rao para el MLE de <span class="math notranslate nohighlight">\(\mu\)</span><a class="headerlink" href="#ejemplo-cota-de-cramer-rao-para-el-mle-de-mu" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Considerando la verosimilitud Gaussiana del ejemplo anterior</p>
 <div class="math notranslate nohighlight">
 \[
 \log \mathcal{L} (\mu, \sigma^2) =  - \frac{N}{2} \log 2\pi\sigma^2 - \frac{1}{2\sigma^{2}}   \sum_{i=1}^N (x_i-\mu)^2 
 \]</div>
-<p>What is the uncertainty of the MLE of <span class="math notranslate nohighlight">\(\mu\)</span>? In this case the Cramer-rao bound</p>
+<blockquote>
+<div><p>¿Cuál es la incertidumbre del MLE de <span class="math notranslate nohighlight">\(\mu\)</span>?</p>
+</div></blockquote>
+<p>En este caso la cota de Cramer-rao es</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-\sigma_{\hat\mu}^2  &amp;= \left (- \frac{d^2 \log \mathcal{L}(\mu, \sigma^2)}{d\mu^2} \bigg\rvert_{\mu=\hat\mu}\right)^{-1}  \nonumber \\
-&amp;=  \left (- \frac{1}{\sigma^2} \frac{d}{d\mu}  \sum_{i=1}^N (x-\mu) \bigg\rvert_{\mu=\hat\mu}\right)^{-1}  \nonumber \\
-&amp;=  \left ( \frac{N}{\sigma^2}  \bigg\rvert_{\mu=\hat\mu}\right)^{-1} = \frac{\sigma^2}{N}  \nonumber
-\end{align}
+\begin{split}
+\sigma_{\hat\mu}^2  &amp;= \left (- \frac{d^2 \log \mathcal{L}(\mu, \sigma^2)}{d\mu^2} \bigg\rvert_{\mu=\hat\mu}\right)^{-1}   \\
+&amp;=  \left (- \frac{1}{\sigma^2} \frac{d}{d\mu}  \sum_{i=1}^N (x-\mu) \bigg\rvert_{\mu=\hat\mu}\right)^{-1}   \\
+&amp;=  \left ( \frac{N}{\sigma^2}  \bigg\rvert_{\mu=\hat\mu}\right)^{-1} = \frac{\sigma^2}{N}  
+\end{split}
 \end{split}\]</div>
-<p>an expression that is known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_error">standard error of the mean</a></p>
-<p>Then we have</p>
+<p>una expresión conocida como el <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_error">error estándar de la media</a></p>
+<p>Luego tenemos</p>
 <div class="math notranslate nohighlight">
 \[
-p(\hat \mu) \to \mathcal{N}(\hat \mu| \mu, \sigma^2/N)
+p(\hat \mu) \to \mathcal{N} \left(\mu, \frac{\sigma^2}{N} \right) 
 \]</div>
-<p>Let’s see how the MLE and its uncertainty changes as more data is observed</p>
+<p>Veamos como cambia el MLE y su incertidumbre a medida que observamos más y más datos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate data</span>
@@ -2428,13 +2446,12 @@ p(\hat \mu) \to \mathcal{N}(\hat \mu| \mu, \sigma^2/N)
 </div>
 </div>
 </div>
-<div class="section" id="hypothesis-tests-based-on-the-likelihood">
-<h2><span class="section-number">6.5. </span>Hypothesis tests based on the likelihood<a class="headerlink" href="#hypothesis-tests-based-on-the-likelihood" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Considering the asymptotic distributions shown before we can formulate a hypothesis test for the MLE of <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p>We will present the Wald-test and the Wilks test</p>
-<div class="section" id="wald-test">
-<h3><span class="section-number">6.5.1. </span>Wald-test<a class="headerlink" href="#wald-test" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Suppose we wish to test</p>
+<div class="section" id="tests-de-hipotesis-basados-en-la-verosimilitud">
+<h2><span class="section-number">7.5. </span>Tests de hipótesis basados en la verosimilitud<a class="headerlink" href="#tests-de-hipotesis-basados-en-la-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Considerando la distribución asintótica qeu se mostró antes podemos formular un test de hipótesis apra el MLE de <span class="math notranslate nohighlight">\(\theta\)</span>. A continuación se presentan dos tests clásicos.</p>
+<div class="section" id="test-de-wald">
+<h3><span class="section-number">7.5.1. </span>Test de Wald<a class="headerlink" href="#test-de-wald" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Supongamos que deseamos probar si</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{H}_0: \theta = \theta_0
@@ -2443,17 +2460,19 @@ p(\hat \mu) \to \mathcal{N}(\hat \mu| \mu, \sigma^2/N)
 \[
 \mathcal{H}_A: \theta \neq \theta_0
 \]</div>
-<p>Under the null we can write</p>
+<p>Bajo la hipótesis nula podemos escribir</p>
 <div class="math notranslate nohighlight">
 \[
 W = \frac{(\hat \theta - \theta_0)^2}{\left (- \frac{d^2 \log \mathcal{L} (\theta)}{d\theta^2} \bigg\rvert_{\theta = \hat\theta}\right)^{-1}} = (\hat \theta - \theta_0)^2 \sigma_{\hat \theta}^2 \to \chi^2_1
 \]</div>
-<p>The test statistic have a <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with one degree of freedom</p>
-<p>If <span class="math notranslate nohighlight">\(W\)</span> is greather than the <span class="math notranslate nohighlight">\((1-\alpha)100\%\)</span> quantile of <span class="math notranslate nohighlight">\(\chi^2_1\)</span> we reject the null hypothesis</p>
+<p>El estadística de test tiene una distribución <span class="math notranslate nohighlight">\(\chi^2\)</span> con un grado de libertad</p>
+<blockquote>
+<div><p>Si <span class="math notranslate nohighlight">\(W\)</span> es mayor que el percentil <span class="math notranslate nohighlight">\((1-\alpha)100\%\)</span> de <span class="math notranslate nohighlight">\(\chi^2_1\)</span> entonces rechazamos la hipótesis nula</p>
+</div></blockquote>
 </div>
-<div class="section" id="log-likelihood-ratio-test-or-wilks-test">
-<h3><span class="section-number">6.5.2. </span>Log-likelihood ratio test or Wilks test<a class="headerlink" href="#log-likelihood-ratio-test-or-wilks-test" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Suppose we wish to test</p>
+<div class="section" id="test-de-wilks">
+<h3><span class="section-number">7.5.2. </span>Test de Wilks<a class="headerlink" href="#test-de-wilks" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Supongamos que deseamos probar si</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{H}_0: \theta = \theta_0
@@ -2462,32 +2481,35 @@ W = \frac{(\hat \theta - \theta_0)^2}{\left (- \frac{d^2 \log \mathcal{L} (\thet
 \[
 \mathcal{H}_A: \theta =\theta_1
 \]</div>
-<p>We can write a ratio between likelihoods</p>
+<p>Podemos escribir el cociente entre las verosimilitudes:</p>
 <div class="math notranslate nohighlight">
 \[
 \lambda(\mathcal{D}) = \frac{\mathcal{L}(\theta_0|\mathcal{D})}{\mathcal{L}(\theta_1|\mathcal{D})} 
 \]</div>
-<p>Asymptotically, under the null, we have</p>
+<p>Que bajo la hipótesis nula tiene distribución asintótica</p>
 <div class="math notranslate nohighlight">
 \[
 -2 \log \lambda(\mathcal{D}) \to \chi^2_1
 \]</div>
-<p>If <span class="math notranslate nohighlight">\(-2 \log \lambda(\mathcal{D})\)</span> is greather than the <span class="math notranslate nohighlight">\((1-\alpha)100\%\)</span> quantile of <span class="math notranslate nohighlight">\(\chi^2_1\)</span> we reject the null</p>
-</div>
-</div>
-<div class="section" id="criteria-for-model-comparison">
-<h2><span class="section-number">6.6. </span>Criteria for model comparison<a class="headerlink" href="#criteria-for-model-comparison" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>How to compare models with different number of parameters? In general the more number of parameters the better the fit (overfitting). The likelihood does not take into account the complexity (number of parameters) of the model</p>
 <blockquote>
-<div><p>How to score models taking into account their complexity?</p>
+<div><p>Luego si <span class="math notranslate nohighlight">\(-2 \log \lambda(\mathcal{D})\)</span> es mayor que el percentil <span class="math notranslate nohighlight">\((1-\alpha)100\%\)</span> de  <span class="math notranslate nohighlight">\(\chi^2_1\)</span> entonces rechazamos la hipótesis nula</p>
 </div></blockquote>
-<p>One option is to use the Akaike information criterion (AIC). For a model with <span class="math notranslate nohighlight">\(k\)</span> parameters and N data points the AIC is</p>
+</div>
+</div>
+<div class="section" id="criterios-para-comparacion-de-modelos">
+<h2><span class="section-number">7.6. </span>Criterios para comparación de modelos<a class="headerlink" href="#criterios-para-comparacion-de-modelos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>¿Cómo comparamos modelos que tienen distinto número de parámetros?</p>
+<p>En general mientras más parámetros tenga un modelo mayor es su capacidad de ajuste (y de sobreajuste). La verosimilitud no toma en consideración la complejidad de un modelo, es decir su cantidad de parámetros libres.</p>
+<p>Una opción para comparar modelos que toma en cuenta la complejidad es el <a class="reference external" href="https://es.wikipedia.org/wiki/Criterio_de_informaci%C3%B3n_de_Akaike">criterio de información de Akaike (AIC)</a>. Para un modelo con <span class="math notranslate nohighlight">\(k\)</span> parámetros que se ajuste con <span class="math notranslate nohighlight">\(N\)</span> datos el AIC se define como</p>
 <div class="math notranslate nohighlight">
 \[
 \text{AIC} = -2 \log \mathcal{L}(\hat \theta) + 2k + \frac{2k(k+1)}{N-k-1},
 \]</div>
-<p>which one seeks to minimize. The AIC combines the likelihood (score) of the model and its complexity. The AIC is based on an asumptotic approximation which we will review in the future</p>
-<p>This is also related to the idea of regularization, which will also be reviewed in future lectures</p>
+<p>el cual buscamos minimizar. El AIC combina la verosimilitud y la complejidad del modelo.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta es una idea que está relacionada al concepto de <strong>regularización</strong>, el cual revisaremos en detalle más adelante</p>
+</div>
 </div>
 </div>
 
@@ -2513,33 +2535,41 @@ W = \frac{(\hat \theta - \theta_0)^2}{\left (- \frac{d^2 \log \mathcal{L} (\thet
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../1_TeoriaProbabilidades/parte5.html" title="previous page"><span class="section-number">5. </span>Teoremas Asintóticos</a>
-    <a class='right-next' id="next-link" href="part2.html" title="next page"><span class="section-number">7. </span>Nonparametric modeling</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Inferencia con modelos paramétricos y no paramétricos</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="part2.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Nonparametric modeling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse and Eliana Scheihing<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse and Eliana Scheihing<br/>
+    
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

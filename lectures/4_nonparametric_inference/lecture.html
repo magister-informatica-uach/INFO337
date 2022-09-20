@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Inferencia estadística con tests no-paramétricos &#8212; Herramientas estadísticas para la investigación</title>
+    <title>11. Inferencia estadística con tests no-paramétricos &#8212; Herramientas estadísticas para la investigación</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,33 +32,38 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="11. Análisis de Asociación de Variables Aleatorias" href="../6_ANOVA/anova_y_asociacionDiscretas.html" />
-    <link rel="prev" title="9. Inferencia en Estadística Paramétrica" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html" />
+    <link rel="next" title="12. Análisis de Asociación de Variables Aleatorias" href="../6_ANOVA/anova_y_asociacionDiscretas.html" />
+    <link rel="prev" title="10. Inferencia en Estadística Paramétrica" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -75,6 +80,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../_static/logo.png" class="logo" alt="logo">
       
       
@@ -84,9 +93,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elementos de Teoría de Probabilidades
  </span>
@@ -118,29 +127,34 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelamiento Estadístico
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/intro.html">
+   6. Introducción
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   6. Parametric modeling
+   7. Modelamiento paramétrico
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   7. Nonparametric modeling
+   8. Nonparametric modeling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   8. Bayesian modeling
+   9. Bayesian modeling
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Pensamiento Estadístico
  </span>
@@ -148,21 +162,21 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html">
-   9. Inferencia en Estadística Paramétrica
+   10. Inferencia en Estadística Paramétrica
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. Inferencia estadística con tests no-paramétricos
+   11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   11. Análisis de Asociación de Variables Aleatorias
+   12. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Regresión Lineal
  </span>
@@ -170,26 +184,26 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part1.html">
-   12. Introduction to linear regression
+   13. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part2.html">
-   13. Multivariate linear regression
+   14. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part3.html">
-   14. Linear models and Basis functions
+   15. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   15. Regresiones para Respuestas Discretas
+   16. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Análisis Exploratorio
  </span>
@@ -197,16 +211,16 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   16. Análisis Exploratorio y Reducción de la Dimensionalidad
+   17. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   17. Gaussian Mixture Models
+   18. Gaussian Mixture Models
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelamiento Bayesiano
  </span>
@@ -214,12 +228,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   18. Modelamiento Bayesiano
+   19. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   19. A tutorial on Markov Chain Monte Carlo
+   20. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -268,7 +282,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -316,90 +330,90 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contenido
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion">
-   10.1. Introducción
+   11.1. Introducción
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluar-la-normalidad-de-una-distribucion">
-   10.2. Evaluar la normalidad de una distribución
+   11.2. Evaluar la normalidad de una distribución
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparando-distribuciones-empiricas-y-teoricas">
-   10.3. Comparando distribuciones empíricas y teóricas
+   11.3. Comparando distribuciones empíricas y teóricas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#test-de-kolmogorov-smirnov-ks">
-     10.3.1. Test de Kolmogorov-Smirnov (KS)
+     11.3.1. Test de Kolmogorov-Smirnov (KS)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#probability-plots-pp">
-     10.3.2. Probability plots (PP)
+     11.3.2. Probability plots (PP)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elementos-de-inferencia-no-parametrica">
-   10.4. Elementos de inferencia no paramétrica
+   11.4. Elementos de inferencia no paramétrica
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#funcion-cuantil-y-estadistico-de-orden">
-     10.4.1. Función cuantil y estadístico de orden
+     11.4.1. Función cuantil y estadístico de orden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#distribucion-acumulada-empirica-ecdf">
-     10.4.2. Distribución acumulada empírica (ECDF)
+     11.4.2. Distribución acumulada empírica (ECDF)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#funcion-cuantil-empirica">
-     10.4.3. Función cuantil empírica
+     11.4.3. Función cuantil empírica
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#aplicaciones-de-los-estadisticos-de-orden">
-     10.4.4. Aplicaciones de los estadísticos de orden
+     11.4.4. Aplicaciones de los estadísticos de orden
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tests-no-parametricos">
-   10.5. Tests no paramétricos
+   11.5. Tests no paramétricos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#test-de-mann-whitney-u">
-     10.5.1. Test de Mann-Whitney U
+     11.5.1. Test de Mann-Whitney U
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#test-de-los-rangos-con-signo-de-wilcoxon">
-     10.5.2. Test de los rangos con signo de Wilcoxon
+     11.5.2. Test de los rangos con signo de Wilcoxon
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#test-de-kruskall-wallis-alternativa-a-one-way-anova">
-     10.5.3. Test de Kruskall-Wallis: Alternativa a one-way ANOVA
+     11.5.3. Test de Kruskall-Wallis: Alternativa a one-way ANOVA
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#kendal-tau-alternativa-al-coeficiente-de-correlacion-de-pearson">
-     10.5.4. Kendal
+     11.5.4. Kendal
      <span class="math notranslate nohighlight">
       \(\tau\)
      </span>
@@ -410,7 +424,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bootstrap-no-parametrico">
-   10.6.
+   11.6.
    <em>
     Bootstrap
    </em>
@@ -419,12 +433,12 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#muestreo-con-reemplazo">
-     10.6.1. Muestreo con reemplazo
+     11.6.1. Muestreo con reemplazo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algoritmo-e-implementacion-de-bootstrap">
-     10.6.2. Algoritmo e implementación de bootstrap
+     11.6.2. Algoritmo e implementación de bootstrap
     </a>
    </li>
   </ul>
@@ -437,7 +451,131 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Inferencia estadística con tests no-paramétricos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   11.1. Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluar-la-normalidad-de-una-distribucion">
+   11.2. Evaluar la normalidad de una distribución
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparando-distribuciones-empiricas-y-teoricas">
+   11.3. Comparando distribuciones empíricas y teóricas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-kolmogorov-smirnov-ks">
+     11.3.1. Test de Kolmogorov-Smirnov (KS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-plots-pp">
+     11.3.2. Probability plots (PP)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elementos-de-inferencia-no-parametrica">
+   11.4. Elementos de inferencia no paramétrica
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-cuantil-y-estadistico-de-orden">
+     11.4.1. Función cuantil y estadístico de orden
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribucion-acumulada-empirica-ecdf">
+     11.4.2. Distribución acumulada empírica (ECDF)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-cuantil-empirica">
+     11.4.3. Función cuantil empírica
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aplicaciones-de-los-estadisticos-de-orden">
+     11.4.4. Aplicaciones de los estadísticos de orden
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-no-parametricos">
+   11.5. Tests no paramétricos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-mann-whitney-u">
+     11.5.1. Test de Mann-Whitney U
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-los-rangos-con-signo-de-wilcoxon">
+     11.5.2. Test de los rangos con signo de Wilcoxon
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-kruskall-wallis-alternativa-a-one-way-anova">
+     11.5.3. Test de Kruskall-Wallis: Alternativa a one-way ANOVA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kendal-tau-alternativa-al-coeficiente-de-correlacion-de-pearson">
+     11.5.4. Kendal
+     <span class="math notranslate nohighlight">
+      \(\tau\)
+     </span>
+     : Alternativa al coeficiente de correlación de Pearson
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bootstrap-no-parametrico">
+   11.6.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#muestreo-con-reemplazo">
+     11.6.1. Muestreo con reemplazo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-e-implementacion-de-bootstrap">
+     11.6.2. Algoritmo e implementación de bootstrap
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -1998,10 +2136,10 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 </div>
-<div class="section" id="inferencia-estadistica-con-tests-no-parametricos">
-<h1><span class="section-number">10. </span>Inferencia estadística con tests no-paramétricos<a class="headerlink" href="#inferencia-estadistica-con-tests-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="inferencia-estadistica-con-tests-no-parametricos">
+<h1><span class="section-number">11. </span>Inferencia estadística con tests no-paramétricos<a class="headerlink" href="#inferencia-estadistica-con-tests-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion">
-<h2><span class="section-number">10.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta lección revisaremos metodologías y tests estadísticos de la categoría no parámetrica, es decir que no presuponen una distribución en particular para las observaciones</p>
 <p>Esto es contrario a las técnicas parámetricas que vimos en lecciones anteriores. Por ejemplo, un t-test parte del supuesto de que nuestros datos se distribuyen normal. Con este supuesto somos capaces de obtener una distribución para el estadístico de prueba ante la hipótesis nula. Esto a su vez nos permite calcular p-values y finalmente concluir si la hipótesis nula puede ser rechazada.</p>
 <p>Si los supuestos que hicimos sobre la población son incorrectos entonces las conclusiones del método parámetrico pierden validez. Sin embargo en la práctica los tests parámetricos funcionan bien ante “ligeras” desviaciones de los supuestos</p>
@@ -2013,7 +2151,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 <p>A continuación veremos tests que nos permiten comprobar si nuestros datos siguen una distribución en particular. Luego veremos las alternativas no-parámetricas para los tests paramétricos más comunes. Finalmente veremos como usar la técnica de <em>bootstrap resampling</em> para estimar intervalos de confianza.</p>
 </div>
 <div class="section" id="evaluar-la-normalidad-de-una-distribucion">
-<h2><span class="section-number">10.2. </span>Evaluar la normalidad de una distribución<a class="headerlink" href="#evaluar-la-normalidad-de-una-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Evaluar la normalidad de una distribución<a class="headerlink" href="#evaluar-la-normalidad-de-una-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La normalidad es un supuesto en muchos procedimientos parámetricos, por ejemplo: t-test, ANOVA, regresion lineal</p>
 <p>Tengamos en cuanta las características principales de la distribución normal</p>
 <ul class="simple">
@@ -2136,11 +2274,11 @@ roTBs2RqAAAAAElFTkSuQmCC'
 <p>Estos tests son simples pero particulares para la distribución normal. A continuación veremos formas más generales para comparar muestras con distribuciones teóricas</p>
 </div>
 <div class="section" id="comparando-distribuciones-empiricas-y-teoricas">
-<h2><span class="section-number">10.3. </span>Comparando distribuciones empíricas y teóricas<a class="headerlink" href="#comparando-distribuciones-empiricas-y-teoricas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Comparando distribuciones empíricas y teóricas<a class="headerlink" href="#comparando-distribuciones-empiricas-y-teoricas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta sección revisaremos algunos métodos para evaluar si la distribución empírica de nuestras datos sigue alguna distribución teórica en particular.</p>
 <p>En los ejemplos usaremos una distribución teórica normal sin embargo puede usarse cualquier otra distribución bajo ciertas condiciones que se detallan a continuación</p>
 <div class="section" id="test-de-kolmogorov-smirnov-ks">
-<h3><span class="section-number">10.3.1. </span>Test de Kolmogorov-Smirnov (KS)<a class="headerlink" href="#test-de-kolmogorov-smirnov-ks" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.3.1. </span>Test de Kolmogorov-Smirnov (KS)<a class="headerlink" href="#test-de-kolmogorov-smirnov-ks" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El test de KS es un test no-paraḿetrico que examina la distancia entre las funciones de distribución acumulada (CDF) entre dos muestras o entre una muestra y una distribución teórica. El test sólo se puede usar para distribuciones univariadas y continuas</p>
 <p>Nos concentraremos en el caso de una muestra, es decir cuando queremos verificar si nuestros datos siguen una distribución teórica en particular</p>
 <p>El estadístico de test para KS es</p>
@@ -2225,8 +2363,8 @@ F_n(x) = \frac{1}{N} \sum_{i=1}^N \mathbb{1}[X_i&lt;x]
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(D_n\)</span> es menor que el valor crítico no podemos rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4bbb2994-9e0e-422f-9e2e-45303ee081aa" name="25050f74-ff56-4240-a578-08ba701aaa52" type="radio">
-</input><label class="tabbed-label" for="4bbb2994-9e0e-422f-9e2e-45303ee081aa">
+<input checked="checked" id="04c73964-4c39-401d-9dbc-3a6e809aa82a" name="77d5bfce-0ccc-4ff6-848d-89d2e07e8b86" type="radio">
+</input><label class="tabbed-label" for="04c73964-4c39-401d-9dbc-3a6e809aa82a">
 Python</label><div class="tabbed-content docutils">
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Arreglo de muestras o función rvs de scipy.stats</span>
@@ -2240,8 +2378,8 @@ Python</label><div class="tabbed-content docutils">
 </div>
 <p>La función retorna una estructura con el valor del <span class="math notranslate nohighlight">\(D_n\)</span> y el p-value</p>
 </div>
-<input id="be65179b-d8fd-44f0-9f7a-ba825c0fd3aa" name="25050f74-ff56-4240-a578-08ba701aaa52" type="radio">
-</input><label class="tabbed-label" for="be65179b-d8fd-44f0-9f7a-ba825c0fd3aa">
+<input id="6ab861ea-8dbe-41d4-a38f-ea26a25c93a9" name="77d5bfce-0ccc-4ff6-848d-89d2e07e8b86" type="radio">
+</input><label class="tabbed-label" for="6ab861ea-8dbe-41d4-a38f-ea26a25c93a9">
 R</label><div class="tabbed-content docutils">
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">stats</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ks.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Vector con datos numéricos</span>
@@ -2310,7 +2448,7 @@ R</label><div class="tabbed-content docutils">
 <p>Al final de esta lección se verá el procedimiento general de bootstrap</p>
 </div>
 <div class="section" id="probability-plots-pp">
-<h3><span class="section-number">10.3.2. </span>Probability plots (PP)<a class="headerlink" href="#probability-plots-pp" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.3.2. </span>Probability plots (PP)<a class="headerlink" href="#probability-plots-pp" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Otra opción para comparar distribuciones de forma gráfica son los <em>probability plots</em></p>
 <ol class="simple">
 <li><p>Se calculan los cuantiles (qq) o percentiles (pp) de dos muestras <strong>o</strong> de una muestra y una distribución teórica</p></li>
@@ -2369,7 +2507,7 @@ R</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="elementos-de-inferencia-no-parametrica">
-<h2><span class="section-number">10.4. </span>Elementos de inferencia no paramétrica<a class="headerlink" href="#elementos-de-inferencia-no-parametrica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Elementos de inferencia no paramétrica<a class="headerlink" href="#elementos-de-inferencia-no-parametrica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Inferencia se refiere a estimar parámetros o probar hipótesis sobre una población en base a muestras. En inferencia <strong>no parámetrica</strong> usamos estadísticos cuya distribución <strong>no depende de supuestos sobre la distribución de la población</strong></p>
 <p>En resumen</p>
 <div class="admonition important">
@@ -2385,7 +2523,7 @@ R</label><div class="tabbed-content docutils">
 <p>¿Por que no usar siempre tests no paramétrics? En general los tests no parámetricos tienen un menor poder estadístico (sensibilidad) que sus contrapartes paramétricas (siempre y cuando sus supuestos se cumplen)</p>
 <p>A continuación veremos algunos conceptos fundamentales de inferencia no parámetrica para luego revisar algunos tests no paramétricos que son alternativas a los tests vistos en lecciones anteriores</p>
 <div class="section" id="funcion-cuantil-y-estadistico-de-orden">
-<h3><span class="section-number">10.4.1. </span>Función cuantil y estadístico de orden<a class="headerlink" href="#funcion-cuantil-y-estadistico-de-orden" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.4.1. </span>Función cuantil y estadístico de orden<a class="headerlink" href="#funcion-cuantil-y-estadistico-de-orden" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La CDF se define como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2433,7 +2571,7 @@ x_{(1)} &lt; x_{(2)} &lt; x_{(3)} &lt; \ldots &lt; x_{(N)}
 <p>que se llaman colectivamente el estadístico de orden de la muestra aleatoria. El estadístico específico <span class="math notranslate nohighlight">\(x_{(r)}\)</span> se llama el estadístico de orden r</p>
 </div>
 <div class="section" id="distribucion-acumulada-empirica-ecdf">
-<h3><span class="section-number">10.4.2. </span>Distribución acumulada empírica (ECDF)<a class="headerlink" href="#distribucion-acumulada-empirica-ecdf" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.4.2. </span>Distribución acumulada empírica (ECDF)<a class="headerlink" href="#distribucion-acumulada-empirica-ecdf" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Con el estadístico de orden se construye la ECDF que vimos anteriormente</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2470,7 +2608,7 @@ F_N(x) = \begin{cases} 0 &amp; x &lt; x_{(1)} \\
 </ul>
 </div>
 <div class="section" id="funcion-cuantil-empirica">
-<h3><span class="section-number">10.4.3. </span>Función cuantil empírica<a class="headerlink" href="#funcion-cuantil-empirica" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.4.3. </span>Función cuantil empírica<a class="headerlink" href="#funcion-cuantil-empirica" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>También podemos usar el estadístico de orden para construir la función cuantil empírica</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2509,7 +2647,7 @@ x_{(N)} &amp; \frac{(N-1)}{N} &lt; u  \leq 1 \\
 </div>
 </div>
 <div class="section" id="aplicaciones-de-los-estadisticos-de-orden">
-<h3><span class="section-number">10.4.4. </span>Aplicaciones de los estadísticos de orden<a class="headerlink" href="#aplicaciones-de-los-estadisticos-de-orden" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.4.4. </span>Aplicaciones de los estadísticos de orden<a class="headerlink" href="#aplicaciones-de-los-estadisticos-de-orden" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Dos estadísticos muy usuales que vienen de los estadísticos de orden son</p>
 <ul class="simple">
 <li><p>El rango: <span class="math notranslate nohighlight">\(x_{(N)} - x_{(1)}\)</span></p></li>
@@ -2581,12 +2719,12 @@ x_{(N)} &amp; \frac{(N-1)}{N} &lt; u  \leq 1 \\
 </div>
 </div>
 <div class="section" id="tests-no-parametricos">
-<h2><span class="section-number">10.5. </span>Tests no paramétricos<a class="headerlink" href="#tests-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Tests no paramétricos<a class="headerlink" href="#tests-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El test de KS que vimos antes es un ejemplo de test no paramétrico</p>
 <p>Las propiedades de la ECDF nos permiten construir distribuciones nulas sin necesidad de asumir una distribución para la población</p>
 <p>Existen muchos tests no-paramétricos, a continuación revisaremos algunos de ellos en detalle</p>
 <div class="section" id="test-de-mann-whitney-u">
-<h3><span class="section-number">10.5.1. </span>Test de Mann-Whitney U<a class="headerlink" href="#test-de-mann-whitney-u" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.5.1. </span>Test de Mann-Whitney U<a class="headerlink" href="#test-de-mann-whitney-u" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Es una prueba no-paramétrica para comparar dos <strong>muestras independientes</strong></p>
 <ul class="simple">
 <li><p>Ejemplo de muestras independientes: notas de niños y niñas en una prueba</p></li>
@@ -2623,7 +2761,7 @@ x_{(N)} &amp; \frac{(N-1)}{N} &lt; u  \leq 1 \\
 </div>
 </div>
 <div class="section" id="test-de-los-rangos-con-signo-de-wilcoxon">
-<h3><span class="section-number">10.5.2. </span>Test de los rangos con signo de Wilcoxon<a class="headerlink" href="#test-de-los-rangos-con-signo-de-wilcoxon" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.5.2. </span>Test de los rangos con signo de Wilcoxon<a class="headerlink" href="#test-de-los-rangos-con-signo-de-wilcoxon" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si las muestras que se quieren comparar son <strong>dependientes</strong> no se puede usar Mann Whitney U. En su lugar se puede usar el test de rango con signo de Wilcoxon</p>
 <p>Este test funciona como alternativa no-parámetrica al t-test pareado en caso de que los datos violen el supuesto de normalidad</p>
 <p>Un test pareado se usa para probar si hubo diferencia significativa entre el “antes” y el “despues” de aplicar cierto tratamiento o intervención.</p>
@@ -2664,18 +2802,18 @@ x_{(N)} &amp; \frac{(N-1)}{N} &lt; u  \leq 1 \\
 </ul>
 </div>
 <div class="section" id="test-de-kruskall-wallis-alternativa-a-one-way-anova">
-<h3><span class="section-number">10.5.3. </span>Test de Kruskall-Wallis: Alternativa a one-way ANOVA<a class="headerlink" href="#test-de-kruskall-wallis-alternativa-a-one-way-anova" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.5.3. </span>Test de Kruskall-Wallis: Alternativa a one-way ANOVA<a class="headerlink" href="#test-de-kruskall-wallis-alternativa-a-one-way-anova" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Su objetivo es probar que existen diferencias significativas en una variable dependiente continua en función de una variable independiente categórica (2 o más grupos)</p>
 <p>Está implementado en <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kruskal.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.kruskal</span></code></a></p>
 </div>
 <div class="section" id="kendal-tau-alternativa-al-coeficiente-de-correlacion-de-pearson">
-<h3><span class="section-number">10.5.4. </span>Kendal <span class="math notranslate nohighlight">\(\tau\)</span>: Alternativa al coeficiente de correlación de Pearson<a class="headerlink" href="#kendal-tau-alternativa-al-coeficiente-de-correlacion-de-pearson" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.5.4. </span>Kendal <span class="math notranslate nohighlight">\(\tau\)</span>: Alternativa al coeficiente de correlación de Pearson<a class="headerlink" href="#kendal-tau-alternativa-al-coeficiente-de-correlacion-de-pearson" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Su objetivo es probar si dos variables son estadísticamente dependientes</p>
 <p>Está implementando en <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.kendalltau</span></code></a></p>
 </div>
 </div>
 <div class="section" id="bootstrap-no-parametrico">
-<h2><span class="section-number">10.6. </span><em>Bootstrap</em> no paramétrico<a class="headerlink" href="#bootstrap-no-parametrico" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">11.6. </span><em>Bootstrap</em> no paramétrico<a class="headerlink" href="#bootstrap-no-parametrico" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><em>Bootstrap</em> es una familia de técnicas de remuestreo que permiten obtener distribuciones muestrales para estimadores estadísticos. Las distribuciones muestrales pueden utilizarse para calcular intervalos de confianza o realizar tests de hipótesis. En este sentido <em>bootstrap</em> es una alternativa a los métodos tradicionales para hacer test de hipótesis basados en derivaciones algebraicas.</p>
 <p>En esta lección estudiaremos el algoritmo de <em>bootstrap</em> original propuesto por <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley_Efron">Bradly Efron</a> en 1979. Este algoritmo se basa en la técnica de muestreo con reemplazo.</p>
 <p>Como veremos más adelante las principales ventajas de <em>bootstrap</em> son que</p>
@@ -2685,13 +2823,13 @@ x_{(N)} &amp; \frac{(N-1)}{N} &lt; u  \leq 1 \\
 </ul>
 <p>La desventaja es que es relativamente más costoso (computacionalmente), sin embargo esta desventaja es cada vez menos relevante con la alta disponibilidad de capacidad de cómputo</p>
 <div class="section" id="muestreo-con-reemplazo">
-<h3><span class="section-number">10.6.1. </span>Muestreo con reemplazo<a class="headerlink" href="#muestreo-con-reemplazo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.6.1. </span>Muestreo con reemplazo<a class="headerlink" href="#muestreo-con-reemplazo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El siguiente diagrama ejemplifica como opera el muestreo con reemplazo. Para un dataset con <span class="math notranslate nohighlight">\(N\)</span> muestras se generan <span class="math notranslate nohighlight">\(M\)</span> copias todas de tamaño <span class="math notranslate nohighlight">\(N\)</span>. En las copias algunas de las observaciones originales no aparecen mientras que otras pueden aparecer más de una vez.</p>
 <a class="reference internal image-reference" href="../../_images/bootstrap_diagram.png"><img alt="../../_images/bootstrap_diagram.png" src="../../_images/bootstrap_diagram.png" style="width: 500px;" /></a>
 <p>El objetivo de esto es simular el proceso que generó la muestra original a partir de la población. El muestreo con reeplazo hace que los datasets generados mantengan las propiedades del dataset original. El único supuesto para que esto se cumpla es que las muestras deben ser <em>i.i.d.</em></p>
 </div>
 <div class="section" id="algoritmo-e-implementacion-de-bootstrap">
-<h3><span class="section-number">10.6.2. </span>Algoritmo e implementación de bootstrap<a class="headerlink" href="#algoritmo-e-implementacion-de-bootstrap" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">11.6.2. </span>Algoritmo e implementación de bootstrap<a class="headerlink" href="#algoritmo-e-implementacion-de-bootstrap" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El algoritmo de bootstrap para un dataset <span class="math notranslate nohighlight">\(x=(x_1, x_2, \ldots, x_N)\)</span> con <span class="math notranslate nohighlight">\(N\)</span> observaciones y un estadístico <span class="math notranslate nohighlight">\(T(\cdot)\)</span> sería</p>
 <p>Repetir <span class="math notranslate nohighlight">\(M\)</span> veces</p>
 <ol class="simple">
@@ -2895,33 +3033,41 @@ T(x) = \frac{1}{N} \sum_{i=1}^N x_i^2 (x_i - 1)
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html" title="previous page"><span class="section-number">9. </span>Inferencia en Estadística Paramétrica</a>
-    <a class='right-next' id="next-link" href="../6_ANOVA/anova_y_asociacionDiscretas.html" title="next page"><span class="section-number">11. </span>Análisis de Asociación de Variables Aleatorias</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Inferencia en Estadística Paramétrica</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../6_ANOVA/anova_y_asociacionDiscretas.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Análisis de Asociación de Variables Aleatorias</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse and Eliana Scheihing<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse and Eliana Scheihing<br/>
+    
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
