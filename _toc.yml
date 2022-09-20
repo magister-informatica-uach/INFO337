@@ -12,6 +12,7 @@ parts:
   - caption: Modelamiento Estadístico
     numbered: true
     chapters:
+    - file: lectures/2_statistical_modeling/intro
     - file: lectures/2_statistical_modeling/part1
     - file: lectures/2_statistical_modeling/part2
     - file: lectures/2_statistical_modeling/part3
