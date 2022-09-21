@@ -341,8 +341,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-diferencia-entre-modelos-parametricos-y-no-parametricos">
-   6.2. La diferencia entre modelos paramétricos y no-paramétricos
+  <a class="reference internal nav-link" href="#diferencias-entre-metodos-parametricos-y-no-parametricos">
+   6.2. Diferencias entre métodos paramétricos y no-paramétricos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -376,8 +376,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#la-diferencia-entre-modelos-parametricos-y-no-parametricos">
-   6.2. La diferencia entre modelos paramétricos y no-paramétricos
+  <a class="reference internal nav-link" href="#diferencias-entre-metodos-parametricos-y-no-parametricos">
+   6.2. Diferencias entre métodos paramétricos y no-paramétricos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -400,10 +400,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>En el caso de modelamiento paramétrico nos enfocaremos en métodos frecuentistas clásicos: Estimación de máxima verosimilitud (MLE)</p></li>
 <li><p>Luego revisaremos técnicas de modelamiento no paramétrico: Histogramas y Estimación de densidad por kernels (KDE)</p></li>
-<li><p>Después de esto volveremos al caso paramétrico y extenderemos MLE utilizando priors: Estimación de máximo a posteriori</p></li>
+<li><p>Después de esto volveremos al caso paramétrico y extenderemos MLE utilizando priors: Estimación de Máximo a Posteriori (MAP)</p></li>
 <li><p>Finalmente presentaremos algunas ideas de modelamiento bayesiano, las cuales serán desarrolladas en profundidad al final de este curso</p></li>
 </ul>
-<p>Partamos con algunas deficiones generales.</p>
 <div class="section" id="que-es-inferencia-estadistica">
 <h2><span class="section-number">6.1. </span>¿Qué es inferencia estadística?<a class="headerlink" href="#que-es-inferencia-estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Inferencia, en general, es:</p>
@@ -427,20 +426,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>Test de hiṕotesis:</strong> ¿Son los datos consistentes con una hipótesis en particular?</p></li>
 </ul>
 </div>
-<div class="section" id="la-diferencia-entre-modelos-parametricos-y-no-parametricos">
-<h2><span class="section-number">6.2. </span>La diferencia entre modelos paramétricos y no-paramétricos<a class="headerlink" href="#la-diferencia-entre-modelos-parametricos-y-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Los modelos pueden clasificarse como</p>
-<p><strong>Paramétricos:</strong></p>
+<div class="section" id="diferencias-entre-metodos-parametricos-y-no-parametricos">
+<h2><span class="section-number">6.2. </span>Diferencias entre métodos paramétricos y no-paramétricos<a class="headerlink" href="#diferencias-entre-metodos-parametricos-y-no-parametricos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En estadística se hace la distinción entre métodos parámetricos y no paramétricos. Los primeros son métodos que <strong>hacen supuestos sobre la distribución de probabilidad subyacente de los datos</strong>, por ejemplo</p>
+<blockquote>
+<div><p>“La población tiene una distribución normal”</p>
+</div></blockquote>
+<p>Los segundos en cambio no suponen una forma teórica específica para las distribuciones subyancentes, sin embargo si suelen hacer otros supuestos “menos fuertes”, por ejemplo</p>
+<blockquote>
+<div><p>“La distribución subyacente es continua” o “las observaciones son independientes e idénticamente distribuidos”</p>
+</div></blockquote>
+<p>Los métodos no parámetricos son entonces menos restrictivos pero suelen ser menos sencibles (menor potencia estadística) que sus contrapartes paramétricas</p>
+<p>En el caso específico del modelamiento también se puede hacer la distinción anterior:</p>
+<p><strong>Modelos paramétricos:</strong></p>
 <ul class="simple">
-<li><p>Tienen un número fijo (y definido a priori) de parámetros</p></li>
-<li><p>Mantienen supuestos fuertes sobre los términos del modelo, e.g. el parámetro sigue una distribución Gaussiana</p></li>
-<li><p>Son simples de interpretar y fáciles de utilizar</p></li>
+<li><p>Hacen supuestos sobre la distribución de probabilidad de los datos (verosimilitud)</p></li>
+<li><p>(En el caso bayesiano también se supone una distribución para los parámetros del modelo)</p></li>
+<li><p>El modelo tiene una estructura fija, es decir un número fijo de parámetros</p></li>
+<li><p>Son, en general, más simples de ajustar e interpretar</p></li>
 </ul>
-<p><strong>No-paramétricos:</strong></p>
+<p><strong>Modelos no-paramétricos:</strong></p>
 <ul class="simple">
+<li><p>No hacen supuestos basados en distribuciones específicas (pero si en propiedades de dicha distribución)</p></li>
 <li><p>El número de parámetros puede depender de la cantidad de datos de entrenamiento (o ser infinito)</p></li>
-<li><p>No hacen supuestos basados en distribuciones. Sin embargo si tienen otros supuestos (menos fuertes), e.g. los datos son i.i.d.</p></li>
-<li><p>Son más flexibles pero también más difíciles de ajustar/entrenar</p></li>
+<li><p>Son, en general, más flexibles pero también más difíciles de ajustar</p></li>
 </ul>
 </div>
 <div class="section" id="la-diferencia-entre-inferencia-frecuentista-y-bayesiana">
@@ -454,7 +463,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Parámetros:</strong></p>
 <ul class="simple">
 <li><p>F: Los parámetros son variables determínistas, es decir que su valor es puntual</p></li>
-<li><p>B: Los parámetros son variables aleatorias, es decir que tienen distribuciones que cuantifican su incertidumbre. Podemos calcular valores esperados para nuestros parámetros</p></li>
+<li><p>B: Los parámetros son variables aleatorias, es decir que tienen distribuciones asociadas que cuantifican su incertidumbre. Podemos calcular valores esperados para nuestros parámetros</p></li>
 </ul>
 </div>
 </div>
