@@ -20,7 +20,8 @@ parts:
     numbered: true
     chapters:
     - file: lectures/3_InferenciaParametrica/parte1_sinEmbed_notebook
-    - file: lectures/4_nonparametric_inference/lecture 
+    - file: lectures/4_nonparametric_inference/part1 
+    - file: lectures/4_nonparametric_inference/part2 
     - file: lectures/6_ANOVA/anova_y_asociacionDiscretas
   - caption: Regresión Lineal
     numbered: true
