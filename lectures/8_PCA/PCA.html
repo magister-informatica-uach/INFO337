@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Análisis Exploratorio y Reducción de la Dimensionalidad &#8212; Herramientas estadísticas para la investigación</title>
+    <title>18. Análisis Exploratorio y Reducción de la Dimensionalidad &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="18. Gaussian Mixture Models" href="../9_mixture_models/lecture.html" />
-    <link rel="prev" title="16. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
+    <link rel="next" title="19. Gaussian Mixture Models" href="../9_mixture_models/lecture.html" />
+    <link rel="prev" title="17. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -135,22 +135,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/intro.html">
-   6. Introducción
+   6. Inferencia con modelos paramétricos y no paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   7. Modelamiento paramétrico
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   8. Nonparametric modeling
+   8. Modelamiento con métodos no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   9. Bayesian modeling
+   9. Modelamiento parámetrico Bayesiano
   </a>
  </li>
 </ul>
@@ -166,13 +166,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
    11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   12. Análisis de Asociación de Variables Aleatorias
+   13. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
@@ -184,22 +193,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part1.html">
-   13. Introduction to linear regression
+   14. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part2.html">
-   14. Multivariate linear regression
+   15. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part3.html">
-   15. Linear models and Basis functions
+   16. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   16. Regresiones para Respuestas Discretas
+   17. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
@@ -211,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   17. Análisis Exploratorio y Reducción de la Dimensionalidad
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   18. Gaussian Mixture Models
+   19. Gaussian Mixture Models
   </a>
  </li>
 </ul>
@@ -228,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   19. Modelamiento Bayesiano
+   20. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   20. A tutorial on Markov Chain Monte Carlo
+   21. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -339,27 +348,27 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-de-componentes-principales">
-   17.1. Análisis de Componentes Principales
+   18.1. Análisis de Componentes Principales
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#enfoque-basado-en-proyecciones-ortogonales">
-     17.1.1. Enfoque basado en proyecciones ortogonales
+     18.1.1. Enfoque basado en proyecciones ortogonales
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#enfoque-de-descomposicion-en-valores-singulares-svd">
-     17.1.2. Enfoque de Descomposición en Valores Singulares (SVD)
+     18.1.2. Enfoque de Descomposición en Valores Singulares (SVD)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#seleccion-del-numero-de-componentes-principales">
-     17.1.3. Selección del número de componentes principales
+     18.1.3. Selección del número de componentes principales
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       17.1.3.1. Ejercicio 2:
+       18.1.3.1. Ejercicio 2:
       </a>
      </li>
     </ul>
@@ -368,12 +377,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#otro-enfoque-modelos-lineales-latentes">
-   17.2. Otro enfoque: Modelos Lineales Latentes
+   18.2. Otro enfoque: Modelos Lineales Latentes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analisis-factorial">
-     17.2.1. Análisis Factorial
+     18.2.1. Análisis Factorial
     </a>
    </li>
   </ul>
@@ -400,27 +409,27 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-de-componentes-principales">
-   17.1. Análisis de Componentes Principales
+   18.1. Análisis de Componentes Principales
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#enfoque-basado-en-proyecciones-ortogonales">
-     17.1.1. Enfoque basado en proyecciones ortogonales
+     18.1.1. Enfoque basado en proyecciones ortogonales
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#enfoque-de-descomposicion-en-valores-singulares-svd">
-     17.1.2. Enfoque de Descomposición en Valores Singulares (SVD)
+     18.1.2. Enfoque de Descomposición en Valores Singulares (SVD)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#seleccion-del-numero-de-componentes-principales">
-     17.1.3. Selección del número de componentes principales
+     18.1.3. Selección del número de componentes principales
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#ejercicio-2">
-       17.1.3.1. Ejercicio 2:
+       18.1.3.1. Ejercicio 2:
       </a>
      </li>
     </ul>
@@ -429,12 +438,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#otro-enfoque-modelos-lineales-latentes">
-   17.2. Otro enfoque: Modelos Lineales Latentes
+   18.2. Otro enfoque: Modelos Lineales Latentes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#analisis-factorial">
-     17.2.1. Análisis Factorial
+     18.2.1. Análisis Factorial
     </a>
    </li>
   </ul>
@@ -449,12 +458,12 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="analisis-exploratorio-y-reduccion-de-la-dimensionalidad">
-<h1><span class="section-number">17. </span>Análisis Exploratorio y Reducción de la Dimensionalidad<a class="headerlink" href="#analisis-exploratorio-y-reduccion-de-la-dimensionalidad" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">18. </span>Análisis Exploratorio y Reducción de la Dimensionalidad<a class="headerlink" href="#analisis-exploratorio-y-reduccion-de-la-dimensionalidad" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="analisis-de-componentes-principales">
-<h2><span class="section-number">17.1. </span>Análisis de Componentes Principales<a class="headerlink" href="#analisis-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">18.1. </span>Análisis de Componentes Principales<a class="headerlink" href="#analisis-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El análisis de componentes principales (PCA) es el proceso mediante el cual se calculan los componentes principales de una matriz de datos con el objeto de realizar una comprensión de los datos. PCA es un enfoque no supervisado, lo que significa que se realiza en un conjunto de variables <span class="math notranslate nohighlight">\(X_1, X_2,…, X_d\)</span> sin respuesta asociada <span class="math notranslate nohighlight">\(Y\)</span>. PCA reduce la dimensionalidad del conjunto de datos, lo que permite explicar la mayor parte de la variabilidad utilizando menos variables. El PCA se usa comúnmente como una primera herramienta de visualización de los datos, para reducir el número de variables y evitar la multicolinealidad, o cuando se tienen demasiados predictores en relación con el número de observaciones.</p>
 <div class="section" id="enfoque-basado-en-proyecciones-ortogonales">
-<h3><span class="section-number">17.1.1. </span>Enfoque basado en proyecciones ortogonales<a class="headerlink" href="#enfoque-basado-en-proyecciones-ortogonales" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">18.1.1. </span>Enfoque basado en proyecciones ortogonales<a class="headerlink" href="#enfoque-basado-en-proyecciones-ortogonales" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sea <span class="math notranslate nohighlight">\(X\)</span> una matriz de <span class="math notranslate nohighlight">\(n\)</span> datos <span class="math notranslate nohighlight">\(d\)</span>-dimensionales, con cada componente  de media nula, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}X = \begin{pmatrix}
@@ -506,7 +515,7 @@ Este procedimiento puede iterarse para obtener la segunda proyección (ortogonal
 </div>
 </div>
 <div class="section" id="enfoque-de-descomposicion-en-valores-singulares-svd">
-<h3><span class="section-number">17.1.2. </span>Enfoque de Descomposición en Valores Singulares (SVD)<a class="headerlink" href="#enfoque-de-descomposicion-en-valores-singulares-svd" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">18.1.2. </span>Enfoque de Descomposición en Valores Singulares (SVD)<a class="headerlink" href="#enfoque-de-descomposicion-en-valores-singulares-svd" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Otro enfoque posible es considerar la descomposición siguiente para la matriz <span class="math notranslate nohighlight">\(X\)</span>.
 Supongamos que <span class="math notranslate nohighlight">\(n&gt;d\)</span>, entonces existen matrices U, S, V tales que:</p>
 <div class="math notranslate nohighlight">
@@ -766,7 +775,7 @@ $vectors
 </div>
 </div>
 <div class="section" id="seleccion-del-numero-de-componentes-principales">
-<h3><span class="section-number">17.1.3. </span>Selección del número de componentes principales<a class="headerlink" href="#seleccion-del-numero-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">18.1.3. </span>Selección del número de componentes principales<a class="headerlink" href="#seleccion-del-numero-de-componentes-principales" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Como ya se ha mencionado el PCA reduce la dimensionalidad al mismo tiempo que explica la mayor parte de la variabilidad, pero existe un método más técnico para medir exactamente qué porcentaje de la varianza se mantuvo en estos componentes principales.</p>
 <p>La proporción de varianza explicada (PVE) por la m-ésima componente principal se calcula utilizando la ecuación:</p>
 <div class="math notranslate nohighlight">
@@ -874,7 +883,7 @@ Rape     0.5434321  0.1673186 -0.8177779 -0.08902432
 </div>
 </div>
 <div class="section" id="ejercicio-2">
-<h4><span class="section-number">17.1.3.1. </span>Ejercicio 2:<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">18.1.3.1. </span>Ejercicio 2:<a class="headerlink" href="#ejercicio-2" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>a) Explique a que corresponden cada una de las componente del objeto resultante de utilizar la función prcomp</p>
 <p>b) Explique como se relacionan variables y observaciones en este último gráfico.
 Compare los resultados obtenidos utilizando la función predefinida en R prcomp con aquellos de los cálculos previos.</p>
@@ -1157,9 +1166,9 @@ Wyoming           6.8     161       60 15.6
 </div>
 </div>
 <div class="section" id="otro-enfoque-modelos-lineales-latentes">
-<h2><span class="section-number">17.2. </span>Otro enfoque: Modelos Lineales Latentes<a class="headerlink" href="#otro-enfoque-modelos-lineales-latentes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">18.2. </span>Otro enfoque: Modelos Lineales Latentes<a class="headerlink" href="#otro-enfoque-modelos-lineales-latentes" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="analisis-factorial">
-<h3><span class="section-number">17.2.1. </span>Análisis Factorial<a class="headerlink" href="#analisis-factorial" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">18.2.1. </span>Análisis Factorial<a class="headerlink" href="#analisis-factorial" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consideremos que asociado a un vector aleatorio <span class="math notranslate nohighlight">\(d\)</span>-dimensional <span class="math notranslate nohighlight">\(x_i\)</span> existe un vector aleatorio de variables latentes <span class="math notranslate nohighlight">\(z_i\)</span> de menor dimension, <span class="math notranslate nohighlight">\(l\)</span>, que cumple:</p>
 <div class="math notranslate nohighlight">
 \[z_i \sim \mathcal{N}(z_i \mid \mu_0,\Sigma_0)\]</div>
@@ -1294,13 +1303,13 @@ que es la varianza promedio asociada a las dimensiones descartadas.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">16. </span>Regresiones para Respuestas Discretas</p>
+            <p class="prev-next-title"><span class="section-number">17. </span>Regresiones para Respuestas Discretas</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../9_mixture_models/lecture.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Gaussian Mixture Models</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Gaussian Mixture Models</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

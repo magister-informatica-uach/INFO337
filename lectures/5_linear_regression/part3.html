@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Linear models and Basis functions &#8212; Herramientas estadísticas para la investigación</title>
+    <title>16. Linear models and Basis functions &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="16. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
-    <link rel="prev" title="14. Multivariate linear regression" href="part2.html" />
+    <link rel="next" title="17. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
+    <link rel="prev" title="15. Multivariate linear regression" href="part2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -135,22 +135,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/intro.html">
-   6. Introducción
+   6. Inferencia con modelos paramétricos y no paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   7. Modelamiento paramétrico
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   8. Nonparametric modeling
+   8. Modelamiento con métodos no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   9. Bayesian modeling
+   9. Modelamiento parámetrico Bayesiano
   </a>
  </li>
 </ul>
@@ -166,13 +166,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
    11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   12. Análisis de Asociación de Variables Aleatorias
+   13. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
@@ -184,22 +193,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   13. Introduction to linear regression
+   14. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   14. Multivariate linear regression
+   15. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   15. Linear models and Basis functions
+   16. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   16. Regresiones para Respuestas Discretas
+   17. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
@@ -211,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   17. Análisis Exploratorio y Reducción de la Dimensionalidad
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   18. Gaussian Mixture Models
+   19. Gaussian Mixture Models
   </a>
  </li>
 </ul>
@@ -228,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   19. Modelamiento Bayesiano
+   20. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   20. A tutorial on Markov Chain Monte Carlo
+   21. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -339,29 +348,29 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basis-functions">
-   15.1. Basis functions
+   16.1. Basis functions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#polynomials">
-     15.1.1. Polynomials
+     16.1.1. Polynomials
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trigonometric">
-     15.1.2. Trigonometric
+     16.1.2. Trigonometric
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interactions-between-variables">
-     15.1.3. Interactions between variables
+     16.1.3. Interactions between variables
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#polynomial-regression-using-scikit-learn">
-   15.2. Polynomial regression using
+   16.2. Polynomial regression using
    <code class="docutils literal notranslate">
     <span class="pre">
      scikit-learn
@@ -371,39 +380,39 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overfitting-and-regularization">
-   15.3. Overfitting and regularization
+   16.3. Overfitting and regularization
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-bias-variance-trade-off">
-     15.3.1. The Bias-Variance trade-off
+     16.3.1. The Bias-Variance trade-off
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bayesian-map-least-squares-and-ridge-regression">
-     15.3.2. Bayesian (MAP) Least Squares and Ridge regression
+     16.3.2. Bayesian (MAP) Least Squares and Ridge regression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-ridge-regression-in-python">
-     15.3.3. Example: Ridge Regression in Python
+     16.3.3. Example: Ridge Regression in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extra-topics">
-   15.4. Extra topics
+   16.4. Extra topics
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-note-on-independence-and-correlation">
-     15.4.1. A note on independence and correlation
+     16.4.1. A note on independence and correlation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#related-topics">
-     15.4.2. Related topics
+     16.4.2. Related topics
     </a>
    </li>
   </ul>
@@ -430,29 +439,29 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basis-functions">
-   15.1. Basis functions
+   16.1. Basis functions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#polynomials">
-     15.1.1. Polynomials
+     16.1.1. Polynomials
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trigonometric">
-     15.1.2. Trigonometric
+     16.1.2. Trigonometric
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interactions-between-variables">
-     15.1.3. Interactions between variables
+     16.1.3. Interactions between variables
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#polynomial-regression-using-scikit-learn">
-   15.2. Polynomial regression using
+   16.2. Polynomial regression using
    <code class="docutils literal notranslate">
     <span class="pre">
      scikit-learn
@@ -462,39 +471,39 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overfitting-and-regularization">
-   15.3. Overfitting and regularization
+   16.3. Overfitting and regularization
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-bias-variance-trade-off">
-     15.3.1. The Bias-Variance trade-off
+     16.3.1. The Bias-Variance trade-off
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bayesian-map-least-squares-and-ridge-regression">
-     15.3.2. Bayesian (MAP) Least Squares and Ridge regression
+     16.3.2. Bayesian (MAP) Least Squares and Ridge regression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-ridge-regression-in-python">
-     15.3.3. Example: Ridge Regression in Python
+     16.3.3. Example: Ridge Regression in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extra-topics">
-   15.4. Extra topics
+   16.4. Extra topics
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#a-note-on-independence-and-correlation">
-     15.4.1. A note on independence and correlation
+     16.4.1. A note on independence and correlation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#related-topics">
-     15.4.2. Related topics
+     16.4.2. Related topics
     </a>
    </li>
   </ul>
@@ -2067,7 +2076,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="linear-models-and-basis-functions">
-<h1><span class="section-number">15. </span>Linear models and Basis functions<a class="headerlink" href="#linear-models-and-basis-functions" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">16. </span>Linear models and Basis functions<a class="headerlink" href="#linear-models-and-basis-functions" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>In previous lessons we learned how to fit lines and hyperplanes to data. But the most general form of a linear model is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2081,9 +2090,9 @@ g_\theta(x_i) = \sum_{k=0}^K \theta_k \phi_k(x_i),
 <li><p>learn how to avoid overfitting the data using regularization techniques</p></li>
 </ul>
 <div class="section" id="basis-functions">
-<h2><span class="section-number">15.1. </span>Basis functions<a class="headerlink" href="#basis-functions" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.1. </span>Basis functions<a class="headerlink" href="#basis-functions" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="polynomials">
-<h3><span class="section-number">15.1.1. </span>Polynomials<a class="headerlink" href="#polynomials" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.1. </span>Polynomials<a class="headerlink" href="#polynomials" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>For a unidimensional variable <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}, i=1,\ldots,N\)</span>, a general polynomial basis is defined</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2096,7 +2105,7 @@ g_\theta(x_i) = \sum_{k=0}^K \theta_k x_i^k = \theta_0 + \theta_1 x_i + \theta_2
 \]</div>
 </div>
 <div class="section" id="trigonometric">
-<h3><span class="section-number">15.1.2. </span>Trigonometric<a class="headerlink" href="#trigonometric" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.2. </span>Trigonometric<a class="headerlink" href="#trigonometric" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>If we want to model periodic behavior a trigonometric basis is a suitable choice. For a unidimensional variable <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}, i=1,\ldots,N\)</span>, a trigonometric basis with period <span class="math notranslate nohighlight">\(P=1/f_0\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2109,7 +2118,7 @@ g_\theta(x_i) = \theta_0 + \sum_{k=1}^K \theta_k \cos(2\pi k f_0 x_i) + \sum_{k=
 \]</div>
 </div>
 <div class="section" id="interactions-between-variables">
-<h3><span class="section-number">15.1.3. </span>Interactions between variables<a class="headerlink" href="#interactions-between-variables" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.3. </span>Interactions between variables<a class="headerlink" href="#interactions-between-variables" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We can create a basis that models linear and non-linear interactions between our independent variables</p>
 <p>For example if we have a bidimensional variable <span class="math notranslate nohighlight">\(x_i = (w_{i}, v_{i}), i=1,\ldots,N\)</span> a model with interactions up to the second degree would be</p>
 <div class="math notranslate nohighlight">
@@ -2119,7 +2128,7 @@ g_\theta(x_i) = \theta_0 + \theta_1 w_i + \theta_2 v_i + \theta_3 w_i^2 + \theta
 </div>
 </div>
 <div class="section" id="polynomial-regression-using-scikit-learn">
-<h2><span class="section-number">15.2. </span>Polynomial regression using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#polynomial-regression-using-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.2. </span>Polynomial regression using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#polynomial-regression-using-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>We can create a polynomial basis from our variables using</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># Degree of the polinomial</span>
                                          <span class="n">interaction_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Return only products between features</span>
@@ -2318,7 +2327,7 @@ g_\theta(x_i) = \theta_0 + \theta_1 w_i + \theta_2 v_i + \theta_3 w_i^2 + \theta
 <p>Let’s define what is overfitting and how to combat it using regularization</p>
 </div>
 <div class="section" id="overfitting-and-regularization">
-<h2><span class="section-number">15.3. </span>Overfitting and regularization<a class="headerlink" href="#overfitting-and-regularization" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.3. </span>Overfitting and regularization<a class="headerlink" href="#overfitting-and-regularization" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>In the previous example <code class="docutils literal notranslate"><span class="pre">degree</span></code> represents the complexity of the model. In general, more complex models give more flexibility to fit the data</p>
 <p>But too much complexity causes <strong>overfitting</strong></p>
 <ul class="simple">
@@ -2334,7 +2343,7 @@ g_\theta(x_i) = \theta_0 + \theta_1 w_i + \theta_2 v_i + \theta_3 w_i^2 + \theta
 </ul>
 <p>In what follows we will focus on the latter</p>
 <div class="section" id="the-bias-variance-trade-off">
-<h3><span class="section-number">15.3.1. </span>The Bias-Variance trade-off<a class="headerlink" href="#the-bias-variance-trade-off" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.3.1. </span>The Bias-Variance trade-off<a class="headerlink" href="#the-bias-variance-trade-off" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Let’s assume that our data can be modeled as a “true model” plus gaussian noise</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2362,7 +2371,7 @@ y = f(x) + \varepsilon
 <p>If we are overfitting the data we may want to trade variance for bias. This can be achieved by penalizing the complexity of the model: this is <strong>regularization</strong>.</p>
 </div>
 <div class="section" id="bayesian-map-least-squares-and-ridge-regression">
-<h3><span class="section-number">15.3.2. </span>Bayesian (MAP) Least Squares and Ridge regression<a class="headerlink" href="#bayesian-map-least-squares-and-ridge-regression" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.3.2. </span>Bayesian (MAP) Least Squares and Ridge regression<a class="headerlink" href="#bayesian-map-least-squares-and-ridge-regression" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>If we assume a Gaussian likelihood and a Gaussian prior we can write the log joint as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2408,7 +2417,7 @@ y = f(x) + \varepsilon
 </ul>
 </div>
 <div class="section" id="example-ridge-regression-in-python">
-<h3><span class="section-number">15.3.3. </span>Example: Ridge Regression in Python<a class="headerlink" href="#example-ridge-regression-in-python" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.3.3. </span>Example: Ridge Regression in Python<a class="headerlink" href="#example-ridge-regression-in-python" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library provides</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># The regularization parameter (lambda)</span>
                           <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Whether to include the intercept (constant)</span>
@@ -2494,9 +2503,9 @@ y = f(x) + \varepsilon
 </div>
 </div>
 <div class="section" id="extra-topics">
-<h2><span class="section-number">15.4. </span>Extra topics<a class="headerlink" href="#extra-topics" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.4. </span>Extra topics<a class="headerlink" href="#extra-topics" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="a-note-on-independence-and-correlation">
-<h3><span class="section-number">15.4.1. </span>A note on independence and correlation<a class="headerlink" href="#a-note-on-independence-and-correlation" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.4.1. </span>A note on independence and correlation<a class="headerlink" href="#a-note-on-independence-and-correlation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Independence implies uncorrelatedness, but the reverse is not true. Two variables can have zero correlation but still be dependent. Also remember that linear regression (correlation) is only sensitive to linear relationships</p>
 <p>If we are interested in testing independence we could use:</p>
 <div class="math notranslate nohighlight">
@@ -2516,7 +2525,7 @@ R(X,Y) = \int \int |f_{XY}(x,y)  - f_{X}(x) f_Y(y)| dx dy
 <p>Although these methods require that we estimate the joint and the marginals (KDE, Histogram, Parametric). For categorical variables we can use the <strong>chi square test</strong></p>
 </div>
 <div class="section" id="related-topics">
-<h3><span class="section-number">15.4.2. </span>Related topics<a class="headerlink" href="#related-topics" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.4.2. </span>Related topics<a class="headerlink" href="#related-topics" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p>(Hastie 3.4 and 3.8) L1 regularization and Least Absolute Shrinkage and Selection Operator (LASSO)</p></li>
 <li><p>Robust regression: Least absolute regression and M-estimators for data with outliers (non-Gaussian)</p></li>
@@ -2574,13 +2583,13 @@ R(X,Y) = \int \int |f_{XY}(x,y)  - f_{X}(x) f_Y(y)| dx dy
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">14. </span>Multivariate linear regression</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>Multivariate linear regression</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Regresiones para Respuestas Discretas</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Regresiones para Respuestas Discretas</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

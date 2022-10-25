@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>14. Multivariate linear regression &#8212; Herramientas estadísticas para la investigación</title>
+    <title>15. Multivariate linear regression &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="15. Linear models and Basis functions" href="part3.html" />
-    <link rel="prev" title="13. Introduction to linear regression" href="part1.html" />
+    <link rel="next" title="16. Linear models and Basis functions" href="part3.html" />
+    <link rel="prev" title="14. Introduction to linear regression" href="part1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -135,22 +135,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/intro.html">
-   6. Introducción
+   6. Inferencia con modelos paramétricos y no paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   7. Modelamiento paramétrico
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   8. Nonparametric modeling
+   8. Modelamiento con métodos no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   9. Bayesian modeling
+   9. Modelamiento parámetrico Bayesiano
   </a>
  </li>
 </ul>
@@ -166,13 +166,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
    11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   12. Análisis de Asociación de Variables Aleatorias
+   13. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
@@ -184,22 +193,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   13. Introduction to linear regression
+   14. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   14. Multivariate linear regression
+   15. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   15. Linear models and Basis functions
+   16. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   16. Regresiones para Respuestas Discretas
+   17. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
@@ -211,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   17. Análisis Exploratorio y Reducción de la Dimensionalidad
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   18. Gaussian Mixture Models
+   19. Gaussian Mixture Models
   </a>
  </li>
 </ul>
@@ -228,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   19. Modelamiento Bayesiano
+   20. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   20. A tutorial on Markov Chain Monte Carlo
+   21. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -339,17 +348,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
-   14.1. Ordinary Least Squares (OLS)
+   15.1. Ordinary Least Squares (OLS)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mathematical-derivation">
-     14.1.1. Mathematical derivation
+     15.1.1. Mathematical derivation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-an-hyperplane-using-numpy">
-     14.1.2. Fitting an hyperplane using
+     15.1.2. Fitting an hyperplane using
      <code class="docutils literal notranslate">
       <span class="pre">
        numpy
@@ -361,24 +370,24 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistical-perspective-of-ols">
-   14.2. Statistical perspective of OLS
+   15.2. Statistical perspective of OLS
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#statistical-properties-of-the-ols-solution">
-     14.2.1. Statistical properties of the OLS solution
+     15.2.1. Statistical properties of the OLS solution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#inference-and-hypothesis-tests-for-ols">
-     14.2.2. Inference and hypothesis tests for OLS
+     15.2.2. Inference and hypothesis tests for OLS
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extra-weighted-least-squares-wls">
-   14.3. Extra: Weighted Least Squares (WLS)
+   15.3. Extra: Weighted Least Squares (WLS)
   </a>
  </li>
 </ul>
@@ -403,17 +412,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
-   14.1. Ordinary Least Squares (OLS)
+   15.1. Ordinary Least Squares (OLS)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#mathematical-derivation">
-     14.1.1. Mathematical derivation
+     15.1.1. Mathematical derivation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-an-hyperplane-using-numpy">
-     14.1.2. Fitting an hyperplane using
+     15.1.2. Fitting an hyperplane using
      <code class="docutils literal notranslate">
       <span class="pre">
        numpy
@@ -425,24 +434,24 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#statistical-perspective-of-ols">
-   14.2. Statistical perspective of OLS
+   15.2. Statistical perspective of OLS
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#statistical-properties-of-the-ols-solution">
-     14.2.1. Statistical properties of the OLS solution
+     15.2.1. Statistical properties of the OLS solution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#inference-and-hypothesis-tests-for-ols">
-     14.2.2. Inference and hypothesis tests for OLS
+     15.2.2. Inference and hypothesis tests for OLS
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extra-weighted-least-squares-wls">
-   14.3. Extra: Weighted Least Squares (WLS)
+   15.3. Extra: Weighted Least Squares (WLS)
   </a>
  </li>
 </ul>
@@ -2012,7 +2021,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="multivariate-linear-regression">
-<h1><span class="section-number">14. </span>Multivariate linear regression<a class="headerlink" href="#multivariate-linear-regression" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">15. </span>Multivariate linear regression<a class="headerlink" href="#multivariate-linear-regression" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>In the previous lesson we introduce the topic of linear regression and studied the most simple linear model: the line.</p>
 <p>In this lesson we will generalize this model to the multivariate case, i.e. when we want to predict an unidimensional (and continuous) variable <span class="math notranslate nohighlight">\(Y\)</span> from a multidimensional (and continuous) variable <span class="math notranslate nohighlight">\(X\)</span>. You can interpret <span class="math notranslate nohighlight">\(X\)</span> as a table where each column represents a particular attribute.</p>
 <div class="tip admonition">
@@ -2021,9 +2030,9 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 <p>In what follows we will learn the mathematical formalism of the Ordinary Least Squares (OLS) method and how to implement it to fit regression models using Python</p>
 <div class="section" id="ordinary-least-squares-ols">
-<h2><span class="section-number">14.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="mathematical-derivation">
-<h3><span class="section-number">14.1.1. </span>Mathematical derivation<a class="headerlink" href="#mathematical-derivation" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.1.1. </span>Mathematical derivation<a class="headerlink" href="#mathematical-derivation" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consider a dataset <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i=1,\ldots,N}\)</span> of <em>i.i.d.</em> observations with <span class="math notranslate nohighlight">\(y_i \in \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}^D\)</span>, with <span class="math notranslate nohighlight">\(D&gt;1\)</span>. We want to find <span class="math notranslate nohighlight">\(\theta\)</span>  such that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2111,7 +2120,7 @@ X^T X \theta &amp;= X^T Y \nonumber
 </div>
 </details></div>
 <div class="section" id="fitting-an-hyperplane-using-numpy">
-<h3><span class="section-number">14.1.2. </span>Fitting an hyperplane using <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#fitting-an-hyperplane-using-numpy" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.1.2. </span>Fitting an hyperplane using <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#fitting-an-hyperplane-using-numpy" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>The <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html"><code class="docutils literal notranslate"><span class="pre">linalg</span></code></a> submodule of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library provides</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="c1"># a (N, D) shaped ndarray</span>
                 <span class="n">Y</span><span class="p">,</span> <span class="c1"># a (N, ) shaped ndarray </span>
@@ -2398,7 +2407,7 @@ X^T X \theta &amp;= X^T Y \nonumber
 </div>
 </div>
 <div class="section" id="statistical-perspective-of-ols">
-<h2><span class="section-number">14.2. </span>Statistical perspective of OLS<a class="headerlink" href="#statistical-perspective-of-ols" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.2. </span>Statistical perspective of OLS<a class="headerlink" href="#statistical-perspective-of-ols" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Up to now we have viewed regression from a deterministic (optimization) perspective. To understand its properties and perform inference we seek an statistical interpretation.</p>
 <p>Let’s say that we have <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i=1,\ldots,N}\)</span> <em>i.i.d.</em> observations from an unidimensional target variable <span class="math notranslate nohighlight">\(Y\)</span> and a <strong>D-dimensional</strong> independent variable <span class="math notranslate nohighlight">\(X\)</span>. We will assume that our measurements of <span class="math notranslate nohighlight">\(Y\)</span> consists of the <strong>true model</strong> plus <strong>white Gaussian noise</strong>, <em>i.e.</em></p>
 <div class="math notranslate nohighlight">
@@ -2438,7 +2447,7 @@ y_i &amp;= f_\theta(x_i) + \varepsilon_i \nonumber \\
 <p>The least squares solution is equivalent to the maximum likelihood solution under iid samples and gaussian noise</p>
 </div>
 <div class="section" id="statistical-properties-of-the-ols-solution">
-<h3><span class="section-number">14.2.1. </span>Statistical properties of the OLS solution<a class="headerlink" href="#statistical-properties-of-the-ols-solution" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.2.1. </span>Statistical properties of the OLS solution<a class="headerlink" href="#statistical-properties-of-the-ols-solution" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\varepsilon = (\varepsilon_1, \varepsilon_2, \ldots, \varepsilon_N)\)</span>, where <span class="math notranslate nohighlight">\(\varepsilon \sim \mathcal{N}(0, I \sigma^2) \quad \forall i\)</span></p>
 <p>Is the OLS estimator unbiased?</p>
 <div class="math notranslate nohighlight">
@@ -2474,7 +2483,7 @@ y_i &amp;= f_\theta(x_i) + \varepsilon_i \nonumber \\
 <p><strong>The Gauss-Markov Theorem:</strong> The least squares estimate of <span class="math notranslate nohighlight">\(\theta\)</span> have the smallest variance among all unbiased estimators (Hastie, 3.2.2)</p>
 </div>
 <div class="section" id="inference-and-hypothesis-tests-for-ols">
-<h3><span class="section-number">14.2.2. </span>Inference and hypothesis tests for OLS<a class="headerlink" href="#inference-and-hypothesis-tests-for-ols" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.2.2. </span>Inference and hypothesis tests for OLS<a class="headerlink" href="#inference-and-hypothesis-tests-for-ols" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We found the expected value and the variance of <span class="math notranslate nohighlight">\(\theta\)</span>. From the properties of MLE we know that</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2632,7 +2641,7 @@ r^2 &amp;= 1 - \frac{\sum_i (y_i - \hat y_i)^2}{\sum_i (y_i - \bar y_i)^2} \nonu
 </div>
 </div>
 <div class="section" id="extra-weighted-least-squares-wls">
-<h2><span class="section-number">14.3. </span>Extra: Weighted Least Squares (WLS)<a class="headerlink" href="#extra-weighted-least-squares-wls" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.3. </span>Extra: Weighted Least Squares (WLS)<a class="headerlink" href="#extra-weighted-least-squares-wls" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Before we assumed that the noise was homoscedastic (constant variance). We will generalize to the heteroscedastic case.</p>
 <p>We can write the multivariate linear regression model with observations subject to Gaussian noise with changing variance as</p>
 <div class="math notranslate nohighlight">
@@ -2692,13 +2701,13 @@ y_i = \theta_0 + \sum_{j=1}^D \theta_j x_{ij} + \varepsilon_i, \forall i \quad \
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">13. </span>Introduction to linear regression</p>
+            <p class="prev-next-title"><span class="section-number">14. </span>Introduction to linear regression</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="part3.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Linear models and Basis functions</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Linear models and Basis functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

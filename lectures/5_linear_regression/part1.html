@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Introduction to linear regression &#8212; Herramientas estadísticas para la investigación</title>
+    <title>14. Introduction to linear regression &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="14. Multivariate linear regression" href="part2.html" />
-    <link rel="prev" title="12. Análisis de Asociación de Variables Aleatorias" href="../6_ANOVA/anova_y_asociacionDiscretas.html" />
+    <link rel="next" title="15. Multivariate linear regression" href="part2.html" />
+    <link rel="prev" title="13. Análisis de Asociación de Variables Aleatorias" href="../6_ANOVA/anova_y_asociacionDiscretas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -135,22 +135,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/intro.html">
-   6. Introducción
+   6. Inferencia con modelos paramétricos y no paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   7. Modelamiento paramétrico
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   8. Nonparametric modeling
+   8. Modelamiento con métodos no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   9. Bayesian modeling
+   9. Modelamiento parámetrico Bayesiano
   </a>
  </li>
 </ul>
@@ -166,13 +166,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
    11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   12. Análisis de Asociación de Variables Aleatorias
+   13. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
@@ -184,22 +193,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   13. Introduction to linear regression
+   14. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   14. Multivariate linear regression
+   15. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   15. Linear models and Basis functions
+   16. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   16. Regresiones para Respuestas Discretas
+   17. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
@@ -211,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   17. Análisis Exploratorio y Reducción de la Dimensionalidad
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   18. Gaussian Mixture Models
+   19. Gaussian Mixture Models
   </a>
  </li>
 </ul>
@@ -228,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   19. Modelamiento Bayesiano
+   20. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   20. A tutorial on Markov Chain Monte Carlo
+   21. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -339,44 +348,44 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defining-regression">
-   13.1. Defining regression
+   14.1. Defining regression
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-vs-non-parametric-regression">
-     13.1.1. Parametric vs non-parametric  regression
+     14.1.1. Parametric vs non-parametric  regression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-linear-models-for-regression">
-     13.1.2. Parametric linear models for regression
+     14.1.2. Parametric linear models for regression
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-simplest-linear-model-the-line">
-   13.2. The simplest linear model: The line
+   14.2. The simplest linear model: The line
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-simplest-linear-model-mathematics">
-     13.2.1. Fitting the simplest linear model: Mathematics
+     14.2.1. Fitting the simplest linear model: Mathematics
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-simplest-linear-model-python">
-     13.2.2. Fitting the simplest linear model: Python
+     14.2.2. Fitting the simplest linear model: Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#predicting-with-the-model-and-inspecting-the-results">
-     13.2.3. Predicting with the model and inspecting the results
+     14.2.3. Predicting with the model and inspecting the results
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coefficient-of-determination">
-     13.2.4. Coefficient of determination
+     14.2.4. Coefficient of determination
     </a>
    </li>
   </ul>
@@ -403,44 +412,44 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defining-regression">
-   13.1. Defining regression
+   14.1. Defining regression
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-vs-non-parametric-regression">
-     13.1.1. Parametric vs non-parametric  regression
+     14.1.1. Parametric vs non-parametric  regression
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#parametric-linear-models-for-regression">
-     13.1.2. Parametric linear models for regression
+     14.1.2. Parametric linear models for regression
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-simplest-linear-model-the-line">
-   13.2. The simplest linear model: The line
+   14.2. The simplest linear model: The line
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-simplest-linear-model-mathematics">
-     13.2.1. Fitting the simplest linear model: Mathematics
+     14.2.1. Fitting the simplest linear model: Mathematics
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-simplest-linear-model-python">
-     13.2.2. Fitting the simplest linear model: Python
+     14.2.2. Fitting the simplest linear model: Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#predicting-with-the-model-and-inspecting-the-results">
-     13.2.3. Predicting with the model and inspecting the results
+     14.2.3. Predicting with the model and inspecting the results
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#coefficient-of-determination">
-     13.2.4. Coefficient of determination
+     14.2.4. Coefficient of determination
     </a>
    </li>
   </ul>
@@ -2007,7 +2016,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-linear-regression">
-<h1><span class="section-number">13. </span>Introduction to linear regression<a class="headerlink" href="#introduction-to-linear-regression" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">14. </span>Introduction to linear regression<a class="headerlink" href="#introduction-to-linear-regression" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Many problems can be posed as “finding a relation” between factors/variables</p>
 <p>This can be interpreted as predicting and/or explaining a variable given others</p>
 <p>Some examples:</p>
@@ -2025,7 +2034,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </ul>
 <p>Answering these helps us <strong>understand the underlying processes behind the data</strong></p>
 <div class="section" id="defining-regression">
-<h2><span class="section-number">13.1. </span>Defining regression<a class="headerlink" href="#defining-regression" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.1. </span>Defining regression<a class="headerlink" href="#defining-regression" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Regression</strong> refers to a family of statistical methods to find <strong>relationships</strong> between <strong>variables</strong></p>
 <p>In general the relation is modeled as a function <span class="math notranslate nohighlight">\(g(\cdot)\)</span> that maps two types of variables</p>
 <ul class="simple">
@@ -2044,7 +2053,7 @@ g: X \to Y
 <li><p><strong>Regression</strong> is considered part of the <em>supervised learning</em> paradigm. The difference between <strong>Regression</strong> and <em>classification</em> is the nature of the dependent variable (continuous vs categorical)</p></li>
 </ul>
 <div class="section" id="parametric-vs-non-parametric-regression">
-<h3><span class="section-number">13.1.1. </span>Parametric vs non-parametric  regression<a class="headerlink" href="#parametric-vs-non-parametric-regression" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.1.1. </span>Parametric vs non-parametric  regression<a class="headerlink" href="#parametric-vs-non-parametric-regression" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Regression methods can be broadly classified as either parametric or non-parametric</p>
 <p>In parametric regression</p>
 <ul class="simple">
@@ -2064,7 +2073,7 @@ g: X \to Y
 <p>In this lesson we will focus on parametric regression</p>
 </div>
 <div class="section" id="parametric-linear-models-for-regression">
-<h3><span class="section-number">13.1.2. </span>Parametric linear models for regression<a class="headerlink" href="#parametric-linear-models-for-regression" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.1.2. </span>Parametric linear models for regression<a class="headerlink" href="#parametric-linear-models-for-regression" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Let</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(X\)</span> be a continuous D-dimensional variable (feature) and <span class="math notranslate nohighlight">\(Y\)</span> be a continuous unidimensional variable (target)</p></li>
@@ -2100,7 +2109,7 @@ g_\theta(x_i) = \theta_0 + \log(x_i + \theta_1),
 </div>
 </div>
 <div class="section" id="the-simplest-linear-model-the-line">
-<h2><span class="section-number">13.2. </span>The simplest linear model: The line<a class="headerlink" href="#the-simplest-linear-model-the-line" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.2. </span>The simplest linear model: The line<a class="headerlink" href="#the-simplest-linear-model-the-line" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>If we consider a one-dimensional variable <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}, i=1,\ldots,N\)</span>, then the simplest linear model is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2125,7 +2134,7 @@ g_\theta(x_i) = \theta_0 + \sum_{j=1}^D \theta_j x_{ij}
 \]</div>
 <p>which has <span class="math notranslate nohighlight">\(M=D+1\)</span> parameters, which corresponds to an hyperplane in <span class="math notranslate nohighlight">\(\mathbb{R}^M\)</span></p>
 <div class="section" id="fitting-the-simplest-linear-model-mathematics">
-<h3><span class="section-number">13.2.1. </span>Fitting the simplest linear model: Mathematics<a class="headerlink" href="#fitting-the-simplest-linear-model-mathematics" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.2.1. </span>Fitting the simplest linear model: Mathematics<a class="headerlink" href="#fitting-the-simplest-linear-model-mathematics" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Assuming that we have <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i=1,\ldots,N}\)</span> <em>iid</em> observations from unidimensional variables X and Y</p>
 <blockquote>
 <div><p>How do we find <span class="math notranslate nohighlight">\(\theta_0\)</span> and <span class="math notranslate nohighlight">\(\theta_1\)</span> such that <span class="math notranslate nohighlight">\(y_i \approx \theta_0 + \theta_1 x_i, \forall i\)</span>?</p>
@@ -2194,7 +2203,7 @@ Proof<div class="summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="fitting-the-simplest-linear-model-python">
-<h3><span class="section-number">13.2.2. </span>Fitting the simplest linear model: Python<a class="headerlink" href="#fitting-the-simplest-linear-model-python" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.2.2. </span>Fitting the simplest linear model: Python<a class="headerlink" href="#fitting-the-simplest-linear-model-python" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We can fit a line in Python using the <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> library</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># N vector or Mx2 matrix (if y is None)</span>
                        <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># N vector</span>
@@ -2241,7 +2250,7 @@ Proof<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="predicting-with-the-model-and-inspecting-the-results">
-<h3><span class="section-number">13.2.3. </span>Predicting with the model and inspecting the results<a class="headerlink" href="#predicting-with-the-model-and-inspecting-the-results" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.2.3. </span>Predicting with the model and inspecting the results<a class="headerlink" href="#predicting-with-the-model-and-inspecting-the-results" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We can use the fitted model to interpolate/extrapolate on new values <span class="math notranslate nohighlight">\(\hat x\)</span></p>
 <p>The following plot shows the fitted model on the training samples</p>
 <div class="cell docutils container">
@@ -2357,7 +2366,7 @@ Proof<div class="summary-down docutils">
 <p>Correlation in the residuals is a sign that the choice of the model (line) was not adequate</p>
 </div>
 <div class="section" id="coefficient-of-determination">
-<h3><span class="section-number">13.2.4. </span>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">14.2.4. </span>Coefficient of determination<a class="headerlink" href="#coefficient-of-determination" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We can measure how strong is the linear relation between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(\hat y = \hat \theta_0 + \hat \theta_1 x\)</span> using the <strong>coefficient of determination</strong> or <span class="math notranslate nohighlight">\(r^2\)</span></p>
 <p>This is defined as</p>
 <div class="math notranslate nohighlight">
@@ -2421,13 +2430,13 @@ r^2 = 1 - \frac{\sum_i (y_i - \hat y_i)^2}{\sum_i (y_i - \bar y_i)^2} \in [0, 1]
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">12. </span>Análisis de Asociación de Variables Aleatorias</p>
+            <p class="prev-next-title"><span class="section-number">13. </span>Análisis de Asociación de Variables Aleatorias</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="part2.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Multivariate linear regression</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Multivariate linear regression</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

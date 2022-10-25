@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>18. Gaussian Mixture Models &#8212; Herramientas estadísticas para la investigación</title>
+    <title>19. Gaussian Mixture Models &#8212; Herramientas estadísticas para la investigación</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="19. Modelamiento Bayesiano" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html" />
-    <link rel="prev" title="17. Análisis Exploratorio y Reducción de la Dimensionalidad" href="../8_PCA/PCA.html" />
+    <link rel="next" title="20. Modelamiento Bayesiano" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html" />
+    <link rel="prev" title="18. Análisis Exploratorio y Reducción de la Dimensionalidad" href="../8_PCA/PCA.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -135,22 +135,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/intro.html">
-   6. Introducción
+   6. Inferencia con modelos paramétricos y no paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part1.html">
-   7. Modelamiento paramétrico
+   7. Ajuste de modelos paramétricos con MLE
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part2.html">
-   8. Nonparametric modeling
+   8. Modelamiento con métodos no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_statistical_modeling/part3.html">
-   9. Bayesian modeling
+   9. Modelamiento parámetrico Bayesiano
   </a>
  </li>
 </ul>
@@ -166,13 +166,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../4_nonparametric_inference/lecture.html">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
    11. Inferencia estadística con tests no-paramétricos
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
-   12. Análisis de Asociación de Variables Aleatorias
+   13. Análisis de Asociación de Variables Aleatorias
   </a>
  </li>
 </ul>
@@ -184,22 +193,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part1.html">
-   13. Introduction to linear regression
+   14. Introduction to linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part2.html">
-   14. Multivariate linear regression
+   15. Multivariate linear regression
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part3.html">
-   15. Linear models and Basis functions
+   16. Linear models and Basis functions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
-   16. Regresiones para Respuestas Discretas
+   17. Regresiones para Respuestas Discretas
   </a>
  </li>
 </ul>
@@ -211,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../8_PCA/PCA.html">
-   17. Análisis Exploratorio y Reducción de la Dimensionalidad
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   18. Gaussian Mixture Models
+   19. Gaussian Mixture Models
   </a>
  </li>
 </ul>
@@ -228,12 +237,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
-   19. Modelamiento Bayesiano
+   20. Modelamiento Bayesiano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11_MCMC/lecture.html">
-   20. A tutorial on Markov Chain Monte Carlo
+   21. A tutorial on Markov Chain Monte Carlo
   </a>
  </li>
 </ul>
@@ -339,66 +348,66 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   18.1. Introduction
+   19.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-model">
-   18.2. (Gaussian) Mixture model
+   19.2. (Gaussian) Mixture model
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#posterior-probability-a-k-a-picking-a-cluster">
-     18.2.1. Posterior probability a.k.a. picking a cluster
+     19.2.1. Posterior probability a.k.a. picking a cluster
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-gmm">
-     18.2.2. Fitting the GMM
+     19.2.2. Fitting the GMM
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#expectation-maximization-em">
-   18.3. Expectation Maximization (EM)
+   19.3. Expectation Maximization (EM)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#em-updates-for-the-gmm">
-     18.3.1. EM updates for the GMM
+     19.3.1. EM updates for the GMM
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary">
-     18.3.2. Summary
+     19.3.2. Summary
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-using-old-faithful-data">
-     18.3.3. Example using “Old faithful” data
+     19.3.3. Example using “Old faithful” data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#practical-details-of-em">
-   18.4. Practical details of EM
+   19.4. Practical details of EM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-with-scikit-learn">
-   18.5. Gaussian mixture with scikit-learn
+   19.5. Gaussian mixture with scikit-learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#appendix-relation-to-k-means">
-   18.6. Appendix: Relation to K-means
+   19.6. Appendix: Relation to K-means
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references-and-additional-material">
-   18.7. References and additional  material
+   19.7. References and additional  material
   </a>
  </li>
 </ul>
@@ -423,66 +432,66 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   18.1. Introduction
+   19.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-model">
-   18.2. (Gaussian) Mixture model
+   19.2. (Gaussian) Mixture model
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#posterior-probability-a-k-a-picking-a-cluster">
-     18.2.1. Posterior probability a.k.a. picking a cluster
+     19.2.1. Posterior probability a.k.a. picking a cluster
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fitting-the-gmm">
-     18.2.2. Fitting the GMM
+     19.2.2. Fitting the GMM
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#expectation-maximization-em">
-   18.3. Expectation Maximization (EM)
+   19.3. Expectation Maximization (EM)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#em-updates-for-the-gmm">
-     18.3.1. EM updates for the GMM
+     19.3.1. EM updates for the GMM
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary">
-     18.3.2. Summary
+     19.3.2. Summary
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-using-old-faithful-data">
-     18.3.3. Example using “Old faithful” data
+     19.3.3. Example using “Old faithful” data
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#practical-details-of-em">
-   18.4. Practical details of EM
+   19.4. Practical details of EM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gaussian-mixture-with-scikit-learn">
-   18.5. Gaussian mixture with scikit-learn
+   19.5. Gaussian mixture with scikit-learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#appendix-relation-to-k-means">
-   18.6. Appendix: Relation to K-means
+   19.6. Appendix: Relation to K-means
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references-and-additional-material">
-   18.7. References and additional  material
+   19.7. References and additional  material
   </a>
  </li>
 </ul>
@@ -2046,9 +2055,9 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="gaussian-mixture-models">
-<h1><span class="section-number">18. </span>Gaussian Mixture Models<a class="headerlink" href="#gaussian-mixture-models" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">19. </span>Gaussian Mixture Models<a class="headerlink" href="#gaussian-mixture-models" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduction">
-<h2><span class="section-number">18.1. </span>Introduction<a class="headerlink" href="#introduction" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.1. </span>Introduction<a class="headerlink" href="#introduction" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Unsupervised methods:</strong> Contrary to supervised (regression, classification) in this scenario there are no labels/targets. In general the objective of unsupervised methods is <strong>to find structure in the data</strong>. We do this to better understand the data: find hidden causes, find shared features, etc</p>
 <p>This tasks can be solve using <strong>Latent variable models (LVM)</strong>. An LVM models a <strong>cause and effect</strong> structure</p>
 <ul class="simple">
@@ -2071,7 +2080,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div></blockquote>
 </div>
 <div class="section" id="gaussian-mixture-model">
-<h2><span class="section-number">18.2. </span>(Gaussian) Mixture model<a class="headerlink" href="#gaussian-mixture-model" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.2. </span>(Gaussian) Mixture model<a class="headerlink" href="#gaussian-mixture-model" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A general mixture model is an LVM with discrete latent variable that can be used for clustering. We represent each data point</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2247,7 +2256,7 @@ p(x_i | \theta) = \sum_{k=1}^K \pi_k \mathcal{N}(x_i|\mu_k, \Sigma_k),
 })(window);</script></div></div>
 </div>
 <div class="section" id="posterior-probability-a-k-a-picking-a-cluster">
-<h3><span class="section-number">18.2.1. </span>Posterior probability a.k.a. picking a cluster<a class="headerlink" href="#posterior-probability-a-k-a-picking-a-cluster" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">19.2.1. </span>Posterior probability a.k.a. picking a cluster<a class="headerlink" href="#posterior-probability-a-k-a-picking-a-cluster" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Let’s assume that we know the parameters of the mixture and we want to infer the most probable cluster for a given data point</p>
 <blockquote>
 <div><p>This is given by the posterior probability of <span class="math notranslate nohighlight">\(z\)</span> given <span class="math notranslate nohighlight">\(x\)</span></p>
@@ -2338,7 +2347,7 @@ c_{i} = \text{arg}\max_k r_{ik} = \text{arg}\max_k \log \mathcal{N}(x_i|\mu_k, \
 </div>
 </div>
 <div class="section" id="fitting-the-gmm">
-<h3><span class="section-number">18.2.2. </span>Fitting the GMM<a class="headerlink" href="#fitting-the-gmm" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">19.2.2. </span>Fitting the GMM<a class="headerlink" href="#fitting-the-gmm" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>We want to find the optimal point estimates of the parameters of a statistical model. Can we use <strong>MLE</strong>? The log likelihood in this case is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2360,7 +2369,7 @@ c_{i} = \text{arg}\max_k r_{ik} = \text{arg}\max_k \log \mathcal{N}(x_i|\mu_k, \
 </div>
 </div>
 <div class="section" id="expectation-maximization-em">
-<h2><span class="section-number">18.3. </span>Expectation Maximization (EM)<a class="headerlink" href="#expectation-maximization-em" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.3. </span>Expectation Maximization (EM)<a class="headerlink" href="#expectation-maximization-em" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>The MLE solution can be computed if we <strong>“fully-observe”</strong> the data. This means that</p>
 <blockquote>
 <div><p>We know <span class="math notranslate nohighlight">\(z_i\)</span> for each <span class="math notranslate nohighlight">\(x_i\)</span>, <em>i.e.</em> we know which cluster owns <span class="math notranslate nohighlight">\(x_i\)</span></p>
@@ -2396,7 +2405,7 @@ Q(\theta, \theta^{\text{old}}) &amp;= \mathbb{E}_{p(z|x, \theta^{\text{old}})} \
 <li><p>it has many variants: Incremental, Variational, Monte-Carlo (Murphy 11.4.8 and 11.4.9)</p></li>
 </ul>
 <div class="section" id="em-updates-for-the-gmm">
-<h3><span class="section-number">18.3.1. </span>EM updates for the GMM<a class="headerlink" href="#em-updates-for-the-gmm" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">19.3.1. </span>EM updates for the GMM<a class="headerlink" href="#em-updates-for-the-gmm" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Let’s start by defining the auxiliary function for the GMM</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2447,7 +2456,7 @@ Proof<div class="summary-down docutils">
 \]</div>
 </div>
 <div class="section" id="summary">
-<h3><span class="section-number">18.3.2. </span>Summary<a class="headerlink" href="#summary" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">19.3.2. </span>Summary<a class="headerlink" href="#summary" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>The following algorithms summarizes the application of EM to the GMM problem</p>
 <ul class="simple">
 <li><p><strong>(1)</strong> Set initial conditions</p></li>
@@ -2479,7 +2488,7 @@ r_{ik}^{\text{old}} = \frac{ \mathcal{N}(x_i|\mu_k^{\text{old}}, \Sigma_k^{\text
 </ul>
 </div>
 <div class="section" id="example-using-old-faithful-data">
-<h3><span class="section-number">18.3.3. </span>Example using “Old faithful” data<a class="headerlink" href="#example-using-old-faithful-data" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">19.3.3. </span>Example using “Old faithful” data<a class="headerlink" href="#example-using-old-faithful-data" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Iteration by iteration  (Bishop Fig. 9.8)</p>
 <a class="reference internal image-reference" href="../../_images/gmm_bishop.png"><img alt="../../_images/gmm_bishop.png" src="../../_images/gmm_bishop.png" style="width: 700px;" /></a>
 <p>Animation (from wikipedia)</p>
@@ -2487,7 +2496,7 @@ r_{ik}^{\text{old}} = \frac{ \mathcal{N}(x_i|\mu_k^{\text{old}}, \Sigma_k^{\text
 </div>
 </div>
 <div class="section" id="practical-details-of-em">
-<h2><span class="section-number">18.4. </span>Practical details of EM<a class="headerlink" href="#practical-details-of-em" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.4. </span>Practical details of EM<a class="headerlink" href="#practical-details-of-em" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Initialization and restarts</strong></p>
 <p>The EM procedure is guaranteed to converge to a <em>stationary point</em> (local minimum/maximum or saddle point)</p>
 <ul class="simple">
@@ -2520,7 +2529,7 @@ r_{ik}^{\text{old}} = \frac{ \mathcal{N}(x_i|\mu_k^{\text{old}}, \Sigma_k^{\text
 <p>Option 3: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">The Silhouette score</a></p>
 </div>
 <div class="section" id="gaussian-mixture-with-scikit-learn">
-<h2><span class="section-number">18.5. </span>Gaussian mixture with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html">scikit-learn</a><a class="headerlink" href="#gaussian-mixture-with-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.5. </span>Gaussian mixture with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html">scikit-learn</a><a class="headerlink" href="#gaussian-mixture-with-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>From the <code class="docutils literal notranslate"><span class="pre">sklearn.mixture</span></code> module we have</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># Number of clusters</span>
                 <span class="n">covariance_type</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="c1"># Shape of the covariance</span>
@@ -2814,7 +2823,7 @@ BIC = K \log N - 2 \log L
 </div>
 </div>
 <div class="section" id="appendix-relation-to-k-means">
-<h2><span class="section-number">18.6. </span>Appendix: Relation to K-means<a class="headerlink" href="#appendix-relation-to-k-means" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.6. </span>Appendix: Relation to K-means<a class="headerlink" href="#appendix-relation-to-k-means" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>The K-means algorithm is a GMM with the following constraints</p>
 <ul class="simple">
 <li><p>Spherical clusters: <span class="math notranslate nohighlight">\(\Sigma = \sigma^2 \text{I}\)</span>, <span class="math notranslate nohighlight">\(\sigma \in \mathbb{R}_{+}\)</span></p></li>
@@ -2849,7 +2858,7 @@ BIC = K \log N - 2 \log L
 </ol>
 </div>
 <div class="section" id="references-and-additional-material">
-<h2><span class="section-number">18.7. </span>References and additional  material<a class="headerlink" href="#references-and-additional-material" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">19.7. </span>References and additional  material<a class="headerlink" href="#references-and-additional-material" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Bishop, “Pattern recognition and machine learning”, <strong>Chapter 9</strong></p></li>
 <li><p>Murphy, “Machine Learning: A Probabilistic Perspective”, <em>MIT Press</em>, 2012, <strong>Chapter 11</strong></p></li>
@@ -2888,13 +2897,13 @@ BIC = K \log N - 2 \log L
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">17. </span>Análisis Exploratorio y Reducción de la Dimensionalidad</p>
+            <p class="prev-next-title"><span class="section-number">18. </span>Análisis Exploratorio y Reducción de la Dimensionalidad</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Modelamiento Bayesiano</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Modelamiento Bayesiano</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
