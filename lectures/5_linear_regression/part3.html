@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="17. Regresiones para Respuestas Discretas" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" />
-    <link rel="prev" title="15. Multivariate linear regression" href="part2.html" />
+    <link rel="prev" title="15. Regresión Lineal Multivariada" href="part2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -193,12 +193,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   14. Introduction to linear regression
+   14. Introducción a la Regresión Lineal
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   15. Multivariate linear regression
+   15. Regresión Lineal Multivariada
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -517,7 +517,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="cell docutils container">
+  <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
 <span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;bokeh&#39;</span><span class="p">)</span>
@@ -526,6 +526,12 @@ const thebe_selector_output = ".output, .cell_output"
                  <span class="n">hv</span><span class="o">.</span><span class="n">opts</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
                  <span class="n">hv</span><span class="o">.</span><span class="n">opts</span><span class="o">.</span><span class="n">Slope</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">),</span>
                  <span class="n">hv</span><span class="o">.</span><span class="n">opts</span><span class="o">.</span><span class="n">HLine</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">))</span>   
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 </pre></div>
 </div>
 </div>
@@ -2064,17 +2070,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 </div>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sklearn</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-</pre></div>
-</div>
-</div>
-</div>
+<hr class="docutils" />
 <div class="tex2jax_ignore mathjax_ignore section" id="linear-models-and-basis-functions">
 <h1><span class="section-number">16. </span>Linear models and Basis functions<a class="headerlink" href="#linear-models-and-basis-functions" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>In previous lessons we learned how to fit lines and hyperplanes to data. But the most general form of a linear model is</p>
@@ -2583,7 +2579,7 @@ R(X,Y) = \int \int |f_{XY}(x,y)  - f_{X}(x) f_Y(y)| dx dy
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">15. </span>Multivariate linear regression</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>Regresión Lineal Multivariada</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html" title="siguiente página">
