@@ -198,12 +198,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part2.html">
-   15. Regresión lineal multivariada
+   15. Regresión Lineal Multivariada
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../5_linear_regression/part3.html">
-   16. Linear models and Basis functions
+   16. Regresión lineal con funciones base y Regularización
   </a>
  </li>
  <li class="toctree-l1">
@@ -225,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../9_mixture_models/lecture.html">
-   19. Gaussian Mixture Models
+   19. Modelos de mezcla de gaussianas
   </a>
  </li>
 </ul>
@@ -2711,8 +2711,8 @@ F_n(x) = \frac{1}{N} \sum_{i=1}^N \mathbb{1}[X_i&lt;x]
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(D_n\)</span> es menor que el valor crítico no podemos rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d38ec4af-cc69-4dd8-88c5-19b312ecfa44" name="ee10eaf0-7275-4469-9c86-1379abdaa639" type="radio">
-</input><label class="tabbed-label" for="d38ec4af-cc69-4dd8-88c5-19b312ecfa44">
+<input checked="checked" id="3f5e82be-ae73-411e-ae0a-e12ba8fa6a63" name="319daa67-8328-44a8-a361-57fc990f78b9" type="radio">
+</input><label class="tabbed-label" for="3f5e82be-ae73-411e-ae0a-e12ba8fa6a63">
 Python</label><div class="tabbed-content docutils">
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Arreglo de muestras o función rvs de scipy.stats</span>
@@ -2726,8 +2726,8 @@ Python</label><div class="tabbed-content docutils">
 </div>
 <p>La función retorna una estructura con el valor del <span class="math notranslate nohighlight">\(D_n\)</span> y el p-value</p>
 </div>
-<input id="8804aca8-eef6-422c-ba3a-1d786637aceb" name="ee10eaf0-7275-4469-9c86-1379abdaa639" type="radio">
-</input><label class="tabbed-label" for="8804aca8-eef6-422c-ba3a-1d786637aceb">
+<input id="48a7f52e-2226-4ce9-a289-8447074ee1fc" name="319daa67-8328-44a8-a361-57fc990f78b9" type="radio">
+</input><label class="tabbed-label" for="48a7f52e-2226-4ce9-a289-8447074ee1fc">
 R</label><div class="tabbed-content docutils">
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">stats</span></code> tiene implementado el test de KS. Sus argumentos son</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ks.test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Vector con datos numéricos</span>
