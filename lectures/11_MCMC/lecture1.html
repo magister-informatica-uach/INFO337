@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. Introducción a Markov Chain Monte Carlo &#8212; Herramientas estadísticas para la investigación</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="22. Tutorial de MCMC con numpyro" href="lecture2.html" />
+    <link rel="prev" title="20. Modelamiento Bayesiano" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Herramientas estadísticas para la investigación</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elementos de Teoría de Probabilidades
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte1.html">
+   1. Elementos Básicos de Teoría de Probabilidades
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte2.html">
+   2. Variables Aleatorias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte3.html">
+   3. Estadísticos principales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte4.html">
+   4. Variables aleatorias especiales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TeoriaProbabilidades/parte5.html">
+   5. Teoremas Asintóticos
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/intro.html">
+   6. Inferencia con modelos paramétricos y no paramétricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part1.html">
+   7. Ajuste de modelos paramétricos con MLE
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part2.html">
+   8. Modelamiento con métodos no-paramétricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_statistical_modeling/part3.html">
+   9. Modelamiento parámetrico Bayesiano
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pensamiento Estadístico
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_InferenciaParametrica/parte1_sinEmbed_notebook.html">
+   10. Inferencia en Estadística Paramétrica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part1.html">
+   11. Inferencia estadística con tests no-paramétricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_nonparametric_inference/part2.html">
+   12.
+   <em>
+    Bootstrap
+   </em>
+   no paramétrico
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_ANOVA/anova_y_asociacionDiscretas.html">
+   13. Análisis de Asociación de Variables Aleatorias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Regresión Lineal
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part1.html">
+   14. Introducción a la Regresión Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part2.html">
+   15. Regresión Lineal Multivariada
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_linear_regression/part3.html">
+   16. Regresión lineal con funciones base y Regularización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_RegresionesRespDiscreta/Regresiones_RespuestaDiscreta.html">
+   17. Regresiones para Respuestas Discretas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis Exploratorio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_PCA/PCA.html">
+   18. Análisis Exploratorio y Reducción de la Dimensionalidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_mixture_models/lecture.html">
+   19. Modelos de Mezcla de Gaussianas
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelamiento Bayesiano
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html">
+   20. Modelamiento Bayesiano
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   21. Introducción a Markov Chain Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   22. Tutorial de MCMC con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     numpyro
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lectures/11_MCMC/lecture1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/magister-informatica-uach/INFO337"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO337/master?urlpath=tree/lectures/11_MCMC/lecture1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-la-premisa-bayesiana">
+   21.1. Resumen de la premisa Bayesiana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integracion-por-metodo-de-monte-carlo">
+   21.2. Integración por método de Monte Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#de-monte-carlo-a-markov-chain-monte-carlo">
+   21.3. De Monte Carlo a Markov Chain Monte Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programacion-probabilistica-pp">
+   21.4. Programación probabilística (PP)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción a Markov Chain Monte Carlo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-la-premisa-bayesiana">
+   21.1. Resumen de la premisa Bayesiana
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integracion-por-metodo-de-monte-carlo">
+   21.2. Integración por método de Monte Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#de-monte-carlo-a-markov-chain-monte-carlo">
+   21.3. De Monte Carlo a Markov Chain Monte Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programacion-probabilistica-pp">
+   21.4. Programación probabilística (PP)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduccion-a-markov-chain-monte-carlo">
+<h1><span class="section-number">21. </span>Introducción a Markov Chain Monte Carlo<a class="headerlink" href="#introduccion-a-markov-chain-monte-carlo" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="resumen-de-la-premisa-bayesiana">
+<h2><span class="section-number">21.1. </span>Resumen de la premisa Bayesiana<a class="headerlink" href="#resumen-de-la-premisa-bayesiana" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En inferencia Bayesiana, la probabilidad de un evento representa el grado de conocimiento (o desconocimiento) que manejamos de dicho evento.</p>
+<p>Matemáticamente, representamos el evento de interés con una variable aleatoria <span class="math notranslate nohighlight">\(\theta\)</span>, y nuestro conocimiento actual del mismo, es decir su <strong>distribución a priori</strong> con <span class="math notranslate nohighlight">\(p(\theta)\)</span>.</p>
+<p>Luego, recolectamos datos <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> y actualizamos lo que sabemos de <span class="math notranslate nohighlight">\(\theta\)</span> formando una <strong>distribución a posteriori</strong> <span class="math notranslate nohighlight">\(p(\theta|\mathcal{D})\)</span>.</p>
+<p>Lo anterior se obtiene aplicando el Teorema de Bayes:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\theta|\mathcal{D}) = \frac{p(\mathcal{D}|\theta)p(\theta)}{p(\mathcal{D})} = \frac{p(\mathcal{D}|\theta)p(\theta)}{\int p(\mathcal{D}, \theta) \, d\theta} = \frac{p(\mathcal{D}|\theta)p(\theta)}{\int p(\mathcal{D}|A\theta)p(\theta) \,d\theta},
+\]</div>
+<p>donde también hicimos uso de la ley de probabilidad total para escribir la verosimilitud marginal <span class="math notranslate nohighlight">\(p(\mathcal{D})\)</span> en función de la verosimilitud y el prior.</p>
+<p>Anteriormente, hemos visto modelos donde la expresión anterior tiene solución analítica (prior conjugados). Sin embargo, estos modelos suelen ser bastante simples.</p>
+<p>Para obtener el posterior en modelos más complejos debemos utilizar técnicas de inferencia aproximada o técnicas basdas en <strong>Monte-Carlo Markov Chain (MCMC)</strong>. Esta última es la que se revisa en esta lección.</p>
+</div>
+<div class="section" id="integracion-por-metodo-de-monte-carlo">
+<h2><span class="section-number">21.2. </span>Integración por método de Monte Carlo<a class="headerlink" href="#integracion-por-metodo-de-monte-carlo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los métodos de Monte Carlo obtienen resultados numéricas en base a muestreo aleatorio. Una de sus más importantes aplicaciones es la integración por Monte Carlo.</p>
+<p>Digamos que tenemos un valor esperado sobre una función <span class="math notranslate nohighlight">\(g\)</span> que se evalua en una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> cuya distribución es <span class="math notranslate nohighlight">\(p(x)\)</span>, por definición esto es:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[g(X)] = \int g(x) p(x) \,dx
+\]</div>
+<p>Si esta integral es difícil de calcular y tenemos muestras de <span class="math notranslate nohighlight">\(p(x)\)</span> entonces podemos aproximar el valor esperado como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[g(X)] \approx \hat g_N = \frac{1}{N} \sum_{i=1}^N g(x_i) \quad x_i \sim p(x)
+\]</div>
+<p>que debido al teorema central del límite:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat g_N \sim \mathcal{N} \left( \mathbb{E}[g(X)], \sigma_N^2/N \right)
+\]</div>
+<p>es decir que, mientras más muestras tengamos, más se concentrará nuestro estimador en torno al valor real que estamos buscando.</p>
+</div>
+<div class="section" id="de-monte-carlo-a-markov-chain-monte-carlo">
+<h2><span class="section-number">21.3. </span>De Monte Carlo a Markov Chain Monte Carlo<a class="headerlink" href="#de-monte-carlo-a-markov-chain-monte-carlo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El problema con la integración por Monte Carlo es que no siempre es posible obtener muestras de <span class="math notranslate nohighlight">\(p(x)\)</span>. En otros casos obtener muestras es posible pero muy ineficiente de realizar en la práctica.</p>
+<p>Para obtener muestras de distribuciones que sólo podemos evaluar hasta una constante de normalización (por ejemplo un posterior), podemos utilizar Markov Chain Monte Carlo (MCMC).</p>
+<p>MCMC es una familia de algoritmos que aprenden la probabilidad de transición de una <em>cadena de markov</em> tal que esta converja a una distribución deseada. Una cadena de markov es un proceso aleatorio <span class="math notranslate nohighlight">\(\{X_n\}_{n=0,1,\ldots}\)</span>, es decir una secuencia de variables aleatorias que cumplen la siguiente propiedad:</p>
+<div class="math notranslate nohighlight">
+\[
+p(X_n|X_{n-1},\ldots, X_0) = p(X_n|X_{n-1})
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>En una cadena de markov la probabilidad del estado futuro es condicionalmente independiente del pasado si conozco el presente.</p>
+</div>
+<p>Las cadenas de markov que son irreducibles convergen a una distribución estacionaria. Los métodos de MCMC se basan en esta idea para construir una cadena de markov que converga a la distribución que nos interesa, por ejemplo un posterior bayesiano.</p>
+<p>En el siguiente diagrama se muestra un color rojo una distribución compleja de la cual nos interesa obtener muestras. La figura de la izquierda muestra la técnica de muestreo por importancia. La figura de la derecha en cambio muestra como funciona MCMC.</p>
+<a class="reference internal image-reference" href="../../_images/is_mcmc.png"><img alt="../../_images/is_mcmc.png" src="../../_images/is_mcmc.png" style="width: 500px;" /></a>
+<p>MCMC recorre el espacio de una forma menos ingenua.</p>
+<blockquote>
+<div><p>La secuencia de muestras de la cadena de Markov la llamamos traza.</p>
+</div></blockquote>
+<p>La clave en los métodos de MCMC está en como se realizan las transiciones, es decir como escogemos el siguiente punto de la cadena. Existen muchos métodos para generar “propuestas”, siendo los siguientes tal vez los más populares.</p>
+<p><strong>Metropolis Hastings (MH)</strong></p>
+<p>Caminante aleatorio que se mueve en todas las dimensiones de forma simultanea. En MH los candidatos se muestrean a partir de una distribución simétrica <span class="math notranslate nohighlight">\(x^{new} \sim g(x^{new}|x_t)\)</span>.</p>
+<p>Luego el paso se acepta si <span class="math notranslate nohighlight">\(p(x^{new})/p(x^t)\)</span> es mayor o igual a un umbral.</p>
+<p>Dado que lo anterior es cociente, sólo necesitamos conocer <span class="math notranslate nohighlight">\(f(\cdot)\)</span> hasta una constante. Por ejemplo si dividimos dos posteriors:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{p(\theta^{new}|\mathcal{D})}{p(\theta^t|\mathcal{D})} = \frac{p(\mathcal{D}|\theta^{new})p(\theta^{new})}{p(\mathcal{D}|\theta^t)p(\theta^t)}
+\]</div>
+<blockquote>
+<div><p>La evidencia (denominador del posterior) se cancela.</p>
+</div></blockquote>
+<p><strong>Monte-Carlo Hamiltoniano (HMC)</strong></p>
+<p>Familia de métodos que realizan propuestas basado en gradiantes, por ende sólo pueden utilizarse para distribuciones de parámetros continuos.</p>
+<p>En comparación a MH, cada paso de HMC cuesta más en términos computacionales pero avanza mucho más rápido, es decir requiere menos pasos que MH.</p>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Revise el siguiente sitio web donde se ejemplifica como HMC utiliza la geometría del espacio para realizar mejores propuestas que MH: <a class="reference external" href="http://arogozhnikov.github.io/2016/12/19/markov_chain_monte_carlo.html">http://arogozhnikov.github.io/2016/12/19/markov_chain_monte_carlo.html</a></p>
+</div>
+</div>
+<div class="section" id="programacion-probabilistica-pp">
+<h2><span class="section-number">21.4. </span>Programación probabilística (PP)<a class="headerlink" href="#programacion-probabilistica-pp" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Extracto de <a class="reference external" href="https://probabilistic-programming.org/:">https://probabilistic-programming.org/:</a></p>
+<blockquote>
+<div><p>Probabilistic programming languages aim to unify general purpose programming with probabilistic modeling. The user specifies the probabilistic model (priors, likelihood, etc) and inference follows automatically given the specification</p>
+</div></blockquote>
+<p>Librerías y <em>frameworks</em> de lenguaje Python para hacer PP y que incorporan métodos de MCMC:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.pymc.io/notebooks/getting_started.html">PyMC3</a></p></li>
+<li><p><a class="reference external" href="https://pystan.readthedocs.io/en/latest/">PyStan</a></p></li>
+<li><p><a class="reference external" href="http://dfm.io/emcee/current/">emcee</a></p></li>
+<li><p><a class="reference external" href="http://edwardlib.org/">Edward</a></p></li>
+<li><p><a class="reference external" href="http://pyro.ai">Pyro</a></p></li>
+<li><p><a class="reference external" href="http://num.pyro.ai/en/stable/">NumPyro</a></p></li>
+</ul>
+<p>El siguiente diagrama contrasta la programación tradicional con PP:</p>
+<p><a href="https://arxiv.org/abs/1809.10756"><img alt="../../_images/PP.png" src="../../_images/PP.png" /></a></p>
+<blockquote>
+<div><p>PP avanza en ambas direcciones.</p>
+</div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<ul class="simple">
+<li><p>Davidson-Pilon, “<a class="reference external" href="https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers">Bayesian methods for hackers</a>”, <em>Addison Wesley</em>, 2016, <strong>Capítulos 2 y 3</strong></p></li>
+<li><p>Jan-Willem van de Meent et al. “<a class="reference external" href="https://arxiv.org/abs/1809.10756">An Introduction to Probabilistic Programming</a>”</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lectures/11_MCMC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../10_ModelamientoBayesiano/ModelamientoBayesiano.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Modelamiento Bayesiano</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lecture2.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Tutorial de MCMC con <code class="docutils literal notranslate"><span class="pre">numpyro</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse and Eliana Scheihing<br/>
+    
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
