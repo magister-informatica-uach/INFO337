@@ -39,4 +39,5 @@ parts:
     numbered: true
     chapters:
     - file: lectures/10_ModelamientoBayesiano/ModelamientoBayesiano
-    - file: lectures/11_MCMC/lecture 
+    - file: lectures/11_MCMC/lecture1 
+    - file: lectures/11_MCMC/lecture2
